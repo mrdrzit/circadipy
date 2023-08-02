@@ -1,4 +1,9 @@
-# Welcome to circadipy's page!
+.. circadipy documentation master file, created by
+   sphinx-quickstart on Tue Aug  1 12:37:20 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+   
+Welcome to circadipy's documentation!
 =======================================
 
 Introducing **CircadiPy**, the a Python package for chronobiology analysis! 
@@ -13,8 +18,38 @@ Currently, the package supports the visualization of biological rhythms and thei
 
 3. Raster Plot: A raster plot displays individual events or occurrences (such as action potentials in neurons) over time. In chronobiology, this can be used to show the timing of specific events in relation to the circadian cycle.
 
-4. Histogram: A histogram can be used to show the distribution of events or measurements over a specific time period. For chronobiology, this might represent the distribution of activity bouts or physiological measurements across different time bins.
-
 ------------------------------------------------------------------------------------------------------------------------------
 
 CircadiPy also provides a built-in generator of simulated data, making possible the creation of custom datasets for testing, experimentation and comparison purposes.
+
+.. note::
+
+   You can view the whole source code for the project on
+   `Circadipy's Github page <https://github.com/nncufmg/circadipy>`_
+
+
+.. toctree::
+   :caption: FIRST STEPS
+   :maxdepth: 2
+   :hidden:
+
+   /user_guide/first_steps
+
+.. toctree::
+   :caption: USER GUIDE
+   :maxdepth: 2
+   :hidden:
+
+   user_guide/package_manager
+   user_guide/env_creation
+   user_guide/installation
+
+.. toctree::
+   :caption: API REFERENCE
+   :maxdepth: 2
+   :hidden:
+
+   api_reference/chrono_plotter
+   api_reference/chrono_reader
+   api_reference/chrono_simulation
+   api_reference/chrono_rithm

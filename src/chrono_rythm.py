@@ -35,6 +35,7 @@ def _acrophase_ci_in_zt(best_models):
     periods = numpy.array(best_models['period'])
     acrophases = numpy.array(best_models['acrophase'])
     acrophases_ci = list(best_models['CI(acrophase)'])
+    first_hour = numpy.array(best_models['first_hour'])
 
     acrophases_lower = []
     acrophases_upper = []
@@ -46,20 +47,20 @@ def _acrophase_ci_in_zt(best_models):
             acrophases_lower.append(numpy.nan)
             acrophases_upper.append(numpy.nan)
     
-    lower_diff = numpy.abs(acrophases - acrophases_lower)
-    upper_diff = numpy.abs(acrophases_upper - acrophases)
-
     apply_positive_rad = numpy.vectorize(positive_rad)
     acrophases = apply_positive_rad(acrophases)
-    # acrophases_lower = apply_positive_rad(acrophases_lower)
-    # acrophases_upper = apply_positive_rad(acrophases_upper)
+    acrophases_lower = apply_positive_rad(acrophases_lower)
+    acrophases_upper = apply_positive_rad(acrophases_upper)
 
     acrophases_zt = periods - (acrophases*periods)/(2*numpy.pi)
-    # acrophases_lower_zt = periods - (acrophases_lower*periods)/(2*numpy.pi)
-    # acrophases_upper_zt = periods - (acrophases_upper*periods)/(2*numpy.pi)
+    acrophases_lower_zt = periods - (acrophases_lower*periods)/(2*numpy.pi)
+    acrophases_upper_zt = periods - (acrophases_upper*periods)/(2*numpy.pi)
 
-    acrophases_lower_zt = acrophases_zt - (lower_diff*periods)/(2*numpy.pi)
-    acrophases_upper_zt = acrophases_zt + (upper_diff*periods)/(2*numpy.pi)
+    # lower = - (dif_lower*period)/(2*numpy.pi)
+    # upper = - (dif_upper*period)/(2*numpy.pi)
+
+    # lower_zt = acrophase_zt + lower
+    # upper_zt = acrophase_zt - upper
 
     best_models['acrophase_zt'] = acrophases_zt
     best_models['acrophase_zt_lower'] = acrophases_lower_zt
@@ -83,12 +84,9 @@ def fit_cosinor(protocol, dict = None, save_folder = None, save_suffix = ''):
     """
     Fit cosinor model to the data using the CosinorPy library.
 
-    :param protocol: The protocol to fit the cosinor model to, if 0, the average of all protocols is used, defaults
-    to 1
+    :param protocol: The protocol to fit the cosinor model to, if 0, the average of all protocols is used, defaults to 1
     :type protocol: int
-    :param dict: A dictionary containing the parameters to fit the cosinor model with keys: record_type, time_shape,
-    time_window,
-    step, start_time, end_time, n_components. If None, the default values are used, defaults to None
+    :param dict: A dictionary containing the parameters to fit the cosinor model with keys: record_type, time_shape, time_window, step, start_time, end_time, n_components. If None, the default values are used, defaults to None
     :type dict: dict
     :param save: If True, the cosinor model is saved in the cosinor_models folder, defaults to True
     :type save: bool
@@ -218,12 +216,9 @@ def fit_cosinor_per_day(protocol, dict = None, plot = False, save_folder = None,
     """
     Fits a cosinor model to the data for each day of the protocol
 
-    :param protocol: The protocol to fit the cosinor model parameters for, if 0, the average of all protocols is
-    used, defaults to 1
+    :param protocol: The protocol to fit the cosinor model parameters for, if 0, the average of all protocols is used, defaults to 1
     :type protocol: int
-    :param dict: A dictionary containing the parameters to fit the cosinor model with keys: record_type, time_shape,
-    time_window,
-    step, start_time, end_time, n_components. If None, the default values are used, defaults to None
+    :param dict: A dictionary containing the parameters to fit the cosinor model with keys: record_type, time_shape, time_window, step, start_time, end_time, n_components. If None, the default values are used, defaults to None
     :type dict: dict
     """
     warnings.filterwarnings("ignore")
