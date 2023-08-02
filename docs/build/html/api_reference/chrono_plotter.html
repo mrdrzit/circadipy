@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chrono plotter &mdash; circadipy 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chrono reader" href="chrono_reader.html" />
+    <link rel="prev" title="Installation" href="../user_guide/installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            circadipy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FIRST STEPS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/first_steps.html">Description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USER GUIDE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/package_manager.html">Package and Environment Management System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/env_creation.html">Environment Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chrono plotter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.actogram_bar"><code class="docutils literal notranslate"><span class="pre">actogram_bar()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.actogram_colormap"><code class="docutils literal notranslate"><span class="pre">actogram_colormap()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.data_periodogram"><code class="docutils literal notranslate"><span class="pre">data_periodogram()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.model_over_signal"><code class="docutils literal notranslate"><span class="pre">model_over_signal()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.model_overview"><code class="docutils literal notranslate"><span class="pre">model_overview()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.model_overview_detailed"><code class="docutils literal notranslate"><span class="pre">model_overview_detailed()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.model_per_day"><code class="docutils literal notranslate"><span class="pre">model_per_day()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.time_serie"><code class="docutils literal notranslate"><span class="pre">time_serie()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono_plotter.time_serie_sum_per_day"><code class="docutils literal notranslate"><span class="pre">time_serie_sum_per_day()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chrono_reader.html">Chrono reader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chrono_simulation.html">Chrono simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chrono_rithm.html">Chrono rithm</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">circadipy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Chrono plotter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api_reference/chrono_plotter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chrono-plotter">
+<h1>Chrono plotter<a class="headerlink" href="#chrono-plotter" title="Permalink to this heading"></a></h1>
+<p><strong>This class includes the following methods:</strong></p>
+<span class="target" id="module-chrono_plotter"></span><dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.actogram_bar">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">actogram_bar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_hour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_figure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0.95,</span> <span class="pre">0.85,</span> <span class="pre">0.2,</span> <span class="pre">0.05]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.actogram_bar" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the actogram of the protocol in a bar plot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference internal" href="chrono_reader.html#chrono_reader.read_protocol" title="chrono_reader.read_protocol"><em>read_protocol</em></a>) – Protocol object to be vizualized</p></li>
+<li><p><strong>first_hour</strong> (<em>int</em>) – First hour of the day to be plotted, if different from 0, the actogram is shifted, defaults to 0</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+<li><p><strong>adjust_figure</strong> (<em>list</em>) – List with the parameters to adjust the figure [column_height, rigth, top, bottom, left], defaults to [1, 0.95, 0.85, 0.2, 0.05]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.actogram_colormap">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">actogram_colormap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_hour</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_of_measurement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Amplitude'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adjust_figure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">0.95,</span> <span class="pre">0.85,</span> <span class="pre">0.2,</span> <span class="pre">0.05]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[33,</span> <span class="pre">40]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.actogram_colormap" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the actogram of the protocol in a colormap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference internal" href="chrono_reader.html#chrono_reader.read_protocol" title="chrono_reader.read_protocol"><em>read_protocol</em></a>) – Protocol object to be vizualized</p></li>
+<li><p><strong>first_hour</strong> (<em>int</em>) – First hour of the day to be plotted, if different from 0, the actogram is shifted, defaults to 0</p></li>
+<li><p><strong>unit_of_measurement</strong> (<em>str</em>) – Unit of measurement of the protocol, defaults to “Amplitude”. This is used to label the colorbar</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+<li><p><strong>adjust_figure</strong> (<em>list</em>) – List with the parameters to adjust the figure [column_height, rigth, top, bottom, left], defaults to [1, 0.95, 0.85, 0.2, 0.05]</p></li>
+<li><p><strong>norm_color</strong> (<em>list</em>) – List with the minimum and maximum values to be used in the colormap, defaults to [33, 40]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.data_periodogram">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">data_periodogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'continuous'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'periodogram'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">48</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit_of_measurement</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Unit'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.data_periodogram" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the periodogram of the protocol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference internal" href="chrono_reader.html#chrono_reader.read_protocol" title="chrono_reader.read_protocol"><em>read_protocol</em></a>) – Protocol object to be vizualized</p></li>
+<li><p><strong>time_shape</strong> (<em>str</em>) – Time shape to be used, can be ‘continuous’, ‘median’ or ‘mean’, defaults to ‘continuous’. If ‘continuous’, the periodogram is calculated using the whole protocol data, if ‘median’ or ‘mean’, the periodogram is calculates using the median or mean of the data per day</p></li>
+<li><p><strong>method</strong> (<em>str</em>) – Method to be used to calculate the periodogram, can be ‘periodogram’ or ‘welch’, defaults to ‘periodogram’</p></li>
+<li><p><strong>max_period</strong> (<em>int</em>) – Maximum period to be plotted, defaults to 48</p></li>
+<li><p><strong>unit_of_measurement</strong> (<em>str</em>) – Unit of measurement of the protocol, defaults to “Unit”. This is used to label the y axis</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.model_over_signal">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">model_over_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'head'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mv_avg_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.model_over_signal" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the cosinor model and the protocol data to each stage. Can be used to compare the cosinor model to the signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference internal" href="chrono_reader.html#chrono_reader.read_protocol" title="chrono_reader.read_protocol"><em>read_protocol</em></a>) – Protocol object to be vizualized</p></li>
+<li><p><strong>best_models</strong> (<em>pandas.DataFrame</em>) – Cosinor model parameters (output of the fit_cosinor function)</p></li>
+<li><p><strong>position</strong> (<em>str</em>) – Position of the data to be plotted, can be ‘head’ or ‘tail’, defaults to ‘head’. If ‘tail’, the last part of the data is plotted inverted (first point is the last point of the data, the second point is the penultimate point of the data, etc.)</p></li>
+<li><p><strong>mv_avg_window</strong> (<em>int</em>) – Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is applied.</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.model_overview">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">model_overview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_models</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.model_overview" title="Permalink to this definition"></a></dt>
+<dd><p>Plots the cosinor model pariod and acrophase for each protocol satage. This function is used to plot the results of
+the fit_cosinor function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>best_models</strong> (<em>pandas.DataFrame</em>) – The cosinor model parameters (output of the fit_cosinor function)</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.model_overview_detailed">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">model_overview_detailed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_models_fixed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.model_overview_detailed" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the cosinor period and acrophase for each day of the protocol. This function is used to plot the results of the
+fit_cosinor_fixed_period function. In this case, acrophase (and the others parameters) are calculated fixing the
+period calculated to each stage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference internal" href="chrono_reader.html#chrono_reader.read_protocol" title="chrono_reader.read_protocol"><em>read_protocol</em></a>) – Protocol object to be vizualized</p></li>
+<li><p><strong>best_models_fixed</strong> (<em>pandas.DataFrame</em>) – Cosinor model parameters per day (output of the fit_cosinor_fixed_period function)</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.model_per_day">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">model_per_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">best_models_per_day</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_window</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.model_per_day" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the cosinor model parameters per day. This function is used to plot the results of the fit_cosinor_per_day
+function. In this case, parameters are calculated every day (with a moving window or not).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference internal" href="chrono_reader.html#chrono_reader.read_protocol" title="chrono_reader.read_protocol"><em>read_protocol</em></a>) – Protocol object to be vizualized</p></li>
+<li><p><strong>best_models_per_day</strong> (<em>pandas.DataFrame</em>) – Cosinor model parameters per day (output of the fit_cosinor_fixed_period function)</p></li>
+<li><p><strong>day_window</strong> (<em>int</em>) – Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is applied.</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.time_serie">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">time_serie</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Time</span> <span class="pre">Series'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Time</span> <span class="pre">(Days)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Amplitude'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'midnightblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.time_serie" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the time series of the protocol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference internal" href="chrono_reader.html#chrono_reader.read_protocol" title="chrono_reader.read_protocol"><em>read_protocol</em></a>) – Protocol object to be vizualized</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Title of the plot, defaults to ‘Time Series’</p></li>
+<li><p><strong>x_label</strong> (<em>str</em>) – Label of the x axis, defaults to ‘Time (Hours)’</p></li>
+<li><p><strong>y_label</strong> (<em>str</em>) – Label of the y axis, defaults to ‘Amplitude’</p></li>
+<li><p><strong>color</strong> (<em>str</em>) – Color of the plot, defaults to ‘midnightblue’</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="chrono_plotter.time_serie_sum_per_day">
+<span class="sig-prename descclassname"><span class="pre">chrono_plotter.</span></span><span class="sig-name descname"><span class="pre">time_serie_sum_per_day</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protocol</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Sum</span> <span class="pre">of</span> <span class="pre">Time</span> <span class="pre">Series</span> <span class="pre">Per</span> <span class="pre">Day'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Time</span> <span class="pre">(Days)'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Amplitude'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'midnightblue'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_folder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_plotter.time_serie_sum_per_day" title="Permalink to this definition"></a></dt>
+<dd><p>Plot the time series of the protocol</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>protocol</strong> (<a class="reference internal" href="chrono_reader.html#chrono_reader.read_protocol" title="chrono_reader.read_protocol"><em>read_protocol</em></a>) – Protocol object to be vizualized</p></li>
+<li><p><strong>title</strong> (<em>str</em>) – Title of the plot, defaults to ‘Time Series’</p></li>
+<li><p><strong>x_label</strong> (<em>str</em>) – Label of the x axis, defaults to ‘Time (Hours)’</p></li>
+<li><p><strong>y_label</strong> (<em>str</em>) – Label of the y axis, defaults to ‘Amplitude’</p></li>
+<li><p><strong>color</strong> (<em>str</em>) – Color of the plot, defaults to ‘midnightblue’</p></li>
+<li><p><strong>save_folder</strong> (<em>str</em>) – Path to save the folder if it is None, the plot is just shown, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Save_suffix<span class="colon">:</span></dt>
+<dd class="field-even"><p>Suffix to add to the file name, defaults to ‘’</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../user_guide/installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="chrono_reader.html" class="btn btn-neutral float-right" title="Chrono reader" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, João Pedro Carvalho Moreira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
