@@ -32,8 +32,9 @@ CircadiPy also provides a built-in generator of simulated data, making possible 
    :caption: FIRST STEPS
    :maxdepth: 2
    :hidden:
+   
+   user_guide/first_steps
 
-   /user_guide/first_steps
 
 .. toctree::
    :caption: USER GUIDE
@@ -43,13 +44,15 @@ CircadiPy also provides a built-in generator of simulated data, making possible 
    user_guide/package_manager
    user_guide/env_creation
    user_guide/installation
+   user_guide/pipelines
 
 .. toctree::
    :caption: API REFERENCE
    :maxdepth: 2
    :hidden:
 
+   api_reference/api_description
    api_reference/chrono_plotter
    api_reference/chrono_reader
    api_reference/chrono_simulation
-   api_reference/chrono_rithm
+   api_reference/chrono_rythm

@@ -1,5 +1,6 @@
 Installation
-------------
+============
+
 The installation process for the package is pretty straightforward. You can install it using pip.
 
 You can follow these steps:

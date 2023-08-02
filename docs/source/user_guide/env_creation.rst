@@ -1,5 +1,5 @@
 Environment Creation
---------------------
+====================
 
 We provide an environment file called `circadipy_env.yml` that contains all the dependencies required to run
 circadipy. To create a new environment using this file, you will need to use the newly installed mambaforge terminal.
