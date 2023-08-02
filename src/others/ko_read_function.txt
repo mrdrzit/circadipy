@@ -1,0 +1,88 @@
+# def read_asc_1(self):
+#     file = open(self.file, 'r')                                                                                     # Open the activity file to be read
+#     self._lines = file.readlines()                                                                                  # Read the lines of the activity file
+#     self._lines = [line.strip() for line in self._lines]                                                            # Remove the line breaks
+#     file.close()                                                                                                    # Close the activity file
+
+#     description = self._lines[0].split("(", 1)[1].strip()                                                           # Get the logfile name from the activity file
+#     start_day = description.split('@')[0].strip()
+#     end_day = description.split('-')[-1].replace(')', '').strip()
+
+#     start_date = datetime.strptime(start_day, "%m/%d/%y")
+#     self.start_date = numpy.datetime64(start_date)
+#     end_date = datetime.strptime(end_day, "%m/%d/%y")
+#     self.end_date = numpy.datetime64(end_date)
+
+#     data_string = self._lines[3:]                                                                                   # Get the data from the activity file (ignore the first 15 lines because they are the header)
+#     data_string = [sample.replace('\t', ',') for sample in data_string]                                             # Replace the tabs with commas=
+#     raw_data = [sample.split(",") for sample in data_string]                                                        # Split the data in two columns using the commas (date and activity)
+
+#     real_time = []                                                                                                  # Create an empty list to store the real time
+#     data = []
+#     for sample in raw_data:
+#         date = self.start_date + numpy.timedelta64(int(float(sample[0])) - 1, 'D')
+#         date = date + numpy.timedelta64(int(float(sample[1])), 'h')
+#         date = date + numpy.timedelta64(int(float(sample[2])), 'm')
+#         real_time.append(date)                                                                                      # If it is possible, append the date to the list (year is 2 digits)
+
+#         if len(sample) == 3:
+#             value = data.append(numpy.nan)           
+#         else:
+#             value = sample[-1]
+#             try:
+#                 data.append(float(value))                                                                           # If it is possible, append the activity to the list
+#             except:                    
+#                 data.append(numpy.nan)
+
+#     ts_1 = pandas.Timestamp(sampling_freq)                                                                          # Convert the sampling frequency to a pandas timestamp
+#     ts_0 = pandas.Timestamp('00:00:00')                                                                             # Set a pandas timestamp to 00:00:00 to calculate the sampling frequency
+#     period = ts_1 - ts_0                                                                                            # Calculate the sampling interval
+#     resolution = period.resolution_string                                                                           # Set the sampling interval for the object as a string (e.g. '1S' for 1 second)
+#     range = pandas.date_range(ts_0, ts_1, freq = resolution)                                                        # Create a pandas date range with the start date, end date and sampling interval
+#     self.sampling_interval = str(len(range) - 1) + resolution                                                       # Set the sampling interval for the object as a string (e.g. '1S' for 1 second)      
+#     self.sampling_frequency = self._get_sampling_frequency(self.sampling_interval)                                  # Set the sampling frequency for the object as a float (e.g. 1.0 for 1 Hz)
+
+#     zt_correction = numpy.timedelta64(self.zt_0_time , 'h')                                                         # Get the ZT0 time in hours and convert it to a timedelta64 object
+#     time = [date - zt_correction for date in real_time]                                                             # Subtract the ZT0 time to the real time to get the time in ZT
+
+#     # Fill NaN method: use the mean of the 48 hours before and after the NaN value if it is possible,
+#     # otherwise use the mean of all the values before or after (depends if the n-th sample is on head or tail)
+#     # the NaN value in a sample of 24 hours
+     
+#     self.is_nan = numpy.argwhere(numpy.isnan(data)).flatten().copy()
+      
+#     for n in self.is_nan:
+#         if n + round(48*60*60*self.sampling_frequency) > len(data) - 1:
+#             value = numpy.nanmean(data[n::-round(24*60*60*self.sampling_frequency)])
+#             data[n] = value
+#         elif n - round(48*60*60*self.sampling_frequency) < 0:
+#             value = numpy.nanmean(data[n::round(24*60*60*self.sampling_frequency)])
+#             data[n] = value
+#         else:
+#             next_value = data[n + round(48*60*60*self.sampling_frequency)]
+#             previus_value = data[n - round(48*60*60*self.sampling_frequency)]
+#             if numpy.isnan(next_value) == False and numpy.isnan(previus_value) == False:
+#                 value = (previus_value + next_value)/2
+#                 data[n] = value
+#             else:
+#                 if n > len(data)/2:
+#                     value = numpy.nanmean(data[n::-round(24*60*60*self.sampling_frequency)])
+#                     data[n] = value
+#                 else:
+#                     value = numpy.nanmean(data[n::round(24*60*60*self.sampling_frequency)])
+#                     data[n] = value
+
+#     self.data_column = pandas.DataFrame({'values': data}, index = time)
+#     self.data_column = self.data_column.interpolate(method= 'time')
+
+#     self.days = [str(row).split(" ")[0] for row in self.data_column.index]                                          # Get the day from the index
+#     self.data_column['real_date'] = real_time                                                                       # Get the real date from the index
+
+#     self.labels = self._set_labels()                                                                                # Get if is night or not using the cycle type given as input (True if is night, False if is day)
+
+#     self.data = pandas.merge(self.data_column, self.labels, how='outer', right_index=True, left_index=True)         # Merge the activity, temperature and if is night or not
+#     self.data['days'] = self.days                                                                                   # Add the days to the dataframe
+
+#     if not self.consider_first_day:                                                                                 # If the first day is not to be considered
+#         self.data = self.data[self.data['day'] != self.data['day'].iloc[0]]
+#         self.cycle_days[0] = self.cycle_days[0] - 1
