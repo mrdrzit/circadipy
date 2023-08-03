@@ -743,7 +743,7 @@ def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 
 
 def model_overview(protocol, best_models, save_folder = None, save_suffix = ''):
     """
-    Plots the cosinor model pariod and acrophase for each protocol satage. This function is used to plot the results of
+    Plots the cosinor model pariod and acrophase for each protocol stage. This function is used to plot the results of
     the fit_cosinor function.
 
     :param best_models: The cosinor model parameters (output of the fit_cosinor function)
