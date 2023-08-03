@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chrono plotter" href="chrono_plotter.html" />
-    <link rel="prev" title="API usage" href="../user_guide/pipelines.html" /> 
+    <link rel="prev" title="Introduction tutorial" href="../user_guide/pipelines.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,15 +51,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/package_manager.html">Package and Environment Management System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/env_creation.html">Environment Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_guide/installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_guide/pipelines.html">API usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/pipelines.html">Introduction tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chrono-reader">Chrono Reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono-rhythm">Chrono Rhythm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono-simulation">Chrono Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chrono-plotter">Chrono Plotter</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="chrono_plotter.html">Chrono plotter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chrono_reader.html">Chrono reader</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chrono_simulation.html">Chrono simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chrono_rythm.html">Chrono rithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chrono_rhythm.html">Chrono rhythm</a></li>
 </ul>
 
         </div>
@@ -88,13 +94,86 @@
              
   <section id="api-description">
 <h1>API description<a class="headerlink" href="#api-description" title="Permalink to this heading"></a></h1>
+<p>The current package includes a series of functions that facilitate cronobiology analysis.</p>
+<p>The package itself has 4 files:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><strong>chrono_plotter.py</strong>: contains functions to plot data</p></li>
+<li><p><strong>chrono_reader.py</strong>: contains functions to read data</p></li>
+<li><p><strong>chrono_rythms.py</strong>: contains functions to fit cosinor models</p></li>
+<li><p><strong>chrono_simulation.py</strong>: contains functions to create simulated data</p></li>
+</ol>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can find more information about the usage of each function at the documentation of each file in the
+<a class="reference internal" href="../user_guide/pipelines.html"><span class="doc">introductory tutorial section under the user guide</span></a></p>
+</div>
+<section id="chrono-reader">
+<h2>Chrono Reader<a class="headerlink" href="#chrono-reader" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrono_reader</span></code> module provides functionalities for reading data from various sources and preparing it for analysis and visualization within the <strong>CircadiPy</strong> package. It offers the following features:</p>
+<ul class="simple">
+<li><p><strong>Data Source Support</strong>: The module is capable of reading data from multiple sources, including the ER4000 receiver, the Intellicage system, and generic <code class="docutils literal notranslate"><span class="pre">.asc</span></code> files, provided they adhere to specific formatting patterns for each source.</p></li>
+<li><p><strong>Protocol Object Creation</strong>: Upon reading and processing the data, the module generates a protocol object that encapsulates relevant information necessary for subsequent analysis and plotting tasks.</p></li>
+<li><p><strong>Workflow Optimization Functions</strong>: The module offers utility functions that enhance the workflow when working with the protocol object. One example is a method for concatenating data from multiple experiments seamlessly.</p></li>
+<li><p><strong>Data Exploration Assistance</strong>: The module includes methods designed to facilitate data exploration. These methods are particularly useful when experimenters need to extract data from specific time intervals of interest.</p></li>
+<li><p><strong>Filtering Capabilities</strong>: A built-in method allows the application of filtering techniques such as the Savitzky-Golay filter and moving average filter to the data.</p></li>
+<li><p><strong>Normalization Methods</strong>: The module provides a method to normalize the data using either a z-score transformation or the min-max scaling approach.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrono_reader</span></code> module acts as an essential foundation for data input, preprocessing, and initial exploration within the <strong>CircadiPy</strong> package.</p>
+</section>
+<section id="chrono-rhythm">
+<h2>Chrono Rhythm<a class="headerlink" href="#chrono-rhythm" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrono_rhythm</span></code> module plays a pivotal role in <strong>CircadiPy</strong> by providing tools for analyzing cyclic or periodic patterns commonly encountered in chronobiology analysis. This module offers the following key features:</p>
+<ul class="simple">
+<li><p><strong>Cosinor Regression</strong>: The package incorporates the cosinor regression, also known as the cosinor method, to detect and analyze cyclic patterns within time-series data. This method involves fitting a cosinor model to the focused data, enabling the characterization of rhythmic behaviors.</p></li>
+<li><p><strong>Daily Activity Sum</strong>: The module includes a function dedicated to calculating the total activity per day for the given experiment, allowing researchers to gain insights into the overall daily activity patterns.</p></li>
+<li><p><strong>Enhanced Cosinor Handling</strong>: To streamline the cosinor fitting process, the module provides convenient methods that facilitate the application of cosinor fitting on a daily basis.</p></li>
+<li><p><strong>Significance-based Analysis</strong>: Aligning with the core objective of the package, the module offers functions designed to ensure that only the most significant results are utilized in the analysis and fitting processes. This enhances the accuracy of the findings.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrono_rhythm</span></code> module enables the detection, analysis, and leveraging of cyclic patterns present in the data, ultimately contributing to a more insightful and refined analysis process.</p>
+</section>
+<section id="chrono-simulation">
+<h2>Chrono Simulation<a class="headerlink" href="#chrono-simulation" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrono_simulation</span></code> module serves as the primary script for generating simulated data within the <strong>CircadiPy</strong> package. This module offers the following functionalities:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Protocol Simulation</strong>: Within this module, users can create simulated protocols, which are objects used in subsequent analyses. The simulation process encompasses various parameters, including:</dt><dd><ul>
+<li><p>Sampling Frequency: Users can define the sampling frequency for the simulated data, such as intervals of 30 minutes.</p></li>
+<li><p>Signal Types: The module supports the simulation of different signal types, such as sine waves or square waves.</p></li>
+<li><p>Noise Profile: Users can specify the noise profile to emulate realistic experimental conditions.</p></li>
+<li><p>Signal-to-Noise Ratio (SNR): The module allows users to set the signal-to-noise ratio in decibels (dB), influencing the fidelity of the simulated data.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrono_simulation</span></code> module creates syntetic data accordingly to the protocol onbject mentioned in the Chrono reader section.
+This synthetic data can be valuable for testing, validation, and exploring different analytical approaches within the package.</p>
+</section>
+<section id="chrono-plotter">
+<h2>Chrono Plotter<a class="headerlink" href="#chrono-plotter" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrono_plotter</span></code> module serves as the central script for visualizing data, offering a range of valuable visualization tools within the <strong>CircadiPy</strong> package.
+The module leverages the same protocol object used in previous instances for streamlined visualization</p>
+<p>This module provides the following features:</p>
+<ul class="simple">
+<li><p><strong>Time Series Visualization</strong>: It offers the capability to generate time series visualizations of the protocol data, enabling users to observe trends and patterns over time.</p></li>
+<li><p><strong>Actogram Plotting</strong>: The module includes functions for generating actogram plots using bar plots. These actograms visualize activity patterns and circadian rhythms present within the protocol.</p></li>
+<li><p><strong>Colormap Actograms</strong>: Users can create actogram plots using colormaps, enhancing the visual representation of activity-rest cycles.</p></li>
+<li><p><strong>Periodogram Plotting</strong>: The module supports periodogram plotting, providing insights into frequency components and potential rhythmic patterns present within the data.</p></li>
+<li><p><strong>Cosinor Analysis Visualization</strong>: It offers functions to visualize the results of cosinor analysis. This includes plotting the cosinor period and acrophase for each day of the protocol. These visualizations are based on the results of the <code class="docutils literal notranslate"><span class="pre">fit_cosinor_fixed_period</span></code> function, with acrophase and other parameters calculated while fixing the period to each stage.</p></li>
+<li><p><strong>Cosinor Model Comparison</strong>: The module enables the comparison of the cosinor model with the protocol data for each stage. This visualization aids in assessing how well the cosinor model fits the actual signal.</p></li>
+<li><p><strong>Cosinor Model Period and Acrophase Plotting</strong>: Users can visualize the cosinor model’s period and acrophase for each stage of the protocol.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">chrono_plotter</span></code> module provides the tools to create create comprehensive visualization outputs, enabling the exploration, analysis, and comparison of various temporal patterns within their data.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../user_guide/pipelines.html" class="btn btn-neutral float-left" title="API usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../user_guide/pipelines.html" class="btn btn-neutral float-left" title="Introduction tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="chrono_plotter.html" class="btn btn-neutral float-right" title="Chrono plotter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
