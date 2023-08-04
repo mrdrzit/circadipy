@@ -138,7 +138,7 @@ def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_lab
         plt.close()
 
 def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
-                 adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], format = 'png'):
+                 adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_value = None, format = 'png'):
     """
     Plot the actogram of the protocol in a bar plot
 
@@ -153,6 +153,7 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
     :param adjust_figure: List with the parameters to adjust the figure [column_height, rigth, top, bottom, left],
     defaults to [1, 0.95, 0.85, 0.2, 0.05]
     :type adjust_figure: list
+    :param norm_value: List with the minimum and maximum values to be used in to y axis limits (it is used when the data have nan valuesa and the data variabilty is too high), defaults to None
     :param format: Format to save the figure (png or svg), defaults to 'png'
     :type format: str
     """
@@ -164,6 +165,11 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
         raise ValueError("save_suffix must be a string.")
     if not isinstance(save_folder, str) and save_folder != None:
         raise ValueError("save_folder must be a string or None.")
+    if not isinstance(norm_value, list) and norm_value != None:
+        raise ValueError("norm_value must be None or a list with two values (min and max) in which min < max")
+    if isinstance(norm_value, list):
+        if len(norm_value) != 2 or norm_value[0] > norm_value[1]:
+            raise ValueError("norm_value must be None or a list with two values (min and max) in which min < max")
     if not isinstance(format, str) and format != 'png' and format != 'svg':
         raise ValueError("format must be 'png' or 'svg'.")
     else:
@@ -179,7 +185,7 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
     protocol_name = protocol.name.replace('_', ' ').capitalize()
 
     # Change 0 to nan
-    actogram['values'] = numpy.where(actogram['values'] == numpy.nan, 0, actogram['values'])
+    # actogram['values'] = numpy.where(actogram['values'] == numpy.nan, 0, actogram['values'])
 
     displacement_before = numpy.where(actogram.index.hour == first_hour)[0][0]
 
@@ -197,8 +203,14 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
     actogram['day_steps'] = actogram['day_steps'] + actogram.index.minute/60
     step_length = actogram['day_steps'][1] - actogram['day_steps'][0]
 
-    min_value = numpy.nanmin(actogram['values'])
-    max_value = numpy.nanmax(actogram['values'])
+    if norm_value == None:
+        min_value = numpy.nanmin(actogram['values'])
+        max_value = numpy.nanmax(actogram['values']) 
+    elif len(norm_value) == 2 and norm_value[0] < norm_value[1] and norm_value[0] != None and norm_value[1] != None:
+        min_value = norm_value[0]
+        max_value = norm_value[1]
+    else:
+        raise ValueError("norm_value must be None or a list with two values (min and max)")
 
     total_height = 0.1*num_days*adjust_height
     total_width = 7
@@ -235,7 +247,7 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
 
             ax.bar(time_to_plot, activity_to_plot, width = step_length, align='edge', color='black',
                     edgecolor='none')
-            ax.set_ylim([min_value, max_value + 0.1*max_value])
+            ax.set_ylim([min_value, max_value])
             if count_ax != 0 and count%2 != 0:
                 ax.yaxis.set_label_position("right")
                 ax.yaxis.tick_right()
@@ -266,7 +278,7 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
         plt.close()
 
 def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude", save_folder = None, save_suffix = '',
-                      adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_color = [33, 40], format = 'png'):
+                      adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_color = None, format = 'png'):
     """
     Plot the actogram of the protocol in a colormap
 
@@ -340,7 +352,7 @@ def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude
     if norm_color == None:
         norm = mpl.colors.Normalize(vmin = min_value, vmax = max_value)
     elif len(norm_color) == 2 and norm_color[0] < norm_color[1] and norm_color[0] != None and norm_color[1] != None:
-        norm = mpl.colors.Normalize(vmin = norm_color[0], vmax = norm_color[0])
+        norm = mpl.colors.Normalize(vmin = norm_color[0], vmax = norm_color[1])
     else:
         raise ValueError("norm_color must be None or a list with two values (min and max)")
     cmap = cm.YlOrRd
@@ -981,9 +993,9 @@ def model_per_day(protocol, best_models_per_day, day_window, only_significant = 
 
     for x in sorted(set(days_plot))[0::5]:
         ax.axvline(x = x, color='black', linestyle='--', linewidth=0.5, alpha=0.2)
-    for x, l in zip(change_test_day, test_labels):
+    for l, x in enumerate(change_test_day):
         ax.axvline(x = x, color='black', linestyle='-', linewidth=1, alpha=0.5)
-        ax.annotate(l.replace('_', ' ').upper(), xy=(x, upper_lim), xytext=(x + 0.2, upper_lim), fontsize=6,
+        ax.annotate(str(l + 1), xy=(x, upper_lim), xytext=(x + 0.2, upper_lim), fontsize=12,
                     color='black', rotation=0)
     for d in range(0, len(days_plot)):
         ax2.plot([days_plot[d], days_plot[d]], [m_acrophases_zt_ci_upper[d], m_acrophases_zt_ci_lower[d]],

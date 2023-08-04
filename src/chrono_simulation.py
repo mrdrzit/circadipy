@@ -53,8 +53,8 @@ def simulate_protocol(file_name, folder, sampling_frequency = 'H', cycle_days = 
     if len(cycle_days) != len(activity_period):                                                                   
         raise ValueError("The number of cycle days is different than the number of activity periods")                   # Raise an error
     
-    if signal_type == 'trinagle':
-        activity_period = [x/2 for x in activity_period]
+    # if signal_type == 'triangle':
+    #     activity_period = [2*x for x in activity_period]
 
     act_path = folder + "/" + file_name + ".asc"                                                                        # The path of the file where the simulated activity data will be saved
         

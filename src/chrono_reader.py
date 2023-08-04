@@ -33,7 +33,7 @@ class read_protocol():
     :return: A protocol object
     :rtype: protocol object
     """
-    def __init__(self, name, file, zt_0_time, labels_dict, type, consider_first_day = False, set_nans = []):
+    def __init__(self, name, file, zt_0_time, labels_dict, type, consider_first_day = False, set_nans = numpy.array([])):
         """
         Constructor method
         """
@@ -66,10 +66,10 @@ class read_protocol():
         if len(self.cycle_types) != len(self.test_labels):
             raise ValueError('The cycle type and test label must have the same length')
 
-        if isinstance(set_nans, list):
+        if isinstance(set_nans, numpy.ndarray):
             self.set_nans = set_nans.copy()                                                                             # Define if the NaN values will be set to 0 or not
         else:
-            raise TypeError('The set_nans must be a list of integers')
+            raise TypeError('The set_nans must be a numpy.ndarray')
 
         if type == 'er4000':
             self.read_asc_0()
@@ -140,7 +140,7 @@ class read_protocol():
         # otherwise use the mean of all the values before or after (depends if the n-th sample is on head or tail)
         # the NaN value in a sample of 24 hours
         
-        if len(self.set_nans) > 0:
+        if self.set_nans.size > 0:
             data = self._set_is_nan_indexes(self.set_nans, data)                                                        #This is a ugle hack to set the NaN values to acticity, because the activity file has 0 values instead of NaN
 
         self.is_nan = numpy.argwhere(numpy.isnan(data)).flatten()

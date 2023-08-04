@@ -294,11 +294,13 @@ def fit_cosinor_per_day(protocol, dict = None, plot = False, save_folder = None,
         if len(best_model_day) == 0 or best_model_day['amplitude'][0] <= 0.1:                                           #  If the model can't be fitted or the amplitude is too low (threshold), the model isn't considered
             best_model_day.loc[0] = pandas.np.nan
             best_model_day_extended = best_model_day
+            best_model_day_extended['CI(acrophase)'] = numpy.nan
         else:
             best_model_day_extended = cosinor.analyse_best_models(day_df, best_model_day, analysis="CI")        
         
         best_model_day_extended.insert(1, 'day', set_of_days[day])                                                      # Add the day to the best model parameters dataframe
-        best_model_day_extended.insert(2, 'first_hour', day_df['x'][0])                                                 # Add the first hour of the day to the best model parameters dataframe
+        best_model_day_extended.insert(2, 'first_hour', day_df['x'][0])                                                 # Add the first hour of the day to the best model parameters dataframe   
+        
         best_model_day_extended = _acrophase_ci_in_zt(best_model_day_extended)                                          # Reset the index of the dataframe
         best_models_per_day = pandas.concat([best_models_per_day, best_model_day_extended], axis=0)                     # Concatenate the best model parameters for the current day with the best model parameters for all the days
 
