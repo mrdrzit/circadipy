@@ -21,9 +21,7 @@ class read_protocol():
     :type file_activity: str
     :param zt_0_time: Time of day that corresponds to ZT0 reference (can only be integers from 0 to 23)
     :type zt_0_time: int
-    :param labels_dict: Dictionary with the cycle types, cycle days and test labels. The cycle types must be a list of strings
-    with the cycle types (DD, LL, DL or LD), the cycle days must be a list of integers with the number of days of each cycle
-    and the test labels must be a list of strings with the test labels (e.g. ['test1', 'test2', 'test3'])
+    :param labels_dict: Dictionary with the cycle types, cycle days and test labels. The cycle types must be a list of strings with the cycle types (DD, LL, DL or LD), the cycle days must be a list of integers with the number of days of each cycle and the test labels must be a list of strings with the test labels (e.g. ['test1', 'test2', 'test3'])
     :type labels_dict: dict
     :param consider_first_day: Consider the first day of the experiment as a complete day, defaults to False
     :type consider_first_day: bool
@@ -451,8 +449,7 @@ class read_protocol():
 
         :param new_sampling_interval: New sampling interval in pandas format (e.g. '30T' for 30 minutes)
         :type new_sampling_interval: str
-        :param method: Method to resample the data. Use 'sum' to sum the values in the new sampling interval or 'last' to
-        get the last value in the new sampling interval
+        :param method: Method to resample the data. Use 'sum' to sum the values in the new sampling interval or 'last' to get the last value in the new sampling interval
         """
         if method == 'sum':
             resample_data = self.data['values'].resample(new_sampling_interval).sum()
@@ -485,8 +482,7 @@ class read_protocol():
 
         :param protocol: Protocol to concatenate
         :type protocol: Protocol
-        :param method: Method to concatenate the data. Use 'sum' to sum the values in the new sampling interval or 
-        'last' to get the last value in the new sampling interval
+        :param method: Method to concatenate the data. Use 'sum' to sum the values in the new sampling interval or  'last' to get the last value in the new sampling interval
         :type method: str
         """
         if self.sampling_interval != protocol.sampling_interval:
@@ -623,28 +619,38 @@ class read_protocol():
 
     def correct_labels(self):
         '''
-        This function is used to correct labels that may be wrong after importing the data and using the protocol 
-        concatenation function. Generally it will be used when the experimental protocol was performed by separating 
-        the files. In these cases, the exact time that the experimenter cut the record may not match the correct labels, 
-        since each file will be imported with a specific label.
+        This function is used to correct labels that may be wrong after importing the data and using the protocol concatenation function. Generally, it will be used when the experimental protocol was performed by separating the files. In these cases, the exact time that the experimenter cut the record may not match the correct labels, since each file will be imported with a specific label.
 
         Example:
 
-        Data with incorrect labeling:
-           date        hour       cycle     is_night    label
-        01/01/2023   23:00:00       DL       False        A
-        01/01/2023   23:30:00       DD        True        B      <- This label is wrong
-        01/02/2023   00:00:00       DD        True        B  
-        01/02/2023   00:30:00       DD        True        B
-        
-        After using the correct_labels function:
-           date        hour       cycle     is_night    label
-        01/01/2023   23:00:00       DL       False        A
-        01/01/2023   23:30:00       DL       False        A     <- This label is corrected
-        01/02/2023   00:00:00       DD        True        B
-        01/02/2023   00:30:00       DD        True        B
-        '''
+        +------------+----------+--------+-----------+-------+--------------------------+
+        |    date    |   hour   | cycle  | is_night  | label |                          |
+        +============+==========+========+===========+=======+==========================+
+        | 01/01/2023 | 23:00:00 |   DL   |   False   |   A   |                          |
+        +------------+----------+--------+-----------+-------+--------------------------+
+        | 01/01/2023 | 23:30:00 |   DD   |   True    |   B   | <- This label is wrong   |
+        +------------+----------+--------+-----------+-------+--------------------------+
+        | 01/02/2023 | 00:00:00 |   DD   |   True    |   B   |                          |
+        +------------+----------+--------+-----------+-------+--------------------------+
+        | 01/02/2023 | 00:30:00 |   DD   |   True    |   B   |                          |
+        +------------+----------+--------+-----------+-------+--------------------------+
 
+        After using the correct_labels function, the table is updated as follows:
+
+        +------------+----------+--------+-----------+-------+-----------------------------+
+        |    date    |   hour   | cycle  | is_night  | label |                             |
+        +============+==========+========+===========+=======+=============================+
+        | 01/01/2023 | 23:00:00 |   DL   |   False   |   A   |                             |
+        +------------+----------+--------+-----------+-------+-----------------------------+
+        | 01/01/2023 | 23:30:00 |   DL   |   False   |   A   | <- This label is corrected  |
+        +------------+----------+--------+-----------+-------+-----------------------------+
+        | 01/02/2023 | 00:00:00 |   DD   |   True    |   B   |                             |
+        +------------+----------+--------+-----------+-------+-----------------------------+
+        | 01/02/2023 | 00:30:00 |   DD   |   True    |   B   |                             |
+        +------------+----------+--------+-----------+-------+-----------------------------+
+
+        :return: None
+        '''
         labels = self.test_labels
         cycles = self.cycle_types
         labels = numpy.flip(labels, axis=0)
@@ -679,11 +685,9 @@ class read_protocol():
         Savitzky-Golay and moving average filter are a type of low-pass filter, particularly suited for smoothing noisy.
         (to reverse the filter, use the reverse parameter).
 
-        :param type: Type of filter to apply: Savitzky-Golay ('savgol') filter or move average ('moving_average') filter, 
-        defaults to 'savgol'.
+        :param type: Type of filter to apply: Savitzky-Golay ('savgol') filter or move average ('moving_average') filter,  defaults to 'savgol'.
         :type type: str
-        :param window: The length of the filter window (i.e. the number of coefficients). Must be a positive odd integer,
-        defaults to 5
+        :param window: The length of the filter window (i.e. the number of coefficients). Must be a positive odd integer, defaults to 5
         :type window: int
         :param order: The order of the polynomial used to fit the samples. Must be less then window size, defaults to 3
         :type order: int
@@ -722,8 +726,7 @@ class read_protocol():
 
         :param type: Type of normalization to apply, can be 'zscore' or 'minmax', defaults to 'minmax'
         :type type: str
-        :param per_day: Normalize the data. If True, the normalization will be done per day, if False, the normalization
-        will be done for the whole data, defaults to False
+        :param per_day: Normalize the data. If True, the normalization will be done per day, if False, the normalization will be done for the whole data, defaults to False
         :type per_day: bool
         """
         if not isinstance(type, str):
@@ -766,14 +769,11 @@ class read_protocol():
         Specify the test labels to be used in the analysis. This function can be used to set the test labels, the cycle 
         type after the data is imported. 
         
-        :param number_of_days: Number of days to be used in each test label, the sum of the days must be equal to the
-        number of days in the experiment
+        :param number_of_days: Number of days to be used in each test label, the sum of the days must be equal to the number of days in the experiment
         :type number_of_days: list
-        :param test_labels: Test labels to be used in the analysis, must be a list of strings with the same length of
-        number_of_days
+        :param test_labels: Test labels to be used in the analysis, must be a list of strings with the same length of number_of_days
         :type test_labels: list
-        :param cycle_types: Cycle types to be used in the analysis, must be a list of strings with the same length of
-        number_of_days
+        :param cycle_types: Cycle types to be used in the analysis, must be a list of strings with the same length of number_of_days
         :type cycle_types: list
         """
         if not isinstance(number_of_days, list) or not isinstance(test_labels, list) or not isinstance(cycle_types, list):
@@ -859,8 +859,7 @@ class read_protocol():
         24 hours). With the time_shape is setted to 'mean' or 'median', the data will be grouped by day and the mean or
         median will be calculated for each day.
 
-        :param time_shape: Shape of the time variable. Set 'continuous' for a continuous variable or 'mean'/'median' for
-        a clycic time columns, defaults to 'continuous'
+        :param time_shape: Shape of the time variable. Set 'continuous' for a continuous variable or 'mean'/'median' for a clycic time columns, defaults to 'continuous'
         :type time_shape: str
 
         :return: Dataframes with activity and temperature data
@@ -901,8 +900,7 @@ def intellicage_unwrapper(files, name_to_save = '', sampling_interval = '1H'):
 
     :param files: List with the files to be unwrapped
     :type files: list
-    :param name_to_save: Folder to save the data, if not specified, the data will be saved in the same folder as the
-    files in a folder called 'data_unwrapped'
+    :param name_to_save: Folder to save the data, if not specified, the data will be saved in the same folder as the files in a folder called 'data_unwrapped'
     :type name_to_save: str
     :param sampling_interval: Sampling interval to get the visits (output sampling interval), defaults to '1H'
     :type sampling_interval: str
