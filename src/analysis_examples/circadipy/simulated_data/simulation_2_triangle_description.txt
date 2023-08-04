@@ -1,3 +1,0 @@
-Simulation number: 2
-Cycles days: [4, 4]
-Activity period: [25.02, 24.16]

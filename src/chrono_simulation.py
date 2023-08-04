@@ -43,7 +43,7 @@ def simulate_protocol(file_name, folder, sampling_frequency = 'H', cycle_days = 
     if len(cycle_days) != len(activity_period) and len(cycle_days) != 0:                                                # If the length of cycle_days is different than the length of activity_period
         raise ValueError("The number of cycle days is different than the number of activity periods")                   # Raise an error                                                                  
     if not isinstance(signal_type, str):                                                                                # If signal_type is not a string
-        raise TypeError("signal_type must be a string (sine, square, triangle, sawtooth, square_lowpass)")              # Raise an error
+        raise TypeError("signal_type must be a string (sine, square, sawtooth)")                                        # Raise an error
     if not isinstance(noise, bool):                                                                                     # If noise is not a boolean
         raise TypeError("noise must be a boolean")                                                                      # Raise an error
     if not isinstance(snr_db, float) and not isinstance(snr_db, int):                                                   # If snr_db is not a float
@@ -123,14 +123,8 @@ def simulate_protocol(file_name, folder, sampling_frequency = 'H', cycle_days = 
             activity_curve = numpy.where(curve >= 1, 2, 0)                                                              # Put delimeted edges to the sin curve           
         elif signal_type == 'sine':
             activity_curve = curve
-        elif signal_type == 'triangle':
-            activity_curve = numpy.where(curve >= 1, 2 - curve, curve)                                                  # Put delimeted edges to the sin curve
         elif signal_type == 'sawtooth':
             activity_curve = numpy.where(curve >= 1, 0, curve)                                                          # Put delimeted edges to the sin curve
-        elif signal_type == 'square_lowpass':
-            activity_curve = numpy.where(curve >= 1, 2, 0)                                                              # Put delimeted edges to the sin curve
-            b, a = butter(6,  0.025, btype='low', analog=False)
-            activity_curve = lfilter(b, a, activity_curve)
         else:
             raise ValueError("The signal type is not valid (sine, square, triangle, sawtooth, square_lowpass)")  
 

@@ -1,0 +1,298 @@
+
+------------------------------------------------------------------
+Gene: Rasl11b (lombscargle)
+CircadiPy: 23.97000000000062 Other: 23.892
+The period error for 0 is: 0.07800000000062113
+CircadiPy: 4.125465465465728 Other: 3.75
+The phase error for 0 is: 0.37546546546572834
+------------------------------------------------------------------
+Gene: Dbp (lombscargle)
+CircadiPy: 23.920000000000613 Other: 23.892
+The period error for 1 is: 0.028000000000613312
+CircadiPy: 7.45649649649684 Other: 7.03
+The phase error for 1 is: 0.4264964964968394
+------------------------------------------------------------------
+Gene: Per2 (lombscargle)
+CircadiPy: 24.460000000000697 Other: 23.892
+The period error for 2 is: 0.5680000000006977
+CircadiPy: 9.425225225225665 Other: 9.81
+The phase error for 2 is: -0.3847747747743355
+------------------------------------------------------------------
+Gene: Rgs16 (lombscargle)
+CircadiPy: 23.78000000000059 Other: 23.892
+The period error for 3 is: -0.11199999999940857
+CircadiPy: 3.9975975975978475 Other: 3.7
+The phase error for 3 is: 0.2975975975978473
+------------------------------------------------------------------
+Gene: Sik1 (lombscargle)
+CircadiPy: 23.370000000000527 Other: 23.064
+The period error for 4 is: 0.30600000000052674
+CircadiPy: 4.62060060060084 Other: 3.77
+The phase error for 4 is: 0.8506006006008398
+------------------------------------------------------------------
+Gene: Nr1d1 (lombscargle)
+CircadiPy: 23.940000000000616 Other: 23.892
+The period error for 5 is: 0.04800000000061644
+CircadiPy: 3.969009009009266 Other: 3.73
+The phase error for 5 is: 0.23900900900926603
+------------------------------------------------------------------
+Gene: Rbm33 (lombscargle)
+CircadiPy: 24.910000000000768 Other: 24.783
+The period error for 6 is: 0.12700000000076628
+CircadiPy: 2.6274874874877554 Other: 3.85
+The phase error for 6 is: -1.2225125125122447
+------------------------------------------------------------------
+Gene: Fbxl21 (lombscargle)
+CircadiPy: 24.04000000000063 Other: 23.892
+The period error for 7 is: 0.14800000000063207
+CircadiPy: 6.465185185185513 Other: 5.78
+The phase error for 7 is: 0.6851851851855129
+------------------------------------------------------------------
+Gene: Il22 (lombscargle)
+CircadiPy: 24.440000000000694 Other: 24.783
+The period error for 8 is: -0.3429999999993072
+CircadiPy: 18.68500500500502 Other: 19.0
+The phase error for 8 is: -0.3149949949949793
+------------------------------------------------------------------
+Gene: Ifit3 (lombscargle)
+CircadiPy: 22.840000000000444 Other: 23.064
+The period error for 9 is: -0.2239999999995561
+CircadiPy: 14.07359359359398 Other: 15.27
+The phase error for 9 is: -1.1964064064060196
+------------------------------------------------------------------
+Gene: Fabp7 (lombscargle)
+CircadiPy: 24.510000000000705 Other: 23.892
+The period error for 10 is: 0.6180000000007055
+CircadiPy: 3.22498498498525 Other: 3.72
+The phase error for 10 is: -0.4950150150147503
+------------------------------------------------------------------
+Gene: Rcan1 (lombscargle)
+CircadiPy: 24.520000000000707 Other: 24.783
+The period error for 11 is: -0.2629999999992947
+CircadiPy: 4.112352352352643 Other: 3.85
+The phase error for 11 is: 0.26235235235264254
+------------------------------------------------------------------
+Gene: Hmgb3 (lombscargle)
+CircadiPy: 23.690000000000577 Other: 23.892
+The period error for 12 is: -0.20199999999942264
+CircadiPy: 7.943663663664003 Other: 9.23
+The phase error for 12 is: -1.2863363363359976
+------------------------------------------------------------------
+Gene: Il22 (lombscargle)
+CircadiPy: 24.61000000000072 Other: 24.783
+The period error for 13 is: -0.17299999999928062
+CircadiPy: 18.394154154154165 Other: 18.61
+The phase error for 13 is: -0.2158458458458341
+------------------------------------------------------------------
+Gene: Odc1 (lombscargle)
+CircadiPy: 24.73000000000074 Other: 24.783
+The period error for 14 is: -0.05299999999926186
+CircadiPy: 4.4960160160163305 Other: 4.44
+The phase error for 14 is: 0.056016016016330106
+------------------------------------------------------------------
+Gene: Hspa2 (lombscargle)
+CircadiPy: 21.85000000000029 Other: 22.291
+The period error for 15 is: -0.4409999999997112
+CircadiPy: 18.74364364364365 Other: 16.01
+The phase error for 15 is: 2.7336436436436493
+------------------------------------------------------------------
+Gene: Tsc22d3 (lombscargle)
+CircadiPy: 23.51000000000055 Other: 23.064
+The period error for 16 is: 0.4460000000005486
+CircadiPy: 13.956436436436903 Other: 15.28
+The phase error for 16 is: -1.3235635635630967
+------------------------------------------------------------------
+Gene: Chrna3 (lombscargle)
+CircadiPy: 24.590000000000718 Other: 24.783
+The period error for 17 is: -0.19299999999928374
+CircadiPy: 6.947287287287667 Other: 6.71
+The phase error for 17 is: 0.2372872872876668
+------------------------------------------------------------------
+Gene: Slc2a13 (lombscargle)
+CircadiPy: 23.430000000000536 Other: 23.064
+The period error for 18 is: 0.3660000000005361
+CircadiPy: 7.227747747748049 Other: 6.82
+The phase error for 18 is: 0.4077477477480489
+------------------------------------------------------------------
+Gene: Nfil3 (lombscargle)
+CircadiPy: 22.840000000000444 Other: 23.064
+The period error for 20 is: -0.2239999999995561
+CircadiPy: 20.240560560560606 Other: 18.57
+The phase error for 20 is: 1.670560560560606
+------------------------------------------------------------------
+Gene: Gm129 (lombscargle)
+CircadiPy: 23.64000000000057 Other: 23.892
+The period error for 21 is: -0.25199999999943046
+CircadiPy: 6.967687687687999 Other: 6.69
+The phase error for 21 is: 0.27768768768799834
+------------------------------------------------------------------
+Gene: Mt1 (lombscargle)
+CircadiPy: 24.520000000000707 Other: 23.892
+The period error for 22 is: 0.6280000000007071
+CircadiPy: 11.770250250250765 Other: 10.76
+The phase error for 22 is: 1.010250250250765
+------------------------------------------------------------------
+Gene: Pde10a (lombscargle)
+CircadiPy: 24.940000000000772 Other: 24.783
+The period error for 23 is: 0.15700000000077097
+CircadiPy: 3.6864064064067072 Other: 3.9
+The phase error for 23 is: -0.21359359359329266
+------------------------------------------------------------------
+Gene: Mettl7a1 (lombscargle)
+CircadiPy: 21.940000000000303 Other: 22.291
+The period error for 24 is: -0.3509999999996971
+CircadiPy: 18.878478478478495 Other: 16.03
+The phase error for 24 is: 2.8484784784784942
+------------------------------------------------------------------
+Gene: C030019I05Rik (lombscargle)
+CircadiPy: 26.07000000000095 Other: 25.742
+The period error for 25 is: 0.328000000000948
+CircadiPy: 4.647207207207595 Other: 4.51
+The phase error for 25 is: 0.13720720720759516
+------------------------------------------------------------------
+Gene: Zim1 (lombscargle)
+CircadiPy: 24.080000000000638 Other: 23.892
+The period error for 26 is: 0.18800000000063832
+CircadiPy: 2.870310310310545 Other: 3.62
+The phase error for 26 is: -0.7496896896894549
+------------------------------------------------------------------
+Gene: Nr1d2 (lombscargle)
+CircadiPy: 21.620000000000253 Other: 21.568
+The period error for 27 is: 0.052000000000251845
+CircadiPy: 7.504384384384544 Other: 6.79
+The phase error for 27 is: 0.7143843843845437
+------------------------------------------------------------------
+Gene: Epha6 (lombscargle)
+CircadiPy: 26.28000000000098 Other: 25.742
+The period error for 28 is: 0.5380000000009808
+CircadiPy: 20.84108108108119 Other: 22.5
+The phase error for 28 is: -1.6589189189188112
+------------------------------------------------------------------
+Gene: Tanc2 (lombscargle)
+CircadiPy: 24.890000000000764 Other: 24.783
+The period error for 29 is: 0.10700000000076315
+CircadiPy: 2.9693693693696446 Other: 3.61
+The phase error for 29 is: -0.6406306306303553
+------------------------------------------------------------------
+Gene: Hspa1a (lombscargle)
+CircadiPy: 22.76000000000043 Other: 23.064
+The period error for 30 is: -0.3039999999995686
+CircadiPy: 18.36452452452453 Other: 16.11
+The phase error for 30 is: 2.2545245245245304
+------------------------------------------------------------------
+Gene: Creb3l1 (lombscargle)
+CircadiPy: 24.79000000000075 Other: 24.783
+The period error for 31 is: 0.007000000000747519
+CircadiPy: 5.712592592592946 Other: 5.49
+The phase error for 31 is: 0.22259259259294595
+------------------------------------------------------------------
+Gene: Dusp4 (lombscargle)
+CircadiPy: 23.150000000000492 Other: 23.064
+The period error for 32 is: 0.08600000000049235
+CircadiPy: 5.864664664664916 Other: 5.46
+The phase error for 32 is: 0.40466466466491635
+------------------------------------------------------------------
+Gene: Hmgb3 (lombscargle)
+CircadiPy: 23.39000000000053 Other: 23.064
+The period error for 33 is: 0.32600000000052987
+CircadiPy: 7.767087087087399 Other: 9.04
+The phase error for 33 is: -1.2729129129126004
+------------------------------------------------------------------
+Gene: Hsph1 (lombscargle)
+CircadiPy: 24.060000000000635 Other: 23.892
+The period error for 34 is: 0.1680000000006352
+CircadiPy: 22.046126126126232 Other: 21.95
+The phase error for 34 is: 0.09612612612623295
+------------------------------------------------------------------
+Gene: I830012O16Rik (lombscargle)
+CircadiPy: 22.480000000000388 Other: 22.291
+The period error for 35 is: 0.1890000000003873
+CircadiPy: 14.657297297297653 Other: 15.24
+The phase error for 35 is: -0.5827027027023473
+------------------------------------------------------------------
+Gene: Stip1 (lombscargle)
+CircadiPy: 23.470000000000542 Other: 23.064
+The period error for 36 is: 0.40600000000054237
+CircadiPy: 21.85293293293302 Other: 21.6
+The phase error for 36 is: 0.25293293293301744
+------------------------------------------------------------------
+Gene: Chordc1 (lombscargle)
+CircadiPy: 23.560000000000556 Other: 23.892
+The period error for 37 is: -0.33199999999944296
+CircadiPy: 19.36784784784788 Other: 17.65
+The phase error for 37 is: 1.7178478478478816
+------------------------------------------------------------------
+Gene: Acr (lombscargle)
+CircadiPy: 24.570000000000714 Other: 24.783
+The period error for 38 is: -0.21299999999928687
+CircadiPy: 5.756216216216558 Other: 5.5
+The phase error for 38 is: 0.25621621621655777
+------------------------------------------------------------------
+Gene: Nat2 (lombscargle)
+CircadiPy: 25.010000000000783 Other: 24.783
+The period error for 39 is: 0.2270000000007819
+CircadiPy: 14.078098098098728 Other: 15.35
+The phase error for 39 is: -1.2719019019012716
+------------------------------------------------------------------
+Gene: nan (lombscargle)
+CircadiPy: 22.850000000000446 Other: 22.291
+The period error for 40 is: 0.5590000000004451
+CircadiPy: 25.04484484484498 Other: 22.96
+The phase error for 40 is: 2.08484484484498
+------------------------------------------------------------------
+Gene: Scn3b (lombscargle)
+CircadiPy: 24.35000000000068 Other: 23.892
+The period error for 41 is: 0.45800000000068053
+CircadiPy: 0.824824824825015 Other: 2.05
+The phase error for 41 is: -1.2251751751749849
+------------------------------------------------------------------
+Gene: Fn3k (lombscargle)
+CircadiPy: 25.94000000000093 Other: 25.742
+The period error for 42 is: 0.19800000000092766
+CircadiPy: 20.59659659659669 Other: 22.21
+The phase error for 42 is: -1.6134034034033107
+------------------------------------------------------------------
+Gene: Mmp14 (lombscargle)
+CircadiPy: 25.920000000000925 Other: 25.742
+The period error for 43 is: 0.17800000000092453
+CircadiPy: 22.047567567567715 Other: 23.32
+The phase error for 43 is: -1.2724324324322858
+------------------------------------------------------------------
+Gene: Usp36 (lombscargle)
+CircadiPy: 24.04000000000063 Other: 23.892
+The period error for 44 is: 0.14800000000063207
+CircadiPy: 6.465185185185513 Other: 5.81
+The phase error for 44 is: 0.6551851851855135
+------------------------------------------------------------------
+Gene: nan (lombscargle)
+CircadiPy: 24.42000000000069 Other: 23.892
+The period error for 45 is: 0.5280000000006915
+CircadiPy: 0.9422222222224157 Other: 1.86
+The phase error for 45 is: -0.9177777777775844
+------------------------------------------------------------------
+Gene: 0610007P22Rik (lombscargle)
+CircadiPy: 27.99000000000125 Other: 27.902
+The period error for 46 is: 0.08800000000124797
+CircadiPy: 10.306486486487216 Other: 10.03
+The phase error for 46 is: 0.27648648648721696
+------------------------------------------------------------------
+Gene: Per1 (lombscargle)
+CircadiPy: 25.96000000000093 Other: 25.742
+The period error for 47 is: 0.21800000000093078
+CircadiPy: 5.277917917918325 Other: 4.89
+The phase error for 47 is: 0.3879179179183252
+------------------------------------------------------------------
+Gene: Cys1 (lombscargle)
+CircadiPy: 23.59000000000056 Other: 23.892
+The period error for 48 is: -0.3019999999994383
+CircadiPy: 14.213253253253733 Other: 14.3
+The phase error for 48 is: -0.08674674674626814
+------------------------------------------------------------------
+Gene: Rbm3 (lombscargle)
+CircadiPy: 23.13000000000049 Other: 23.064
+The period error for 49 is: 0.06600000000048922
+CircadiPy: 9.744144144144478 Other: 10.07
+The phase error for 49 is: -0.32585585585552224
+==================================================================
+The mean error for the period parametrization is: 0.0939 +/- 0.2889
+The mean error for the phase parametrization is: 0.0728 +/- 1.0689

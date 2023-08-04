@@ -1,0 +1,1029 @@
+
+------------------------------------------------------------------
+Gene: simulation_0
+CircadiPy: 27.580000000001185 Other: 25.6532059153542
+The period error for 0 is: 1.9267940846469855
+CircadiPy: 11.043043043043514 Other: 12.299393917786094
+The phase error for 0 is: -1.25635087474258
+CircadiPy: 2.0853222469861175 Other: 2.44313812721521
+The p-value error for 0 is: -0.3578158802290927
+------------------------------------------------------------------
+Gene: simulation_1
+CircadiPy: 23.570000000000558 Other: 23.3053073771298
+The period error for 1 is: 0.2646926228707578
+CircadiPy: 4.435595595595704 Other: 4.466863299243488
+The phase error for 1 is: -0.031267703647784195
+CircadiPy: 3.723099542134434 Other: 3.47344851726666
+The p-value error for 1 is: 0.24965102486777413
+------------------------------------------------------------------
+Gene: simulation_2
+CircadiPy: 21.700000000000266 Other: 22.5536774098873
+The period error for 2 is: -0.8536774098870339
+CircadiPy: 15.378978978979164 Other: 14.265841166966144
+The phase error for 2 is: 1.1131378120130204
+CircadiPy: 1.0178459148462062 Other: 1.32242890680209
+The p-value error for 2 is: -0.3045829919558838
+------------------------------------------------------------------
+Gene: simulation_3
+CircadiPy: 22.5500000000004 Other: 22.4396506398916
+The period error for 3 is: 0.11034936010879903
+CircadiPy: 6.681481481481599 Other: 7.057589453045923
+The phase error for 3 is: -0.3761079715643234
+CircadiPy: 4.169764455701722 Other: 4.12907753628679
+The p-value error for 3 is: 0.04068691941493263
+------------------------------------------------------------------
+Gene: simulation_4
+CircadiPy: 23.27000000000051 Other: 23.3915395243093
+The period error for 4 is: -0.12153952430879045
+CircadiPy: 6.102842842842975 Other: 6.1697798433554
+The phase error for 4 is: -0.06693700051242502
+CircadiPy: 5.575599886513484 Other: 5.4568342785351
+The p-value error for 4 is: 0.11876560797838476
+------------------------------------------------------------------
+Gene: simulation_5
+CircadiPy: 24.54000000000071 Other: 25.6621259571984
+The period error for 5 is: -1.1221259571976887
+CircadiPy: 15.573933933934384 Other: 15.023686716843367
+The phase error for 5 is: 0.5502472170910178
+CircadiPy: 2.5458972749045126 Other: 2.42014148994349
+The p-value error for 5 is: 0.1257557849610227
+------------------------------------------------------------------
+Gene: simulation_6
+CircadiPy: 23.51000000000055 Other: 22.9856602754444
+The period error for 6 is: 0.5243397245561496
+CircadiPy: 20.61537537537586 Other: 19.88786034922905
+The phase error for 6 is: 0.7275150261468077
+CircadiPy: 0.9289502380308203 Other: 1.01799976686016
+The p-value error for 6 is: -0.08904952882933959
+------------------------------------------------------------------
+Gene: simulation_7
+CircadiPy: 24.530000000000708 Other: 24.2945847157389
+The period error for 7 is: 0.23541528426180847
+CircadiPy: 6.285965965966145 Other: 6.389323337782807
+The phase error for 7 is: -0.10335737181666182
+CircadiPy: 3.087444935748677 Other: 3.12386671453714
+The p-value error for 7 is: -0.03642177878846331
+------------------------------------------------------------------
+Gene: simulation_8
+CircadiPy: 22.62000000000041 Other: 23.6075119478628
+The period error for 8 is: -0.9875119478623908
+CircadiPy: 8.513633633633788 Other: 8.186575287443603
+The phase error for 8 is: 0.32705834619018503
+CircadiPy: 2.1737108015150066 Other: 2.31920807179995
+The p-value error for 8 is: -0.14549727028494353
+------------------------------------------------------------------
+Gene: simulation_9
+CircadiPy: 23.030000000000474 Other: 23.3009625067934
+The period error for 9 is: -0.27096250679292666
+CircadiPy: 20.932172172172603 Other: 20.99646446853438
+The phase error for 9 is: -0.0642922963617778
+CircadiPy: 4.4552008725305505 Other: 4.11450994340703
+The p-value error for 9 is: 0.3406909291235207
+------------------------------------------------------------------
+Gene: simulation_10
+CircadiPy: 25.480000000000857 Other: 25.4669832093641
+The period error for 10 is: 0.013016790636758202
+CircadiPy: 9.079959959960263 Other: 9.17951196950594
+The phase error for 10 is: -0.09955200954567722
+CircadiPy: 5.533744403695324 Other: 5.59358362364583
+The p-value error for 10 is: -0.059839219950506006
+------------------------------------------------------------------
+Gene: simulation_11
+CircadiPy: 25.230000000000818 Other: 25.6977789252996
+The period error for 11 is: -0.46777892529878073
+CircadiPy: 20.30522522522588 Other: 20.066565751853545
+The phase error for 11 is: 0.2386594733723335
+CircadiPy: 4.656368514883168 Other: 4.7425442924723
+The p-value error for 11 is: -0.08617577758913253
+------------------------------------------------------------------
+Gene: simulation_12
+CircadiPy: 24.580000000000716 Other: 24.7672598464414
+The period error for 12 is: -0.1872598464406856
+CircadiPy: 20.028148148148734 Other: 20.003753575002285
+The phase error for 12 is: 0.02439457314644855
+CircadiPy: 4.732836199224577 Other: 4.85506772436202
+The p-value error for 12 is: -0.12223152513744306
+------------------------------------------------------------------
+Gene: simulation_13
+CircadiPy: 23.72000000000058 Other: 23.6622034041211
+The period error for 13 is: 0.057796595879480606
+CircadiPy: 10.827147147147413 Other: 11.010834944522172
+The phase error for 13 is: -0.18368779737475904
+CircadiPy: 5.591074821023808 Other: 5.98006648384035
+The p-value error for 13 is: -0.38899166281654196
+------------------------------------------------------------------
+Gene: simulation_14
+CircadiPy: 24.200000000000657 Other: 23.7645399970934
+The period error for 14 is: 0.4354600029072557
+CircadiPy: 6.298298298298466 Other: 6.803124702681227
+The phase error for 14 is: -0.5048264043827615
+CircadiPy: 4.46547938649229 Other: 4.49926237133332
+The p-value error for 14 is: -0.03378298484103048
+------------------------------------------------------------------
+Gene: simulation_15
+CircadiPy: 21.9300000000003 Other: 22.1359703280032
+The period error for 15 is: -0.20597032800289838
+CircadiPy: 18.746966966967225 Other: 18.551016631699472
+The phase error for 15 is: 0.19595033526775296
+CircadiPy: 4.131145492530706 Other: 4.07599028106779
+The p-value error for 15 is: 0.05515521146291569
+------------------------------------------------------------------
+Gene: simulation_16
+CircadiPy: 22.670000000000417 Other: 22.3278990779072
+The period error for 16 is: 0.3421009220932163
+CircadiPy: 4.175455455455534 Other: 4.659892879619791
+The phase error for 16 is: -0.4844374241642573
+CircadiPy: 3.158737209016064 Other: 3.35632771276869
+The p-value error for 16 is: -0.1975905037526262
+------------------------------------------------------------------
+Gene: simulation_17
+CircadiPy: 22.88000000000045 Other: 22.8135409802198
+The period error for 17 is: 0.06645901978065183
+CircadiPy: 11.13081081081103 Other: 11.320258217522001
+The phase error for 17 is: -0.18944740671097193
+CircadiPy: 5.416865042537067 Other: 5.77044400875457
+The p-value error for 17 is: -0.35357896621750307
+------------------------------------------------------------------
+Gene: simulation_18
+CircadiPy: 24.66000000000073 Other: 24.8332749549299
+The period error for 18 is: -0.17327495492917322
+CircadiPy: 12.49045045045082 Other: 12.698685988259891
+The phase error for 18 is: -0.20823553780907034
+CircadiPy: 4.456815373754219 Other: 4.71186927892268
+The p-value error for 18 is: -0.2550539051684604
+------------------------------------------------------------------
+Gene: simulation_19
+CircadiPy: 24.520000000000707 Other: 25.165162707679
+The period error for 19 is: -0.645162707678292
+CircadiPy: 23.41549549549617 Other: 23.195993535707963
+The phase error for 19 is: 0.2195019597882073
+CircadiPy: 4.582061088278902 Other: 4.63811403862201
+The p-value error for 19 is: -0.05605295034310842
+------------------------------------------------------------------
+Gene: simulation_20
+CircadiPy: 24.450000000000696 Other: 24.0085328062996
+The period error for 20 is: 0.4414671937010972
+CircadiPy: 5.139639639639785 Other: 5.912943170817183
+The phase error for 20 is: -0.7733035311773975
+CircadiPy: 2.999564087620458 Other: 3.06944352481514
+The p-value error for 20 is: -0.06987943719468204
+------------------------------------------------------------------
+Gene: simulation_21
+CircadiPy: 25.31000000000083 Other: 25.844272875227
+The period error for 21 is: -0.5342728752261685
+CircadiPy: 24.271251251252043 Other: 24.817562596159906
+The phase error for 21 is: -0.5463113449078634
+CircadiPy: 2.2784593976996566 Other: 1.79956243513152
+The p-value error for 21 is: 0.4788969625681365
+------------------------------------------------------------------
+Gene: simulation_22
+CircadiPy: 24.28000000000067 Other: 25.4350995672867
+The period error for 22 is: -1.1550995672860296
+CircadiPy: 0.24304304304304836 Other: -1.0337983774049633
+The phase error for 22 is: 1.2768414204480116
+CircadiPy: 2.6834714369092296 Other: 2.54788339976221
+The p-value error for 22 is: 0.1355880371470195
+------------------------------------------------------------------
+Gene: simulation_23
+CircadiPy: 25.040000000000788 Other: 24.4091868884861
+The period error for 23 is: 0.6308131115146871
+CircadiPy: 10.376936936937263 Other: 10.933787343493293
+The phase error for 23 is: -0.5568504065560305
+CircadiPy: 4.1247430881080405 Other: 4.05852494668216
+The p-value error for 23 is: 0.0662181414258809
+------------------------------------------------------------------
+Gene: simulation_24
+CircadiPy: 23.600000000000563 Other: 23.2640272565186
+The period error for 24 is: 0.33597274348196393
+CircadiPy: 6.709109109109271 Other: 6.837234251378165
+The phase error for 24 is: -0.12812514226889427
+CircadiPy: 1.5961915671603912 Other: 1.79133019316941
+The p-value error for 24 is: -0.19513862600901866
+------------------------------------------------------------------
+Gene: simulation_25
+CircadiPy: 23.980000000000622 Other: 24.1020250376314
+The period error for 25 is: -0.12202503763077743
+CircadiPy: 9.553593593593842 Other: 9.580707207933775
+The phase error for 25 is: -0.027113614339933534
+CircadiPy: 2.0994093541136714 Other: 2.04679981945083
+The p-value error for 25 is: 0.05260953466284146
+------------------------------------------------------------------
+Gene: simulation_26
+CircadiPy: 22.23000000000035 Other: 22.9460706412792
+The period error for 26 is: -0.7160706412788507
+CircadiPy: 21.184144144144476 Other: 20.601588492269055
+The phase error for 26 is: 0.5825556518754205
+CircadiPy: 1.3863191645561397 Other: 1.38775755092502
+The p-value error for 26 is: -0.0014383863688802734
+------------------------------------------------------------------
+Gene: simulation_27
+CircadiPy: 23.820000000000597 Other: 24.0478274486959
+The period error for 27 is: -0.22782744869530447
+CircadiPy: 13.066426426426755 Other: 12.78053450011521
+The phase error for 27 is: 0.28589192631154425
+CircadiPy: 3.940972155859674 Other: 3.99943193793297
+The p-value error for 27 is: -0.05845978207329594
+------------------------------------------------------------------
+Gene: simulation_28
+CircadiPy: 26.15000000000096 Other: 25.5099868252873
+The period error for 28 is: 0.6400131747136619
+CircadiPy: 22.145045045045862 Other: 20.602639858407954
+The phase error for 28 is: 1.5424051866379074
+CircadiPy: 1.0961170246883105 Other: 1.0021357962396
+The p-value error for 28 is: 0.09398122844871049
+------------------------------------------------------------------
+Gene: simulation_29
+CircadiPy: 23.91000000000061 Other: 23.8000492192805
+The period error for 29 is: 0.1099507807201121
+CircadiPy: 2.3933933933934526 Other: 2.6209743720113106
+The phase error for 29 is: -0.22758097861785798
+CircadiPy: 4.827614505993061 Other: 4.90846283291467
+The p-value error for 29 is: -0.08084832692160848
+------------------------------------------------------------------
+Gene: simulation_30
+CircadiPy: 21.35000000000021 Other: 22.0181563394144
+The period error for 30 is: -0.668156339414189
+CircadiPy: 2.6500500500500763 Other: 1.8267946510008706
+The phase error for 30 is: 0.8232553990492057
+CircadiPy: 3.752437373878367 Other: 3.92670285911299
+The p-value error for 30 is: -0.17426548523462326
+------------------------------------------------------------------
+Gene: simulation_31
+CircadiPy: 23.350000000000524 Other: 23.8616800531745
+The period error for 31 is: -0.5116800531739756
+CircadiPy: 20.66206206206252 Other: 20.704551804194544
+The phase error for 31 is: -0.04248974213202317
+CircadiPy: 5.502712418166599 Other: 5.76421192986891
+The p-value error for 31 is: -0.26149951170231134
+------------------------------------------------------------------
+Gene: simulation_32
+CircadiPy: 21.9300000000003 Other: 22.0684627415612
+The period error for 32 is: -0.13846274156089677
+CircadiPy: 20.020180180180457 Other: 19.994169648561797
+The phase error for 32 is: 0.026010531618659627
+CircadiPy: 5.856062677712007 Other: 5.98497237451375
+The p-value error for 32 is: -0.1289096968017427
+------------------------------------------------------------------
+Gene: simulation_33
+CircadiPy: 26.000000000000938 Other: 25.8186509972438
+The period error for 33 is: 0.1813490027571376
+CircadiPy: 20.612612612613354 Other: 20.50728675291103
+The phase error for 33 is: 0.10532585970232589
+CircadiPy: 5.360372866690538 Other: 5.55880345078185
+The p-value error for 33 is: -0.1984305840913123
+------------------------------------------------------------------
+Gene: simulation_34
+CircadiPy: 23.210000000000502 Other: 23.1429003570229
+The period error for 34 is: 0.06709964297760251
+CircadiPy: 21.606906906907376 Other: 21.74789854550567
+The phase error for 34 is: -0.1409916385982939
+CircadiPy: 4.048315780240855 Other: 4.31421992508695
+The p-value error for 34 is: -0.26590414484609504
+------------------------------------------------------------------
+Gene: simulation_35
+CircadiPy: 23.870000000000605 Other: 24.4239309923723
+The period error for 35 is: -0.5539309923716935
+CircadiPy: 10.369949949950213 Other: 9.682394805412356
+The phase error for 35 is: 0.6875551445378569
+CircadiPy: 1.7965651003369647 Other: 1.97237663227133
+The p-value error for 35 is: -0.17581153193436538
+------------------------------------------------------------------
+Gene: simulation_36
+CircadiPy: 24.260000000000666 Other: 24.5211269762367
+The period error for 36 is: -0.2611269762360351
+CircadiPy: 20.155955955956507 Other: 20.12660750050361
+The phase error for 36 is: 0.029348455452897326
+CircadiPy: 5.123383570217495 Other: 5.00657151592895
+The p-value error for 36 is: 0.11681205428854469
+------------------------------------------------------------------
+Gene: simulation_37
+CircadiPy: 22.730000000000427 Other: 22.502939584665
+The period error for 37 is: 0.2270604153354263
+CircadiPy: 9.965705705705894 Other: 10.017053783033742
+The phase error for 37 is: -0.051348077327848074
+CircadiPy: 3.2700685811618793 Other: 3.87397608743049
+The p-value error for 37 is: -0.6039075062686106
+------------------------------------------------------------------
+Gene: simulation_38
+CircadiPy: 25.70000000000089 Other: 25.9784690970555
+The period error for 38 is: -0.2784690970546073
+CircadiPy: 5.659659659659855 Other: 6.191151193610121
+The phase error for 38 is: -0.5314915339502662
+CircadiPy: 2.6208946001503843 Other: 2.53963301680051
+The p-value error for 38 is: 0.08126158334987421
+------------------------------------------------------------------
+Gene: simulation_39
+CircadiPy: 22.540000000000397 Other: 22.6862822752446
+The period error for 39 is: -0.14628227524420367
+CircadiPy: 5.324764764764858 Other: 5.34713685763483
+The phase error for 39 is: -0.022372092869971993
+CircadiPy: 4.750740302420985 Other: 4.71050534304231
+The p-value error for 39 is: 0.04023495937867505
+------------------------------------------------------------------
+Gene: simulation_40
+CircadiPy: 24.380000000000685 Other: 25.232647722587
+The period error for 40 is: -0.8526477225863154
+CircadiPy: 4.441601601601725 Other: 3.346425733607267
+The phase error for 40 is: 1.0951758679944583
+CircadiPy: 1.5641036647774453 Other: 1.40664768195711
+The p-value error for 40 is: 0.15745598282033524
+------------------------------------------------------------------
+Gene: simulation_41
+CircadiPy: 22.730000000000427 Other: 22.3618410853669
+The period error for 41 is: 0.36815891463352557
+CircadiPy: 8.828068068068234 Other: 8.721586498632053
+The phase error for 41 is: 0.10648156943618048
+CircadiPy: 3.067065085285204 Other: 3.28009226033464
+The p-value error for 41 is: -0.2130271750494357
+------------------------------------------------------------------
+Gene: simulation_42
+CircadiPy: 25.990000000000936 Other: 25.9577796217054
+The period error for 42 is: 0.0322203782955377
+CircadiPy: 24.767247247248136 Other: 24.693387883036355
+The phase error for 42 is: 0.0738593642117813
+CircadiPy: 5.894109274167182 Other: 5.97061407659203
+The p-value error for 42 is: -0.07650480242484825
+------------------------------------------------------------------
+Gene: simulation_43
+CircadiPy: 24.880000000000763 Other: 24.6064221290872
+The period error for 43 is: 0.273577870913563
+CircadiPy: 24.456616616617367 Other: 24.23858583568082
+The phase error for 43 is: 0.21803078093654804
+CircadiPy: 4.402530366297158 Other: 4.23378782370128
+The p-value error for 43 is: 0.1687425425958784
+------------------------------------------------------------------
+Gene: simulation_44
+CircadiPy: 22.350000000000367 Other: 22.6374048022553
+The period error for 44 is: -0.28740480225493314
+CircadiPy: 18.166366366366667 Other: 18.10227942556932
+The phase error for 44 is: 0.06408694079734545
+CircadiPy: 5.267479354493588 Other: 5.27142711472698
+The p-value error for 44 is: -0.003947760233391939
+------------------------------------------------------------------
+Gene: simulation_45
+CircadiPy: 25.7600000000009 Other: 24.7315578842536
+The period error for 45 is: 1.0284421157472998
+CircadiPy: 11.706746746747156 Other: 12.011935641797914
+The phase error for 45 is: -0.3051888950507582
+CircadiPy: 1.8335946441001403 Other: 2.16805040859617
+The p-value error for 45 is: -0.33445576449602954
+------------------------------------------------------------------
+Gene: simulation_46
+CircadiPy: 25.19000000000081 Other: 25.3819443872198
+The period error for 46 is: -0.19194438721898877
+CircadiPy: 23.09713713713788 Other: 23.526907238167592
+The phase error for 46 is: -0.42977010102971036
+CircadiPy: 2.4814864498394247 Other: 2.40541766770184
+The p-value error for 46 is: 0.07606878213758472
+------------------------------------------------------------------
+Gene: simulation_47
+CircadiPy: 22.450000000000383 Other: 22.6283702393994
+The period error for 47 is: -0.17837023939901542
+CircadiPy: 19.9555555555559 Other: 19.731269865205086
+The phase error for 47 is: 0.2242856903508148
+CircadiPy: 1.9737397590090267 Other: 1.90155852492899
+The p-value error for 47 is: 0.07218123408003674
+------------------------------------------------------------------
+Gene: simulation_48
+CircadiPy: 25.94000000000093 Other: 25.6566357715055
+The period error for 48 is: 0.2833642284954294
+CircadiPy: 1.1425025025025448 Other: 1.5274799313894818
+The phase error for 48 is: -0.384977428886937
+CircadiPy: 4.6524700544039534 Other: 4.44870736589655
+The p-value error for 48 is: 0.2037626885074033
+------------------------------------------------------------------
+Gene: simulation_49
+CircadiPy: 22.710000000000424 Other: 22.3905311217532
+The period error for 49 is: 0.3194688782472248
+CircadiPy: 10.72984984985005 Other: 10.947668098079648
+The phase error for 49 is: -0.21781824822959805
+CircadiPy: 4.936086101679569 Other: 5.46092914324254
+The p-value error for 49 is: -0.5248430415629706
+------------------------------------------------------------------
+Gene: simulation_50
+CircadiPy: 25.63000000000088 Other: 25.4921232415363
+The period error for 50 is: 0.13787675846457859
+CircadiPy: 23.39795795795876 Other: 22.853702090660878
+The phase error for 50 is: 0.5442558672978812
+CircadiPy: 2.247870865463969 Other: 2.0872621962335
+The p-value error for 50 is: 0.16060866923046913
+------------------------------------------------------------------
+Gene: simulation_51
+CircadiPy: 22.610000000000408 Other: 22.3556532049552
+The period error for 51 is: 0.2543467950452083
+CircadiPy: 6.880320320320443 Other: 7.27547578917893
+The phase error for 51 is: -0.39515546885848707
+CircadiPy: 5.759141784918358 Other: 5.87692793132737
+The p-value error for 51 is: -0.11778614640901175
+------------------------------------------------------------------
+Gene: simulation_52
+CircadiPy: 22.12000000000033 Other: 22.2743318937719
+The period error for 52 is: -0.15433189377156964
+CircadiPy: 10.008248248248396 Other: 9.94951940940386
+The phase error for 52 is: 0.0587288388445355
+CircadiPy: 4.261601238703275 Other: 4.53378703817725
+The p-value error for 52 is: -0.27218579947397537
+------------------------------------------------------------------
+Gene: simulation_53
+CircadiPy: 25.38000000000084 Other: 25.3878932343796
+The period error for 53 is: -0.007893234378759217
+CircadiPy: 15.75135135135187 Other: 15.74222947252186
+The phase error for 53 is: 0.009121878830010033
+CircadiPy: 4.261493697267734 Other: 4.44144906965084
+The p-value error for 53 is: -0.17995537238310622
+------------------------------------------------------------------
+Gene: simulation_54
+CircadiPy: 22.36000000000037 Other: 22.5669680098072
+The period error for 54 is: -0.2069680098068325
+CircadiPy: 17.592552552552846 Other: 17.24557703975899
+The phase error for 54 is: 0.3469755127938541
+CircadiPy: 4.703291179872337 Other: 5.03178374399431
+The p-value error for 54 is: -0.3284925641219729
+------------------------------------------------------------------
+Gene: simulation_55
+CircadiPy: 24.370000000000683 Other: 24.2987576955929
+The period error for 55 is: 0.07124230440778234
+CircadiPy: 2.6345945945946703 Other: 2.469576187799831
+The phase error for 55 is: 0.16501840679483948
+CircadiPy: 3.249607489117629 Other: 3.24912951816805
+The p-value error for 55 is: 0.00047797094957902075
+------------------------------------------------------------------
+Gene: simulation_56
+CircadiPy: 21.680000000000263 Other: 22.1489568576217
+The period error for 56 is: -0.4689568576214391
+CircadiPy: 2.864624624624657 Other: 2.349417192308081
+The phase error for 56 is: 0.5152074323165761
+CircadiPy: 4.211097016015167 Other: 4.31984730437398
+The p-value error for 56 is: -0.10875028835881295
+------------------------------------------------------------------
+Gene: simulation_57
+CircadiPy: 24.170000000000652 Other: 24.1135954996571
+The period error for 57 is: 0.05640450034355027
+CircadiPy: 0.3387187187187273 Other: 0.5182467437840541
+The phase error for 57 is: -0.17952802506532684
+CircadiPy: 1.4730003746645064 Other: 1.57349731447175
+The p-value error for 57 is: -0.1004969398072435
+------------------------------------------------------------------
+Gene: simulation_58
+CircadiPy: 25.130000000000802 Other: 25.4867856651545
+The period error for 58 is: -0.3567856651536978
+CircadiPy: 0.5534134134134305 Other: 0.2917757629025977
+The phase error for 58 is: 0.2616376505108328
+CircadiPy: 4.195956430122447 Other: 3.68465113709681
+The p-value error for 58 is: 0.5113052930256368
+------------------------------------------------------------------
+Gene: simulation_59
+CircadiPy: 23.240000000000506 Other: 23.6629199655727
+The period error for 59 is: -0.4229199655721949
+CircadiPy: 12.748268268268545 Other: 12.493252730801803
+The phase error for 59 is: 0.25501553746674155
+CircadiPy: 3.5673108647210476 Other: 3.77009200304747
+The p-value error for 59 is: -0.2027811383264222
+------------------------------------------------------------------
+Gene: simulation_60
+CircadiPy: 22.600000000000406 Other: 23.2678762339056
+The period error for 60 is: -0.6678762339051936
+CircadiPy: 21.44624624624663 Other: 21.57877013336054
+The phase error for 60 is: -0.1325238871139085
+CircadiPy: 3.7413004703499726 Other: 4.06966189760715
+The p-value error for 60 is: -0.32836142725717776
+------------------------------------------------------------------
+Gene: simulation_61
+CircadiPy: 26.380000000000997 Other: 25.5774077018723
+The period error for 61 is: 0.8025922981286975
+CircadiPy: 6.495975975976219 Other: 7.080897396915095
+The phase error for 61 is: -0.5849214209388762
+CircadiPy: 4.716628383797893 Other: 4.96408790256828
+The p-value error for 61 is: -0.24745951877038674
+------------------------------------------------------------------
+Gene: simulation_62
+CircadiPy: 26.15000000000096 Other: 25.5338833546266
+The period error for 62 is: 0.6161166453743618
+CircadiPy: 6.910510510510765 Other: 7.309452493310118
+The phase error for 62 is: -0.39894198279935367
+CircadiPy: 3.722234839882205 Other: 3.60994560318068
+The p-value error for 62 is: 0.11228923670152513
+------------------------------------------------------------------
+Gene: simulation_63
+CircadiPy: 24.320000000000675 Other: 24.6401813477278
+The period error for 63 is: -0.32018134772712514
+CircadiPy: 13.730210210210593 Other: 13.438405465665815
+The phase error for 63 is: 0.29180474454477867
+CircadiPy: 5.346481884970334 Other: 5.42681197659113
+The p-value error for 63 is: -0.08033009162079541
+------------------------------------------------------------------
+Gene: simulation_64
+CircadiPy: 25.19000000000081 Other: 25.1972531881183
+The period error for 64 is: -0.007253188117488207
+CircadiPy: 4.0848648648650006 Other: 4.629848649178638
+The phase error for 64 is: -0.5449837843136374
+CircadiPy: 2.7749003647510726 Other: 3.00142854009755
+The p-value error for 64 is: -0.2265281753464774
+------------------------------------------------------------------
+Gene: simulation_65
+CircadiPy: 26.060000000000947 Other: 25.786107564345
+The period error for 65 is: 0.2738924356559487
+CircadiPy: 12.782182182182648 Other: 12.677845876619015
+The phase error for 65 is: 0.10433630556363305
+CircadiPy: 4.057193813404375 Other: 4.65252979099751
+The p-value error for 65 is: -0.5953359775931348
+------------------------------------------------------------------
+Gene: simulation_66
+CircadiPy: 24.110000000000642 Other: 23.919853114523
+The period error for 66 is: 0.1901468854776418
+CircadiPy: 18.004064064064544 Other: 17.923505196518434
+The phase error for 66 is: 0.08055886754610952
+CircadiPy: 2.5971026701436584 Other: 2.72859319602139
+The p-value error for 66 is: -0.13149052587773147
+------------------------------------------------------------------
+Gene: simulation_67
+CircadiPy: 22.090000000000327 Other: 22.3739679967985
+The period error for 67 is: -0.28396799679817164
+CircadiPy: 14.328648648648862 Other: 14.11605693995907
+The phase error for 67 is: 0.21259170868979282
+CircadiPy: 3.9075012928406636 Other: 3.83126236055978
+The p-value error for 67 is: 0.07623893228088363
+------------------------------------------------------------------
+Gene: simulation_68
+CircadiPy: 23.00000000000047 Other: 23.1696399226785
+The period error for 68 is: -0.16963992267803008
+CircadiPy: 10.774774774774995 Other: 10.778198760215899
+The phase error for 68 is: -0.0034239854409037207
+CircadiPy: 2.509652418044241 Other: 2.45047555794008
+The p-value error for 68 is: 0.05917686010416112
+------------------------------------------------------------------
+Gene: simulation_69
+CircadiPy: 22.89000000000045 Other: 23.2842669589445
+The period error for 69 is: -0.39426695894404773
+CircadiPy: 10.127507507507705 Other: 9.665279472649859
+The phase error for 69 is: 0.462228034857846
+CircadiPy: 1.4015122592102984 Other: 1.62822448904626
+The p-value error for 69 is: -0.22671222983596162
+------------------------------------------------------------------
+Gene: simulation_70
+CircadiPy: 22.540000000000397 Other: 22.9968243679032
+The period error for 70 is: -0.45682436790280434
+CircadiPy: 20.53193193193229 Other: 19.934301204152106
+The phase error for 70 is: 0.5976307277801851
+CircadiPy: 1.9773482655556525 Other: 1.98722731345333
+The p-value error for 70 is: -0.009879047897677573
+------------------------------------------------------------------
+Gene: simulation_71
+CircadiPy: 22.660000000000416 Other: 23.6398223992437
+The period error for 71 is: -0.979822399243286
+CircadiPy: 17.737857857858184 Other: 17.545973835163718
+The phase error for 71 is: 0.1918840226944667
+CircadiPy: 2.390837995390897 Other: 2.56364872818813
+The p-value error for 71 is: -0.1728107327972328
+------------------------------------------------------------------
+Gene: simulation_72
+CircadiPy: 22.380000000000372 Other: 22.2465276932344
+The period error for 72 is: 0.13347230676597377
+CircadiPy: 3.136336336336388 Other: 3.341934861378683
+The phase error for 72 is: -0.2055985250422947
+CircadiPy: 5.6641881112653 Other: 5.95433958363719
+The p-value error for 72 is: -0.2901514723718899
+------------------------------------------------------------------
+Gene: simulation_73
+CircadiPy: 23.480000000000544 Other: 23.9255630420521
+The period error for 73 is: -0.44556304205155683
+CircadiPy: 3.4785185185186016 Other: 3.4717440517758322
+The phase error for 73 is: 0.0067744667427693805
+CircadiPy: 3.814573744624159 Other: 3.70953044877388
+The p-value error for 73 is: 0.10504329585027916
+------------------------------------------------------------------
+Gene: simulation_74
+CircadiPy: 23.820000000000597 Other: 23.7371899383143
+The period error for 74 is: 0.08281006168629546
+CircadiPy: 1.7644444444444893 Other: 2.0418060899098216
+The phase error for 74 is: -0.27736164546533226
+CircadiPy: 4.739357116898455 Other: 4.63106905133463
+The p-value error for 74 is: 0.10828806556382542
+------------------------------------------------------------------
+Gene: simulation_75
+CircadiPy: 23.71000000000058 Other: 23.4209332829341
+The period error for 75 is: 0.28906671706647913
+CircadiPy: 18.27497497497542 Other: 18.077674223384303
+The phase error for 75 is: 0.19730075159111848
+CircadiPy: 3.2882227837057254 Other: 3.51055967411958
+The p-value error for 75 is: -0.22233689041385452
+------------------------------------------------------------------
+Gene: simulation_76
+CircadiPy: 23.480000000000544 Other: 23.3944989927113
+The period error for 76 is: 0.08550100728924548
+CircadiPy: 7.803163163163344 Other: 7.8688956443751366
+The phase error for 76 is: -0.06573248121179276
+CircadiPy: 2.404693115143807 Other: 2.36772310244851
+The p-value error for 76 is: 0.03697001269529698
+------------------------------------------------------------------
+Gene: simulation_77
+CircadiPy: 24.170000000000652 Other: 23.8674971936271
+The period error for 77 is: 0.3025028063735533
+CircadiPy: 4.548508508508629 Other: 4.730588079421929
+The phase error for 77 is: -0.18207957091329963
+CircadiPy: 4.17575684679136 Other: 4.46416126354598
+The p-value error for 77 is: -0.28840441675462003
+------------------------------------------------------------------
+Gene: simulation_78
+CircadiPy: 22.5500000000004 Other: 22.7607724526897
+The period error for 78 is: -0.21077245268930156
+CircadiPy: 13.67897897897922 Other: 13.188299107584522
+The phase error for 78 is: 0.4906798713946987
+CircadiPy: 1.5382116751759312 Other: 1.98442530026659
+The p-value error for 78 is: -0.44621362509065876
+------------------------------------------------------------------
+Gene: simulation_79
+CircadiPy: 25.990000000000936 Other: 25.3136703949422
+The period error for 79 is: 0.6763296050587364
+CircadiPy: 5.255235235235425 Other: 5.581529390836786
+The phase error for 79 is: -0.326294155601361
+CircadiPy: 2.294045508863703 Other: 2.27006490016356
+The p-value error for 79 is: 0.023980608700142625
+------------------------------------------------------------------
+Gene: simulation_80
+CircadiPy: 22.930000000000458 Other: 22.628176594153
+The period error for 80 is: 0.3018234058474576
+CircadiPy: 0.7344944944945091 Other: 1.1440208398036764
+The phase error for 80 is: -0.4095263453091673
+CircadiPy: 3.905190159495546 Other: 4.10772177763283
+The p-value error for 80 is: -0.20253161813728404
+------------------------------------------------------------------
+Gene: simulation_81
+CircadiPy: 24.42000000000069 Other: 24.2786615919322
+The period error for 81 is: 0.14133840806849207
+CircadiPy: 23.955555555556234 Other: 23.81633165536002
+The phase error for 81 is: 0.1392239001962139
+CircadiPy: 3.202187888906617 Other: 3.1540964813903
+The p-value error for 81 is: 0.04809140751631702
+------------------------------------------------------------------
+Gene: simulation_82
+CircadiPy: 21.690000000000264 Other: 23.1115269707516
+The period error for 82 is: -1.4215269707513372
+CircadiPy: 20.97351351351377 Other: 20.027136405902088
+The phase error for 82 is: 0.9463771076116814
+CircadiPy: 1.101198514710417 Other: 1.36389359971508
+The p-value error for 82 is: -0.262695085004663
+------------------------------------------------------------------
+Gene: simulation_83
+CircadiPy: 24.820000000000753 Other: 24.8728206465021
+The period error for 83 is: -0.052820646501345436
+CircadiPy: 11.428628628628974 Other: 11.597986076776245
+The phase error for 83 is: -0.16935744814727016
+CircadiPy: 4.375422117639248 Other: 4.65592086338438
+The p-value error for 83 is: -0.280498745745132
+------------------------------------------------------------------
+Gene: simulation_84
+CircadiPy: 23.8300000000006 Other: 24.0646920520812
+The period error for 84 is: -0.23469205208060018
+CircadiPy: 1.478938938938981 Other: 1.0498291032575888
+The phase error for 84 is: 0.42910983568139227
+CircadiPy: 5.793900914623608 Other: 5.63284397148527
+The p-value error for 84 is: 0.16105694313833752
+------------------------------------------------------------------
+Gene: simulation_85
+CircadiPy: 22.37000000000037 Other: 22.8427525917068
+The period error for 85 is: -0.47275259170643125
+CircadiPy: 19.12310310310342 Other: 18.655649339392287
+The phase error for 85 is: 0.46745376371113423
+CircadiPy: 1.9059366782989047 Other: 2.02028339984827
+The p-value error for 85 is: -0.11434672154936543
+------------------------------------------------------------------
+Gene: simulation_86
+CircadiPy: 23.280000000000513 Other: 22.9878250332549
+The period error for 86 is: 0.2921749667456126
+CircadiPy: 6.245285285285423 Other: 6.866314569398799
+The phase error for 86 is: -0.6210292841133764
+CircadiPy: 5.243784435971445 Other: 5.52517199562863
+The p-value error for 86 is: -0.2813875596571842
+------------------------------------------------------------------
+Gene: simulation_87
+CircadiPy: 24.10000000000064 Other: 24.5620490396395
+The period error for 87 is: -0.4620490396388597
+CircadiPy: 15.970170170170597 Other: 15.921652531686574
+The phase error for 87 is: 0.04851763848402335
+CircadiPy: 2.6323292898676387 Other: 2.78258101455867
+The p-value error for 87 is: -0.1502517246910311
+------------------------------------------------------------------
+Gene: simulation_88
+CircadiPy: 24.190000000000655 Other: 24.2471019942313
+The period error for 88 is: -0.05710199423064566
+CircadiPy: 8.959259259259504 Other: 9.140873029786901
+The phase error for 88 is: -0.18161377052739702
+CircadiPy: 4.55408370117342 Other: 4.66591005120426
+The p-value error for 88 is: -0.11182635003083963
+------------------------------------------------------------------
+Gene: simulation_89
+CircadiPy: 25.470000000000855 Other: 25.1856209728867
+The period error for 89 is: 0.28437902711415575
+CircadiPy: 14.583423423423913 Other: 14.675381966735447
+The phase error for 89 is: -0.09195854331153441
+CircadiPy: 3.528188710403663 Other: 4.06221516802907
+The p-value error for 89 is: -0.5340264576254068
+------------------------------------------------------------------
+Gene: simulation_90
+CircadiPy: 26.21000000000097 Other: 24.88028274104
+The period error for 90 is: 1.3297172589609723
+CircadiPy: 25.239259259260194 Other: 24.673518862904313
+The phase error for 90 is: 0.5657403963558814
+CircadiPy: 2.1582530636793873 Other: 1.98533629556186
+The p-value error for 90 is: 0.1729167681175272
+------------------------------------------------------------------
+Gene: simulation_91
+CircadiPy: 25.870000000000918 Other: 25.8549261856824
+The period error for 91 is: 0.015073814318515844
+CircadiPy: 15.123203203203737 Other: 15.386120292400719
+The phase error for 91 is: -0.2629170891969821
+CircadiPy: 4.123824218297285 Other: 4.42759936582297
+The p-value error for 91 is: -0.3037751475256849
+------------------------------------------------------------------
+Gene: simulation_92
+CircadiPy: 22.770000000000433 Other: 23.6350546134636
+The period error for 92 is: -0.8650546134631654
+CircadiPy: 1.0484684684684886 Other: 0.42631489498703645
+The phase error for 92 is: 0.6221535734814522
+CircadiPy: 1.5373143885521063 Other: 1.62149836216122
+The p-value error for 92 is: -0.08418397360911367
+------------------------------------------------------------------
+Gene: simulation_93
+CircadiPy: 23.310000000000517 Other: 22.9491589963436
+The period error for 93 is: 0.36084100365691896
+CircadiPy: 19.973333333333777 Other: 19.705395682917874
+The phase error for 93 is: 0.26793765041590234
+CircadiPy: 1.761367556272555 Other: 1.99473129725084
+The p-value error for 93 is: -0.23336374097828494
+------------------------------------------------------------------
+Gene: simulation_94
+CircadiPy: 22.31000000000036 Other: 22.1020915191621
+The period error for 94 is: 0.20790848083825963
+CircadiPy: 9.290250250250402 Other: 9.837351272329762
+The phase error for 94 is: -0.5471010220793602
+CircadiPy: 2.786856554691017 Other: 3.05065412796102
+The p-value error for 94 is: -0.2637975732700033
+------------------------------------------------------------------
+Gene: simulation_95
+CircadiPy: 21.61000000000025 Other: 22.0056585101411
+The period error for 95 is: -0.39565851014084785
+CircadiPy: 3.028428428428466 Other: 2.7325018400604946
+The phase error for 95 is: 0.29592658836797137
+CircadiPy: 4.947350343358142 Other: 5.37733327038586
+The p-value error for 95 is: -0.42998292702771757
+------------------------------------------------------------------
+Gene: simulation_96
+CircadiPy: 22.05000000000032 Other: 22.7229903638363
+The period error for 96 is: -0.6729903638359787
+CircadiPy: 11.830630630630804 Other: 11.555103533458027
+The phase error for 96 is: 0.2755270971727768
+CircadiPy: 3.283987280207585 Other: 3.55503262393177
+The p-value error for 96 is: -0.2710453437241851
+------------------------------------------------------------------
+Gene: simulation_97
+CircadiPy: 23.680000000000575 Other: 23.402373268269
+The period error for 97 is: 0.27762673173157637
+CircadiPy: 1.2325925925926207 Other: 1.6991025765142416
+The phase error for 97 is: -0.4665099839216209
+CircadiPy: 5.16187740969668 Other: 5.39250115421601
+The p-value error for 97 is: -0.2306237445193302
+------------------------------------------------------------------
+Gene: simulation_98
+CircadiPy: 25.090000000000796 Other: 25.5329768676311
+The period error for 98 is: -0.4429768676303034
+CircadiPy: 17.881961961962528 Other: 17.77788622161955
+The phase error for 98 is: 0.10407574034297795
+CircadiPy: 1.5770178487314621 Other: 1.76147016952746
+The p-value error for 98 is: -0.18445232079599783
+------------------------------------------------------------------
+Gene: simulation_99
+CircadiPy: 23.45000000000054 Other: 22.3657501423731
+The period error for 99 is: 1.0842498576274409
+CircadiPy: 11.689789789790058 Other: 11.629561511370866
+The phase error for 99 is: 0.060228278419192094
+CircadiPy: 2.1423071202750634 Other: 2.5704399405513
+The p-value error for 99 is: -0.42813282027623645
+------------------------------------------------------------------
+Gene: simulation_100
+CircadiPy: 22.670000000000417 Other: 22.8886005301028
+The period error for 100 is: -0.2186005301023819
+CircadiPy: 20.741121121121505 Other: 20.66825560026348
+The phase error for 100 is: 0.07286552085802711
+CircadiPy: 4.260881147124135 Other: 4.65403053816408
+The p-value error for 100 is: -0.3931493910399455
+------------------------------------------------------------------
+Gene: simulation_101
+CircadiPy: 24.120000000000644 Other: 24.252689559944
+The period error for 101 is: -0.13268955994335485
+CircadiPy: 1.6900900900901377 Other: 1.6111832714296495
+The phase error for 101 is: 0.07890681866048821
+CircadiPy: 5.394645080521798 Other: 5.18800599989481
+The p-value error for 101 is: 0.20663908062698777
+------------------------------------------------------------------
+Gene: simulation_102
+CircadiPy: 24.55000000000071 Other: 24.8724295245484
+The period error for 102 is: -0.32242952454769025
+CircadiPy: 20.396896896897488 Other: 20.557627328788122
+The phase error for 102 is: -0.1607304318906344
+CircadiPy: 1.1116854560715619 Other: 1.27156415744685
+The p-value error for 102 is: -0.15987870137528803
+------------------------------------------------------------------
+Gene: simulation_103
+CircadiPy: 26.14000000000096 Other: 25.7385605452582
+The period error for 103 is: 0.40143945474276066
+CircadiPy: 7.535855855856131 Other: 7.844674372015211
+The phase error for 103 is: -0.3088185161590804
+CircadiPy: 4.666262679062673 Other: 4.91620856244117
+The p-value error for 103 is: -0.24994588337849688
+------------------------------------------------------------------
+Gene: simulation_104
+CircadiPy: 24.92000000000077 Other: 24.4074204033241
+The period error for 104 is: 0.5125795966766695
+CircadiPy: 18.858378378378962 Other: 17.867349883920586
+The phase error for 104 is: 0.9910284944583765
+CircadiPy: 1.5925239387687053 Other: 1.76416024123318
+The p-value error for 104 is: -0.1716363024644747
+------------------------------------------------------------------
+Gene: simulation_105
+CircadiPy: 24.070000000000636 Other: 24.0943683376536
+The period error for 105 is: -0.024368337652962424
+CircadiPy: 5.107947947948084 Other: 5.224882936691552
+The phase error for 105 is: -0.11693498874346808
+CircadiPy: 5.493523594733629 Other: 5.62770271813497
+The p-value error for 105 is: -0.1341791234013412
+------------------------------------------------------------------
+Gene: simulation_106
+CircadiPy: 26.350000000000993 Other: 25.7127592945471
+The period error for 106 is: 0.6372407054538911
+CircadiPy: 5.486286286286493 Other: 6.023327510094243
+The phase error for 106 is: -0.5370412238077504
+CircadiPy: 3.987167862612259 Other: 3.89001641911454
+The p-value error for 106 is: 0.09715144349771876
+------------------------------------------------------------------
+Gene: simulation_107
+CircadiPy: 25.32000000000083 Other: 24.7072695204988
+The period error for 107 is: 0.6127304795020301
+CircadiPy: 0.912432432432464 Other: 1.2743943686423886
+The phase error for 107 is: -0.3619619362099247
+CircadiPy: 3.4944181553789635 Other: 3.51156674465165
+The p-value error for 107 is: -0.017148589272686365
+------------------------------------------------------------------
+Gene: simulation_108
+CircadiPy: 23.78000000000059 Other: 24.3114962745458
+The period error for 108 is: -0.5314962745452085
+CircadiPy: 21.851891891892436 Other: 21.73624354305023
+The phase error for 108 is: 0.11564834884220687
+CircadiPy: 5.369922554489063 Other: 5.15517692454159
+The p-value error for 108 is: 0.21474562994747348
+------------------------------------------------------------------
+Gene: simulation_109
+CircadiPy: 27.99000000000125 Other: 24.8271305281669
+The period error for 109 is: 3.162869471834348
+CircadiPy: 2.297477477477578 Other: 4.347104277031576
+The phase error for 109 is: -2.049626799553998
+CircadiPy: 0.8606906994848226 Other: 1.03845904720947
+The p-value error for 109 is: -0.17776834772464734
+------------------------------------------------------------------
+Gene: simulation_110
+CircadiPy: 25.7500000000009 Other: 25.3846009001136
+The period error for 110 is: 0.36539909988729846
+CircadiPy: 2.3713713713714526 Other: 2.901335896734756
+The phase error for 110 is: -0.5299645253633032
+CircadiPy: 6.265705977651785 Other: 5.84239169629291
+The p-value error for 110 is: 0.4233142813588753
+------------------------------------------------------------------
+Gene: simulation_111
+CircadiPy: 23.620000000000566 Other: 24.0944990739226
+The period error for 111 is: -0.4744990739220327
+CircadiPy: 20.759119119119617 Other: 20.440509258446927
+The phase error for 111 is: 0.3186098606726908
+CircadiPy: 4.870035515267121 Other: 4.74607137520798
+The p-value error for 111 is: 0.12396414005914114
+------------------------------------------------------------------
+Gene: simulation_112
+CircadiPy: 21.450000000000227 Other: 22.2728436877951
+The period error for 112 is: -0.8228436877948724
+CircadiPy: 16.747747747747923 Other: 16.036148524304327
+The phase error for 112 is: 0.7115992234435957
+CircadiPy: 1.7547531238802156 Other: 1.66547869471833
+The p-value error for 112 is: 0.08927442916188566
+------------------------------------------------------------------
+Gene: simulation_113
+CircadiPy: 22.970000000000464 Other: 23.6779523603618
+The period error for 113 is: -0.707952360361336
+CircadiPy: 22.165245245245693 Other: 21.778119469612925
+The phase error for 113 is: 0.38712577563276795
+CircadiPy: 2.425843863457075 Other: 2.21266709640622
+The p-value error for 113 is: 0.2131767670508551
+------------------------------------------------------------------
+Gene: simulation_114
+CircadiPy: 25.450000000000852 Other: 25.3011668659747
+The period error for 114 is: 0.14883313402615173
+CircadiPy: 6.063163163163367 Other: 6.0716726559158385
+The phase error for 114 is: -0.008509492752471814
+CircadiPy: 5.281985431871489 Other: 5.52329498948529
+The p-value error for 114 is: -0.24130955761380068
+------------------------------------------------------------------
+Gene: simulation_115
+CircadiPy: 24.070000000000636 Other: 23.6209214078262
+The period error for 115 is: 0.4490785921744376
+CircadiPy: 6.698158158158336 Other: 7.261765663798101
+The phase error for 115 is: -0.5636075056397658
+CircadiPy: 4.144259396043575 Other: 4.37040432495996
+The p-value error for 115 is: -0.22614492891638527
+------------------------------------------------------------------
+Gene: simulation_116
+CircadiPy: 25.550000000000868 Other: 25.0816624816507
+The period error for 116 is: 0.4683375183501681
+CircadiPy: 22.353053053053813 Other: 21.680241315593157
+The phase error for 116 is: 0.6728117374606555
+CircadiPy: 3.475143050088963 Other: 3.6096500956919
+The p-value error for 116 is: -0.13450704560293714
+------------------------------------------------------------------
+Gene: simulation_117
+CircadiPy: 23.430000000000536 Other: 23.5937749659643
+The period error for 117 is: -0.16377496596376417
+CircadiPy: 4.503063063063166 Other: 4.321894485204243
+The phase error for 117 is: 0.18116857785892293
+CircadiPy: 5.429464067932344 Other: 5.79770648526028
+The p-value error for 117 is: -0.36824241732793617
+------------------------------------------------------------------
+Gene: simulation_118
+CircadiPy: 23.860000000000603 Other: 23.4186278712004
+The period error for 118 is: 0.4413721288002037
+CircadiPy: 7.0218618618620425 Other: 7.673671729967675
+The phase error for 118 is: -0.6518098681056328
+CircadiPy: 5.457561225408467 Other: 5.21038042986766
+The p-value error for 118 is: 0.24718079554080674
+------------------------------------------------------------------
+Gene: simulation_119
+CircadiPy: 22.340000000000366 Other: 22.4665323859081
+The period error for 119 is: -0.1265323859077334
+CircadiPy: 16.905945945946222 Other: 16.82404930966915
+The phase error for 119 is: 0.08189663627707233
+CircadiPy: 3.7176218530413934 Other: 3.64168762951158
+The p-value error for 119 is: 0.0759342235298135
+------------------------------------------------------------------
+Gene: simulation_120
+CircadiPy: 24.780000000000747 Other: 24.5845896592364
+The period error for 120 is: 0.19541034076434727
+CircadiPy: 13.196156156156553 Other: 12.941146592368657
+The phase error for 120 is: 0.25500956378789574
+CircadiPy: 5.893063316461816 Other: 5.91620894754305
+The p-value error for 120 is: -0.023145631081234797
+------------------------------------------------------------------
+Gene: simulation_121
+CircadiPy: 26.45000000000101 Other: 25.9891823008657
+The period error for 121 is: 0.46081769913530835
+CircadiPy: 21.392992992993808 Other: 20.61829155713518
+The phase error for 121 is: 0.7747014358586277
+CircadiPy: 1.9922576456829135 Other: 1.69542221957818
+The p-value error for 121 is: 0.29683542610473346
+------------------------------------------------------------------
+Gene: simulation_122
+CircadiPy: 24.93000000000077 Other: 24.7376098008826
+The period error for 122 is: 0.19239019911817223
+CircadiPy: 3.294054054054154 Other: 3.4572053405173606
+The phase error for 122 is: -0.16315128646320654
+CircadiPy: 4.169250995482521 Other: 4.01487296936102
+The p-value error for 122 is: 0.15437802612150087
+------------------------------------------------------------------
+Gene: simulation_123
+CircadiPy: 22.320000000000363 Other: 22.7596237882972
+The period error for 123 is: -0.43962378829683857
+CircadiPy: 18.812252252252552 Other: 18.65826213336427
+The phase error for 123 is: 0.15399011888828085
+CircadiPy: 2.962126659840786 Other: 3.3858157126233
+The p-value error for 123 is: -0.4236890527825139
+------------------------------------------------------------------
+Gene: simulation_124
+CircadiPy: 24.760000000000744 Other: 24.9638524064794
+The period error for 124 is: -0.20385240647865643
+CircadiPy: 23.991671671672396 Other: 24.154719756003924
+The phase error for 124 is: -0.1630480843315283
+CircadiPy: 3.095434089165261 Other: 3.04512525349855
+The p-value error for 124 is: 0.05030883566671118
+------------------------------------------------------------------
+Gene: simulation_125
+CircadiPy: 23.820000000000597 Other: 22.0489168455824
+The period error for 125 is: 1.7710831544181964
+CircadiPy: 8.345345345345551 Other: 10.24865767495152
+The phase error for 125 is: -1.9033123296059689
+CircadiPy: 1.9031752356246914 Other: 2.02615458890796
+The p-value error for 125 is: -0.12297935328326881
+------------------------------------------------------------------
+Gene: simulation_126
+CircadiPy: 22.25000000000035 Other: 22.1263954909518
+The period error for 126 is: 0.12360450904855114
+CircadiPy: 22.183183183183534 Other: 21.88404572918803
+The phase error for 126 is: 0.2991374539955025
+CircadiPy: 3.990862801503437 Other: 4.15891569014639
+The p-value error for 126 is: -0.1680528886429533
+------------------------------------------------------------------
+Gene: simulation_127
+CircadiPy: 25.720000000000894 Other: 25.911703152582
+The period error for 127 is: -0.19170315258110548
+CircadiPy: 15.24148148148201 Other: 15.186272222837253
+The phase error for 127 is: 0.05520925864475679
+CircadiPy: 5.829476421369457 Other: 5.67262088204734
+The p-value error for 127 is: 0.15685553932211693
+==================================================================
+The mean error for the period parametrization is: 0.0021 +/- 0.5931
+The mean error for the phase parametrization is: 0.0249 +/- 0.5054
+The mean error for the p-value parametrization is: -0.0876 +/- 0.2145
