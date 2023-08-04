@@ -23,6 +23,37 @@ The ``chrono_reader`` module provides functionalities for reading data from vari
 
 - **Data Source Support**: The module is capable of reading data from multiple sources, including the ER4000 receiver, the Intellicage system, and generic ``.asc`` files, provided they adhere to specific formatting patterns for each source.
 
+    .. table:: Data source support
+
+        +------------+------------+--------------------+
+        |    Date    |    Time    |       Value        |
+        +------------+------------+--------------------+
+        | 01/01/20   | 01:00:00   | -2.18757714973056  |
+        +------------+------------+--------------------+
+        | 01/01/20   | 02:00:00   | -1.08895137859424  |
+        +------------+------------+--------------------+
+        | 01/01/20   | 03:00:00   | -0.244845667664682 |
+        +------------+------------+--------------------+
+
+
+    **If you have a data table like the one above, transform it to the following pattern:**
+
+    .. code-block:: none
+
+        dd/mm/yy,HH:MM:SS,VV.VV
+    
+    **The asc file should end up looking like this (This is the start of the file)**
+
+    .. admonition:: warning
+        :class: warning 
+                
+    
+        .. image:: /imgs/asc_example.png
+           :width: 100%
+           :align: center
+                     
+
+
 - **Protocol Object Creation**: Upon reading and processing the data, the module generates a protocol object that encapsulates relevant information necessary for subsequent analysis and plotting tasks.
 
 - **Workflow Optimization Functions**: The module offers utility functions that enhance the workflow when working with the protocol object. One example is a method for concatenating data from multiple experiments seamlessly.
@@ -42,6 +73,13 @@ Chrono Rhythm
 The ``chrono_rhythm`` module plays a pivotal role in **CircadiPy** by providing tools for analyzing cyclic or periodic patterns commonly encountered in chronobiology analysis. This module offers the following key features:
 
 - **Cosinor Regression**: The package incorporates the cosinor regression, also known as the cosinor method, to detect and analyze cyclic patterns within time-series data. This method involves fitting a cosinor model to the focused data, enabling the characterization of rhythmic behaviors.
+
+        .. figure:: /imgs/consinor_head_8_sine_1.png
+            :scale: 80%
+            :height: 196px
+            :align: center
+
+            Cosinor regression example
 
 - **Daily Activity Sum**: The module includes a function dedicated to calculating the total activity per day for the given experiment, allowing researchers to gain insights into the overall daily activity patterns.
 
@@ -76,9 +114,28 @@ This module provides the following features:
 
 - **Time Series Visualization**: It offers the capability to generate time series visualizations of the protocol data, enabling users to observe trends and patterns over time.
 
-- **Actogram Plotting**: The module includes functions for generating actogram plots using bar plots. These actograms visualize activity patterns and circadian rhythms present within the protocol.
+    .. figure:: /imgs/total_activity_sine_10.png
+        :scale: 60%
+        :height: 500px
+        :align: center
 
+        Time series example
+
+- **Actogram Plotting**: The module includes functions for generating actogram plots using bar plots. These actograms visualize activity patterns and circadian rhythms present within the protocol.
+        .. figure:: /imgs/actogram_sine_10_bar.png
+            :scale: 80%
+            :height: 260px
+            :align: center
+
+            Actogram example
+ 
 - **Colormap Actograms**: Users can create actogram plots using colormaps, enhancing the visual representation of activity-rest cycles.
+        .. figure:: /imgs/actogram_sine_1_colormap.png
+            :scale: 80%
+            :height: 360px
+            :align: center
+
+            Actogram example
 
 - **Periodogram Plotting**: The module supports periodogram plotting, providing insights into frequency components and potential rhythmic patterns present within the data.
 
