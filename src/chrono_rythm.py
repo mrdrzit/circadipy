@@ -292,7 +292,7 @@ def fit_cosinor_per_day(protocol, dict = None, plot = False, save_folder = None,
         best_model_day = cosinor.get_best_fits(result_day, n_components = n_components)                                 # Get the best model parameters for the current day
 
         if len(best_model_day) == 0 or best_model_day['amplitude'][0] <= 0.1:                                           #  If the model can't be fitted or the amplitude is too low (threshold), the model isn't considered
-            best_model_day.loc[0] = pandas.np.nan
+            best_model_day.loc[0] = numpy.nan
             best_model_day_extended = best_model_day
             best_model_day_extended['CI(acrophase)'] = numpy.nan
         else:

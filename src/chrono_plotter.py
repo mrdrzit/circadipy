@@ -22,8 +22,8 @@ plt.ion()
 
 #     return protocol_mean
 
-def time_serie(protocol, title = 'Time Series', x_label = 'Time (Days)', y_label = 'Amplitude',  
-               color = 'midnightblue', save_folder = None, save_suffix = ''):
+def time_serie(protocol, title = 'Time Series', x_label = 'Time (Days)', y_label = 'Amplitude',
+               color = 'midnightblue', save_folder = None, save_suffix = '', format = 'png'):
     '''
     Plot the time series of the protocol
 
@@ -41,6 +41,8 @@ def time_serie(protocol, title = 'Time Series', x_label = 'Time (Days)', y_label
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
+    :param format: Format to save the figure (png or svg), defaults to 'png'
+    :type format: str
     '''
     if not isinstance(title, str):
         raise ValueError("title must be a string")
@@ -54,7 +56,11 @@ def time_serie(protocol, title = 'Time Series', x_label = 'Time (Days)', y_label
         raise ValueError("save_suffix must be a string.")
     if not isinstance(save_folder, str) and save_folder != None:
         raise ValueError("save_folder must be a string or None.")
-    
+    if not isinstance(format, str) and format != 'png' and format != 'svg':
+        raise ValueError("format must be 'png' or 'svg'.")
+    else:
+        format = '.' + format
+
     protocol_name = protocol.name.replace('_', ' ').capitalize()
 
     fig = plt.figure(figsize = (12, 5))                                                                                 # Create a figure
@@ -67,12 +73,12 @@ def time_serie(protocol, title = 'Time Series', x_label = 'Time (Days)', y_label
     if save_folder == None:
         plt.show()
     else:
-        # plt.savefig(save_folder + '/time_serie_' + protocol_name.lower() + '_' + save_suffix + '.svg', backend=None)
-        plt.savefig(save_folder + '/time_serie_' + protocol_name.lower() + '_' + save_suffix + '.png', backend=None)
+        plt.savefig(save_folder + '/time_serie_' + protocol_name.lower() + '_' + save_suffix + format, backend=None)
         plt.close()
 
-def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_label = 'Time (Days)', 
-                           y_label = 'Amplitude', color = 'midnightblue', save_folder = None, save_suffix = ''):
+def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_label = 'Time (Days)',
+                           y_label = 'Amplitude', color = 'midnightblue', save_folder = None, save_suffix = '',
+                           format = 'png'):
     '''
     Plot the time series of the protocol
 
@@ -90,6 +96,8 @@ def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_lab
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
+    :param format: Format to save the figure (png or svg), defaults to 'png'
+    :type format: str
     '''
     if not isinstance(title, str):
         raise ValueError("title must be a string")
@@ -103,7 +111,11 @@ def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_lab
         raise ValueError("save_suffix must be a string.")
     if not isinstance(save_folder, str) and save_folder != None:
         raise ValueError("save_folder must be a string or None.")
-    
+    if not isinstance(format, str) and format != 'png' and format != 'svg':
+        raise ValueError("format must be 'png' or 'svg'.")
+    else:
+        format = '.' + format
+
     protocol_name = protocol.name.replace('_', ' ').capitalize()
 
     sumation = protocol.data['values'].groupby(protocol.data.index.date).sum()
@@ -121,17 +133,12 @@ def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_lab
     if save_folder == None:
         plt.show()
     else:
-        # plt.savefig(save_folder + '/time_serie_sum_per_day_' + protocol_name.lower() + '_' + save_suffix + '.svg', backend=None)
-        plt.savefig(save_folder + '/time_serie_sum_per_day_' + protocol_name.lower() + '_' + save_suffix + '.png', backend=None)
+        plt.savefig(save_folder + '/time_serie_sum_per_day_' + protocol_name.lower() + '_' + save_suffix + format,
+                    backend=None)
         plt.close()
 
-<<<<<<< HEAD
 def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
                  adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_value = None, format = 'png'):
-=======
-def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '', 
-                 adjust_figure = [1, 0.95, 0.85, 0.2, 0.05]):
->>>>>>> 96214c40174bd26518278e416d2f822b0adbf5ea
     """
     Plot the actogram of the protocol in a bar plot
 
@@ -143,16 +150,13 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
-    :param adjust_figure: List with the parameters to adjust the figure [column_height, rigth, top, bottom, left], defaults to [1, 0.95, 0.85, 0.2, 0.05]
+    :param adjust_figure: List with the parameters to adjust the figure [column_height, rigth, top, bottom, left],
+    defaults to [1, 0.95, 0.85, 0.2, 0.05]
     :type adjust_figure: list
-<<<<<<< HEAD
     :param norm_value: List with the minimum and maximum values to be used in to y axis limits (it is used when the data have nan valuesa and the data variabilty is too high), defaults to None
     :param format: Format to save the figure (png or svg), defaults to 'png'
     :type format: str
     """
-=======
-    """    
->>>>>>> 96214c40174bd26518278e416d2f822b0adbf5ea
     if not isinstance(first_hour, int) and first_hour >= 24 and first_hour < 0:
         raise ValueError("First hour must be an integer less than 24 and greater than 0.")
     if not isinstance(adjust_figure, list) and len(adjust_figure) != 5:
@@ -161,7 +165,6 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
         raise ValueError("save_suffix must be a string.")
     if not isinstance(save_folder, str) and save_folder != None:
         raise ValueError("save_folder must be a string or None.")
-<<<<<<< HEAD
     if not isinstance(norm_value, list) and norm_value != None:
         raise ValueError("norm_value must be None or a list with two values (min and max) in which min < max")
     if isinstance(norm_value, list):
@@ -171,8 +174,6 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
         raise ValueError("format must be 'png' or 'svg'.")
     else:
         format = '.' + format
-=======
->>>>>>> 96214c40174bd26518278e416d2f822b0adbf5ea
 
     adjust_height = adjust_figure[0]
     adjust_right = adjust_figure[1]
@@ -202,7 +203,6 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
     actogram['day_steps'] = actogram['day_steps'] + actogram.index.minute/60
     step_length = actogram['day_steps'][1] - actogram['day_steps'][0]
 
-<<<<<<< HEAD
     if norm_value == None:
         min_value = numpy.nanmin(actogram['values'])
         max_value = numpy.nanmax(actogram['values']) 
@@ -211,12 +211,8 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
         max_value = norm_value[1]
     else:
         raise ValueError("norm_value must be None or a list with two values (min and max)")
-=======
-    min_value = numpy.nanmin(actogram['values'])        
-    max_value = numpy.nanmax(actogram['values'])
->>>>>>> 96214c40174bd26518278e416d2f822b0adbf5ea
 
-    total_height = 0.1*num_days*adjust_height                              
+    total_height = 0.1*num_days*adjust_height
     total_width = 7
     fig, subplots = plt.subplots(num_days, 2, squeeze=False, sharex=True, sharey=True,
                                     figsize=(total_width + 3, total_height),
@@ -257,13 +253,13 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
                 ax.yaxis.tick_right()
                 ax.set_yticks([])
                 ax.set_xticks([])
-                ax.set_ylabel("Day " + str(count), rotation=0, fontsize=8, labelpad=20, va='center')
+                ax.set_ylabel("Day " + str(count + 1), rotation=0, fontsize=8, labelpad=20, va='center')
             elif count_ax == 0 and count%2 == 0:
                 ax.yaxis.set_label_position("left")
                 ax.yaxis.tick_left()
                 ax.set_yticks([])
                 ax.set_xticks([])
-                ax.set_ylabel("Day " + str(count), rotation=0, fontsize=8, labelpad=20, va='center')
+                ax.set_ylabel("Day " + str(count + 1), rotation=0, fontsize=8, labelpad=20, va='center')
 
     ax.set_xlim([0, 24])
     #ax.set_ylim([min_value, max_value + 0.1*max_value])
@@ -273,22 +269,16 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
     fig.subplots_adjust(right=adjust_right, top=adjust_top, bottom=adjust_bottom, left=adjust_left)
 
     fig.suptitle('ACTOGRAM - ' + protocol_name.upper(), y = 0.95, fontsize=14)
-    fig.supxlabel('TIME (ZT)', y = 0.05)
+    fig.supxlabel('ZT (HOURS)', y = 0.05)
 
     if save_folder == None:
         plt.show()
     else:
-        # plt.savefig(save_folder+'/actogram_bar_'+protocol_name.lower()+'.svg', backend=None)
-        plt.savefig(save_folder + '/actogram_bar_' + protocol_name.lower() + '_' + save_suffix + '.png', backend=None)
+        plt.savefig(save_folder + '/actogram_bar_' + protocol_name.lower() + '_' + save_suffix + format, backend=None)
         plt.close()
 
-<<<<<<< HEAD
 def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude", save_folder = None, save_suffix = '',
                       adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_color = None, format = 'png'):
-=======
-def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude", save_folder = None, save_suffix = '', 
-                      adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_color = [33, 40]):
->>>>>>> 96214c40174bd26518278e416d2f822b0adbf5ea
     """
     Plot the actogram of the protocol in a colormap
 
@@ -296,16 +286,20 @@ def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude
     :type protocol: read_protocol
     :param first_hour: First hour of the day to be plotted, if different from 0, the actogram is shifted, defaults to 0
     :type first_hour: int
-    :param unit_of_measurement: Unit of measurement of the protocol, defaults to "Amplitude". This is used to label the colorbar
+    :param unit_of_measurement: Unit of measurement of the protocol, defaults to "Amplitude". This is used to label the
+    colorbar
     :type unit_of_measurement: str
     :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
-    :param adjust_figure: List with the parameters to adjust the figure [column_height, rigth, top, bottom, left], defaults to [1, 0.95, 0.85, 0.2, 0.05]
+    :param adjust_figure: List with the parameters to adjust the figure [column_height, rigth, top, bottom, left],
+    defaults to [1, 0.95, 0.85, 0.2, 0.05]
     :type adjust_figure: list
     :param norm_color: List with the minimum and maximum values to be used in the colormap, defaults to [33, 40]
     :type norm_color: list
+    :param format: Format to save the figure (png or svg), defaults to 'png'
+    :type format: str
     """
     if not isinstance(first_hour, int) and first_hour >= 24 and first_hour < 0:
         raise ValueError("First hour must be an integer less than 24 and greater than 0.")
@@ -320,6 +314,10 @@ def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude
     if isinstance(norm_color, list):
         if len(norm_color) != 2 or norm_color[0] > norm_color[1]:
             raise ValueError("norm_color must be None or a list with two values (min and max) in which min < max")
+    if not isinstance(format, str) and format != 'png' and format != 'svg':
+        raise ValueError("format must be 'png' or 'svg'.")
+    else:
+        format = '.' + format
 
     adjust_height = adjust_figure[0]
     adjust_right = adjust_figure[1]
@@ -399,11 +397,11 @@ def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude
             if count_ax != 0 and count%2 != 0:
                 ax.yaxis.set_label_position("right")
                 ax.yaxis.tick_right()
-                ax.set_ylabel("Day " + str(count), rotation=0, fontsize=8, labelpad=20, va='center')
+                ax.set_ylabel("Day " + str(count + 1), rotation=0, fontsize=8, labelpad=20, va='center')
             elif count_ax == 0 and count%2 == 0:
                 ax.yaxis.set_label_position("left")
                 ax.yaxis.tick_left()
-                ax.set_ylabel("Day " + str(count), rotation=0, fontsize=8, labelpad=20, va='center')
+                ax.set_ylabel("Day " + str(count + 1), rotation=0, fontsize=8, labelpad=20, va='center')
 
     for count, ax in enumerate(subplots.flatten()):
         if count != 0 and count != 1:
@@ -421,7 +419,7 @@ def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude
     fig.subplots_adjust(right=adjust_right, top=adjust_top, bottom=adjust_bottom, left=adjust_left)
 
     fig.suptitle('ACTOGRAM - ' + protocol_name.upper(), y = 0.95, x = 0.4, fontsize=14)
-    fig.supxlabel('TIME (ZT)', y = 0.05, x = 0.4)
+    fig.supxlabel('ZT (HOURS)', y = 0.05, x = 0.4)
     cax, kw = mpl.colorbar.make_axes([a for a in subplots.flat], orientation='vertical',
                                        anchor=(0.95, 0.5), aspect=25)
     cax.tick_params(labelsize=8)
@@ -431,31 +429,36 @@ def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude
     if save_folder == None:
         plt.show()
     else:
-        #plt.savefig(save_folder+'/actogram_cmap_'+protocol_name.lower()+'.svg', backend=None)
-        plt.savefig(save_folder+'/actogram_cmap_'+ protocol_name.lower() + '_' + save_suffix + '.png', backend=None)
+        plt.savefig(save_folder+'/actogram_cmap_'+ protocol_name.lower() + '_' + save_suffix + format, backend=None)
         plt.close()
-    
+
     return fig
 
-def data_periodogram(protocol, time_shape = 'continuous', method = 'periodogram',
-                max_period = 48, unit_of_measurement = 'Unit', save_folder = None, save_suffix = ''):
+def data_periodogram(protocol, time_shape = 'continuous', method = 'periodogram', max_period = 48,
+                     unit_of_measurement = 'Unit', save_folder = None, save_suffix = '', format = 'png'):
     """
     Plot the periodogram of the protocol
 
     :param protocol: Protocol object to be vizualized
     :type protocol: read_protocol
-    :param time_shape: Time shape to be used, can be 'continuous', 'median' or 'mean', defaults to 'continuous'. If 'continuous', the periodogram is calculated using the whole protocol data, if 'median' or 'mean', the periodogram is calculates using the median or mean of the data per day
+    :param time_shape: Time shape to be used, can be 'continuous', 'median' or 'mean', defaults to 'continuous'. If
+    'continuous', the periodogram is calculated using the whole protocol data, if 'median' or 'mean', the periodogram
+    is calculates using the median or mean of the data per day
     :type time_shape: str
-    :param method: Method to be used to calculate the periodogram, can be 'periodogram' or 'welch', defaults to 'periodogram'
+    :param method: Method to be used to calculate the periodogram, can be 'periodogram' or 'welch', defaults to
+    'periodogram'
     :type method: str
     :param max_period: Maximum period to be plotted, defaults to 48
     :type max_period: int
-    :param unit_of_measurement: Unit of measurement of the protocol, defaults to "Unit". This is used to label the y axis
+    :param unit_of_measurement: Unit of measurement of the protocol, defaults to "Unit". This is used to label the
+    y axis
     :type unit_of_measurement: str
     :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
+    :param format: Format to save the figure (png or svg), defaults to 'png'
+    :type format: str
     """
     if not isinstance(time_shape, str) and time_shape != 'continuous' and time_shape != 'mean' and time_shape != 'median':
         raise ValueError("Time shape must be 'continuous', 'median' or 'mean'")
@@ -469,7 +472,11 @@ def data_periodogram(protocol, time_shape = 'continuous', method = 'periodogram'
         raise ValueError("save_suffix must be a string.")
     if not isinstance(save_folder, str) and save_folder != None:
         raise ValueError("save_folder must be a string or None.")
-    
+    if not isinstance(format, str) and format != 'png' and format != 'svg':
+        raise ValueError("format must be 'png' or 'svg'.")
+    else:
+        format = '.' + format
+
     _test = protocol.data['test_labels']
     test_labels, indexes = numpy.unique(_test, return_index = True)
     _test_labels = [x for _ ,x in sorted(zip(indexes, test_labels))]
@@ -556,35 +563,44 @@ def data_periodogram(protocol, time_shape = 'continuous', method = 'periodogram'
     if save_folder == None:
         plt.show(block=False)
     else:
-        save_data.to_csv(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix 
+        save_data.to_csv(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix
                          + '.csv', index=False)
-        #plt.savefig(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
-        #            '.svg', backend=None)
         plt.savefig(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
-                    '.png', backend=None)
+                    format, backend=None)
         plt.close()
 
-def model_overview_detailed(protocol, best_models_fixed, save_folder = None, save_suffix = ''):
+def model_overview_detailed(protocol, best_models_fixed, only_significant = False, save_folder = None, save_suffix = '',
+                            format = 'png'):
     '''
     Plot the cosinor period and acrophase for each day of the protocol. This function is used to plot the results of the
-    fit_cosinor_fixed_period function. In this case, acrophase (and the others parameters) are calculated fixing the 
+    fit_cosinor_fixed_period function. In this case, acrophase (and the others parameters) are calculated fixing the
     period calculated to each stage.
-    
+
     :param protocol: Protocol object to be vizualized
     :type protocol: read_protocol
     :param best_models_fixed: Cosinor model parameters per day (output of the fit_cosinor_fixed_period function)
     :type best_models_fixed: pandas.DataFrame
+    :param only_significant: If True, only the significant days are plotted, defaults to False
+    :type only_significant: bool
     :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
+    :param format: Format to save the figure (png or svg), defaults to 'png'
+    :type format: str
     '''
     if not isinstance(best_models_fixed, pandas.DataFrame):
         raise ValueError("best_models_fixed must be a pandas.DataFrame")
     if not isinstance(save_suffix, str):
         raise ValueError("save_suffix must be a string.")
+    if not isinstance(only_significant, bool):
+        raise ValueError("only_significant must be a bool.")
     if not isinstance(save_folder, str) and save_folder != None:
         raise ValueError("save_folder must be a string or None.")
+    if not isinstance(format, str) and format != 'png' and format != 'svg':
+        raise ValueError("format must be 'png' or 'svg'.")
+    else:
+        format = '.' + format
 
     protocol_name = protocol.name.replace('_', ' ').capitalize()
     test_labels = protocol.test_labels
@@ -593,7 +609,7 @@ def model_overview_detailed(protocol, best_models_fixed, save_folder = None, sav
     change_test_day = numpy.cumsum([0] + change_test_day[:-1])
 
     fig, ax = plt.subplots(1, 1, figsize=(10, 5))
-    
+
     days = best_models_fixed['day']
     last_day = None
     count = -1
@@ -613,7 +629,12 @@ def model_overview_detailed(protocol, best_models_fixed, save_folder = None, sav
     change_test_day = numpy.array(change_test_day) + 1
 
     significance = best_models_fixed['significant']
-    where_non_significant = numpy.where(significance == 0)[0]
+    if only_significant:
+        where_non_significant = numpy.where(significance == 0)[0]
+        if where_non_significant.size == 0:
+            raise Warning("There are no non-significant days")
+    else:
+        where_non_significant = numpy.where(significance == 42)[0]
 
     m_periods = numpy.array(best_models_fixed['period'])
     m_periods[where_non_significant] = numpy.nan
@@ -646,14 +667,13 @@ def model_overview_detailed(protocol, best_models_fixed, save_folder = None, sav
 
     for x in sorted(set(days_plot))[0::5]:
         ax.axvline(x = x, color='black', linestyle='--', linewidth=0.5, alpha=0.2)
-    for x, l in zip(change_test_day, test_labels):
+    for l, x in enumerate(change_test_day):
         ax.axvline(x = x, color='black', linestyle='-', linewidth=1, alpha=0.5)
-        ax.annotate(l.replace('_', ' ').upper(), xy=(x, upper_lim), xytext=(x + 0.2, upper_lim), fontsize=6, 
+        ax.annotate(str(l + 1), xy=(x, upper_lim), xytext=(x + 0.2, upper_lim), fontsize=12,
                     color='black', rotation=0)
     for d in range(0, len(days_plot)):
-        ax2.plot([days_plot[d], days_plot[d]], [m_acrophases_zt_ci_upper[d], m_acrophases_zt_ci_lower[d]], 
+        ax2.plot([days_plot[d], days_plot[d]], [m_acrophases_zt_ci_upper[d], m_acrophases_zt_ci_lower[d]],
                     color='midnightblue', linewidth=0.5, alpha=1)
-    
 
     ax.set_title('COSINOR MODEL PARAMETERS - ' + protocol_name.upper())
     plt.xticks(sorted(set(days_plot))[0::5])
@@ -663,10 +683,11 @@ def model_overview_detailed(protocol, best_models_fixed, save_folder = None, sav
         plt.show(block=False)
     else:
         plt.savefig(save_folder + '/model_parameters_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
-                    '.png', backend=None)
+                    format, backend=None)
         plt.close()
 
-def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 1, save_folder = None, save_suffix = ''):
+def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 1, save_folder = None, save_suffix = '',
+                      format = 'png'):
     """
     Plot the cosinor model and the protocol data to each stage. Can be used to compare the cosinor model to the signal.
 
@@ -674,14 +695,19 @@ def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 
     :type protocol: read_protocol
     :param best_models: Cosinor model parameters (output of the fit_cosinor function)
     :type best_models: pandas.DataFrame
-    :param position: Position of the data to be plotted, can be 'head' or 'tail', defaults to 'head'. If 'tail', the last part of the data is plotted inverted (first point is the last point of the data, the second point is the penultimate point of the data, etc.)
+    :param position: Position of the data to be plotted, can be 'head' or 'tail', defaults to 'head'. If 'tail', the
+    last part of the data is plotted inverted (first point is the last point of the data, the second point is the
+    penultimate point of the data, etc.)
     :type position: str
-    :param mv_avg_window: Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is applied.
+    :param mv_avg_window: Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is
+    applied.
     :type mv_avg_window: int
     :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
+    :param format: Format to save the figure (png or svg), defaults to 'png'
+    :type format: str
     """
     if not isinstance(best_models, pandas.DataFrame):
         raise ValueError("best_models must be a pandas.DataFrame")
@@ -693,6 +719,10 @@ def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 
         raise ValueError("save_suffix must be a string.")
     if not isinstance(save_folder, str) and save_folder != None:
         raise ValueError("save_folder must be a string or None.")
+    if not isinstance(format, str) and format != 'png' and format != 'svg':
+        raise ValueError("format must be 'png' or 'svg'.")
+    else:
+        format = '.' + format
 
     protocol_df = protocol.get_cosinor_df(time_shape = 'continuous')
     protocol_name = protocol.name.replace('_', ' ').capitalize()
@@ -730,7 +760,7 @@ def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 
             original_data = numpy.flip(original_data)[0:min_index]                                                      # Get the last part of the original data
             time_to_plot = time[0:min_index]                                                                            # Get the last part of the time
             time = numpy.flip(time)[0:min_index]                                                                        # Get the last part of the time
-        else:   
+        else:
             raise ValueError("The position " + position + " is not valid")                                              # If the parameter position is not valid, raise an error
 
         min_value = min(min_value, min(original_data))                                                                  # Update the minimum value
@@ -742,26 +772,28 @@ def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 
         ax[label].bar(time_to_plot, original_data, color='dimgray')
 
         significance = best_models['significant'][label]
+        m_acrophase = best_models['acrophase'][label]
+        m_period = best_models['period'][label]
+        m_acrophase_zt = best_models['acrophase_zt'][label]                                                         # Convert the acrophase to the zt scale
+
+        m_frequency = 1/(m_period)
+
+        m_amplitude = best_models['amplitude'][label]
+        model = m_amplitude*numpy.cos(numpy.multiply(2*numpy.pi*m_frequency, time) + m_acrophase)
+
+        offset = best_models['mesor'][label]
+        model = model + offset
+
+        ax[label].plot(time_to_plot, model, color='midnightblue', linewidth = 3)
+        ax[label].axvline(x = m_acrophase_zt, color='black', linestyle='--', linewidth=2, alpha=0.8)
         if significance == 1:                                                                                           # If the p-value is smaller than 0.05
-            m_acrophase = best_models['acrophase'][label]
-            m_period = best_models['period'][label]
-            m_acrophase_zt = best_models['acrophase_zt'][label]                                                         # Convert the acrophase to the zt scale
-
-            m_frequency = 1/(m_period)
-
-            m_amplitude = best_models['amplitude'][label]
-            model = m_amplitude*numpy.cos(numpy.multiply(2*numpy.pi*m_frequency, time) + m_acrophase)
-
-            offset = best_models['mesor'][label]
-            model = model + offset
-
-            ax[label].plot(time_to_plot, model, color='midnightblue', linewidth = 3)
-            ax[label].axvline(x = m_acrophase_zt, color='black', linestyle='--', linewidth=2, alpha=0.8)
             ax[label].set_title(str(best_models['test'][label]).replace('_', ' ').upper() + '\n(AC: ' +
                                 str(round(m_acrophase_zt, 2)) + ', PR: ' + str(round(m_period, 2)) + ')', fontsize=8)
         else:
-            ax[label].set_title(str(best_models['test'][label]).replace('_', ' ').upper() + '\n(AC: NS, PR: NS)', fontsize=8)
+            ax[label].set_title(str(best_models['test'][label]).replace('_', ' ').upper() + '\n(AC: ' +
+                                str(round(m_acrophase_zt, 2)) + ', PR: ' + str(round(m_period, 2)) + ' - NS)', fontsize=8)
         ax[label].spines[['right', 'top']].set_visible(False)
+        ax[label].set_xlim([time_to_plot[0], time_to_plot[-1]])
 
     ax[label].set_ylim(min_value - 0.1*(max_value - min_value), max_value + 0.1*(max_value - min_value))
 
@@ -777,37 +809,54 @@ def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 
     if save_folder == None:
         plt.show(block=False)
     else:
-        plt.savefig(save_folder + '/model_over_signal_' + position + '_' + protocol_name.lower().replace(' ', '_') + 
-                    '_' + save_suffix + '.png', backend=None)
+        plt.savefig(save_folder + '/model_over_signal_' + position + '_' + protocol_name.lower().replace(' ', '_') +
+                    '_' + save_suffix + format, backend=None)
         plt.close()
 
-def model_overview(protocol, best_models, save_folder = None, save_suffix = ''):
+def model_overview(protocol, best_models, only_significant = False, save_folder = None, save_suffix = '', format = 'png'):
     """
     Plots the cosinor model pariod and acrophase for each protocol satage. This function is used to plot the results of
     the fit_cosinor function.
 
+    :param protocol: Protocol object to be vizualized
+    :type protocol: read_protocol
     :param best_models: The cosinor model parameters (output of the fit_cosinor function)
     :type best_models: pandas.DataFrame
+    :param only_significant: If True, only the significant days are plotted, defaults to False
+    :type only_significant: bool
     :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
+    :param format: Format to save the figure (png or svg), defaults to 'png'
+    :type format: str
     """
     if not isinstance(best_models, pandas.DataFrame):
         raise ValueError("best_models must be a pandas.DataFrame")
+    if not isinstance(only_significant, bool):
+        raise ValueError("only_significant must be a bool.")
     if not isinstance(save_suffix, str):
         raise ValueError("save_suffix must be a string.")
     if not isinstance(save_folder, str) and save_folder != None:
         raise ValueError("save_folder must be a string or None.")
+    if not isinstance(format, str) and format != 'png' and format != 'svg':
+        raise ValueError("format must be 'png' or 'svg'.")
+    else:
+        format = '.' + format
 
     protocol_name = protocol.name.replace('_', ' ').capitalize()
 
     significance = best_models['significant']
-    where_non_significant = numpy.where(significance == 0)[0]
+    if only_significant:
+        where_non_significant = numpy.where(significance == 0)[0]
+        if where_non_significant.size == 0:
+            raise Warning("There are no non-significant days")
+    else:
+        where_non_significant = numpy.where(significance == 42)[0]
 
     m_periods = numpy.array(best_models['period'])
     m_periods[where_non_significant] = numpy.nan
-    
+
     m_period_min = numpy.nanmin(m_periods)
     m_period_max = numpy.nanmax(m_periods)
     lower_lim = _get_next_previus_odd(m_period_min)[1]
@@ -828,7 +877,7 @@ def model_overview(protocol, best_models, save_folder = None, save_suffix = ''):
     ax.set_xlabel('PROTOCOL LABELS', fontsize = 12)
     ax.set_ylabel('PERIOD (HOUR)', color = 'dimgray', fontsize = 12)
     ax.set_ylim(lower_lim - 0.1*(upper_lim - lower_lim), upper_lim + 0.1*(upper_lim - lower_lim))
-    ax.set_yticks(numpy.arange(lower_lim, upper_lim + 1, 1)) 
+    ax.set_yticks(numpy.arange(lower_lim, upper_lim + 1, 1))
     ax2=ax.twinx()
 
     ax2.plot(x_ticks, m_acrophases_zt, '--o', color = 'midnightblue', linewidth=3)
@@ -840,11 +889,11 @@ def model_overview(protocol, best_models, save_folder = None, save_suffix = ''):
     if save_folder == None:
         plt.show(block=False)
     else:
-        plt.savefig(save_folder + '/model_overview_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix + 
-                    '.png', backend=None)
+        plt.savefig(save_folder + '/model_overview_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                    format, backend=None)
         plt.close()
 
-def model_per_day(protocol, best_models_per_day, day_window, save_folder = None, save_suffix = ''):
+def model_per_day(protocol, best_models_per_day, day_window, only_significant = False, save_folder = None, save_suffix = '', format = 'png'):
     """
     Plot the cosinor model parameters per day. This function is used to plot the results of the fit_cosinor_per_day
     function. In this case, parameters are calculated every day (with a moving window or not).
@@ -853,21 +902,32 @@ def model_per_day(protocol, best_models_per_day, day_window, save_folder = None,
     :type protocol: read_protocol
     :param best_models_per_day: Cosinor model parameters per day (output of the fit_cosinor_fixed_period function)
     :type best_models_per_day: pandas.DataFrame
-    :param day_window: Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is applied.
+    :param day_window: Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is
+    applied.
     :type day_window: int
+    :param only_significant: If True, only the significant days are plotted, defaults to False
+    :type only_significant: bool
     :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
     :type save_folder: str
     :save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
+    :param format: Format to save the figure (png or svg), defaults to 'png'
+    :type format: str
     """
     if not isinstance(best_models_per_day, pandas.DataFrame):
         raise ValueError("best_models_per_day must be a pandas.DataFrame")
     if not isinstance(day_window, int) and day_window < 1:
         raise ValueError("day_window must be a positive integer (if 1, no moving average is applied)")
+    if not isinstance(only_significant, bool):
+        raise ValueError("only_significant must be a bool.")
     if not isinstance(save_suffix, str):
         raise ValueError("save_suffix must be a string.")
     if not isinstance(save_folder, str) and save_folder != None:
-        raise ValueError("save_folder must be a string or None.")      
+        raise ValueError("save_folder must be a string or None.")
+    if not isinstance(format, str) and format != 'png' and format != 'svg':
+        raise ValueError("format must be 'png' or 'svg'.")
+    else:
+        format = '.' + format
 
     protocol_name = protocol.name.replace('_', ' ').capitalize()
 
@@ -896,7 +956,12 @@ def model_per_day(protocol, best_models_per_day, day_window, save_folder = None,
     change_test_day = numpy.array(change_test_day) + 1
 
     m_p_value = numpy.array(best_models_per_day['p'])
-    where_non_significant = numpy.where(m_p_value > 0.05)[0]
+    if only_significant:
+        where_non_significant = numpy.where(m_p_value > 0.05)[0]
+        if where_non_significant.size == 0:
+            raise Warning("There are no non-significant days")
+    else:
+        where_non_significant = numpy.where(m_p_value >= 10000)[0]
 
     m_periods = numpy.array(best_models_per_day['period'])
     m_periods[where_non_significant] = numpy.nan
@@ -930,11 +995,38 @@ def model_per_day(protocol, best_models_per_day, day_window, save_folder = None,
         ax.axvline(x = x, color='black', linestyle='--', linewidth=0.5, alpha=0.2)
     for l, x in enumerate(change_test_day):
         ax.axvline(x = x, color='black', linestyle='-', linewidth=1, alpha=0.5)
-<<<<<<< HEAD
         ax.annotate(str(l + 1), xy=(x, upper_lim), xytext=(x + 0.2, upper_lim), fontsize=12,
-=======
-        ax.annotate(l.replace('_', ' ').upper(), xy=(x, upper_lim), xytext=(x + 0.2, upper_lim), fontsize=6, 
->>>>>>> 96214c40174bd26518278e416d2f822b0adbf5ea
                     color='black', rotation=0)
     for d in range(0, len(days_plot)):
-        ax2.plot([d
+        ax2.plot([days_plot[d], days_plot[d]], [m_acrophases_zt_ci_upper[d], m_acrophases_zt_ci_lower[d]],
+                    color='midnightblue', linewidth=0.5, alpha=1)
+
+    ax.set_title('COSINOR MODEL PARAMETERS FOR EACH DAY - ' + protocol_name.upper())
+    plt.xticks(sorted(set(days_plot))[0::5])
+    plt.tight_layout()
+
+    if save_folder == None:
+        plt.show(block=False)
+    else:
+        plt.savefig(save_folder + '/model_parameters_per_day_w' + str(day_window) + '_' +
+                    protocol_name.lower().replace(' ', '_') + '_' + save_suffix + format, backend=None)
+        plt.close()
+
+def _get_next_previus_odd(number):
+    """
+    Get the next odd number of the input number
+
+    :param number: The number
+    :type number: int
+    :return: The next odd number
+    :rtype: int
+    """
+    next_int = math.ceil(number)
+    previus_int = math.floor(number)
+
+    if next_int % 2 == 0:
+        next_int += 1
+    if previus_int % 2 == 0:
+        previus_int -= 1
+
+    return next_int, previus_int
