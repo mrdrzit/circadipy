@@ -192,7 +192,7 @@ def fit_cosinor_fixed_period(protocol, best_models, save_folder = None, save_suf
             best_model_day = cosinor.get_best_fits(result_day, n_components = [1])
 
             if len(best_model_day) == 0 or best_model_day['amplitude'][0] <= 0.01:                                      # If the model can't be fitted or the amplitude is too low (threshold), the model isn't considered
-                best_model_day.loc[0] = pandas.np.nan
+                best_model_day.loc[0] = numpy.nan
                 best_model_day_extended = best_model_day
             else:
                 best_model_day_extended = cosinor.analyse_best_models(day_df, best_model_day, analysis="CI")

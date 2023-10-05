@@ -73,8 +73,13 @@ def time_serie(protocol, title = 'Time Series', x_label = 'Time (Days)', y_label
     if save_folder == None:
         plt.show()
     else:
-        plt.savefig(save_folder + '/time_serie_' + protocol_name.lower() + '_' + save_suffix + format, backend=None)
-        plt.close()
+        if format != '.both':
+            plt.savefig(save_folder + '/time_serie_' + protocol_name.lower() + '_' + save_suffix + format, backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder + '/time_serie_' + protocol_name.lower() + '_' + save_suffix + '.svg', backend=None)
+            plt.savefig(save_folder + '/time_serie_' + protocol_name.lower() + '_' + save_suffix + '.png', backend=None)
+            plt.close()
 
 def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_label = 'Time (Days)',
                            y_label = 'Amplitude', color = 'midnightblue', save_folder = None, save_suffix = '',
@@ -133,9 +138,16 @@ def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_lab
     if save_folder == None:
         plt.show()
     else:
-        plt.savefig(save_folder + '/time_serie_sum_per_day_' + protocol_name.lower() + '_' + save_suffix + format,
+        if format != '.both':
+            plt.savefig(save_folder + '/time_serie_sum_per_day_' + protocol_name.lower() + '_' + save_suffix + format,
+                        backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder + '/time_serie_sum_per_day_' + protocol_name.lower() + '_' + save_suffix + '.svg',
                     backend=None)
-        plt.close()
+            plt.savefig(save_folder + '/time_serie_sum_per_day_' + protocol_name.lower() + '_' + save_suffix + '.png',
+                    backend=None)
+            plt.close()
 
 def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
                  adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_value = None, format = 'png'):
@@ -274,8 +286,13 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
     if save_folder == None:
         plt.show()
     else:
-        plt.savefig(save_folder + '/actogram_bar_' + protocol_name.lower() + '_' + save_suffix + format, backend=None)
-        plt.close()
+        if format != '.both':
+            plt.savefig(save_folder + '/actogram_bar_' + protocol_name.lower() + '_' + save_suffix + format, backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder + '/actogram_bar_' + protocol_name.lower() + '_' + save_suffix + '.svg', backend=None)
+            plt.savefig(save_folder + '/actogram_bar_' + protocol_name.lower() + '_' + save_suffix + '.png', backend=None)
+            plt.close()
 
 def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude", save_folder = None, save_suffix = '',
                       adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_color = None, format = 'png'):
@@ -429,8 +446,13 @@ def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude
     if save_folder == None:
         plt.show()
     else:
-        plt.savefig(save_folder+'/actogram_cmap_'+ protocol_name.lower() + '_' + save_suffix + format, backend=None)
-        plt.close()
+        if format != '.both':
+            plt.savefig(save_folder+'/actogram_cmap_'+ protocol_name.lower() + '_' + save_suffix + format, backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder+'/actogram_cmap_'+ protocol_name.lower() + '_' + save_suffix + '.svg', backend=None)
+            plt.savefig(save_folder+'/actogram_cmap_'+ protocol_name.lower() + '_' + save_suffix + '.png', backend=None)
+            plt.close()
 
     return fig
 
@@ -565,9 +587,16 @@ def data_periodogram(protocol, time_shape = 'continuous', method = 'periodogram'
     else:
         save_data.to_csv(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix
                          + '.csv', index=False)
-        plt.savefig(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
-                    format, backend=None)
-        plt.close()
+        if format != '.both':
+            plt.savefig(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                        format, backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                    '.svg', backend=None)
+            plt.savefig(save_folder + '/periodogram_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                    '.png', backend=None)
+            plt.close()
 
 def model_overview_detailed(protocol, best_models_fixed, only_significant = False, save_folder = None, save_suffix = '',
                             format = 'png'):
@@ -682,9 +711,16 @@ def model_overview_detailed(protocol, best_models_fixed, only_significant = Fals
     if save_folder == None:
         plt.show(block=False)
     else:
-        plt.savefig(save_folder + '/model_parameters_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
-                    format, backend=None)
-        plt.close()
+        if format != '.both':
+            plt.savefig(save_folder + '/model_parameters_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                        format, backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder + '/model_parameters_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                        '.svg', backend=None)
+            plt.savefig(save_folder + '/model_parameters_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                        '.png', backend=None)
+            plt.close()
 
 def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 1, save_folder = None, save_suffix = '',
                       format = 'png'):
@@ -809,9 +845,16 @@ def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 
     if save_folder == None:
         plt.show(block=False)
     else:
-        plt.savefig(save_folder + '/model_over_signal_' + position + '_' + protocol_name.lower().replace(' ', '_') +
-                    '_' + save_suffix + format, backend=None)
-        plt.close()
+        if format != '.both':
+            plt.savefig(save_folder + '/model_over_signal_' + position + '_' + protocol_name.lower().replace(' ', '_') +
+                        '_' + save_suffix + format, backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder + '/model_over_signal_' + position + '_' + protocol_name.lower().replace(' ', '_') +
+                    '_' + save_suffix + '.svg', backend=None)
+            plt.savefig(save_folder + '/model_over_signal_' + position + '_' + protocol_name.lower().replace(' ', '_') +
+                    '_' + save_suffix + '.png', backend=None)
+            plt.close()
 
 def model_overview(protocol, best_models, only_significant = False, save_folder = None, save_suffix = '', format = 'png'):
     """
@@ -889,9 +932,16 @@ def model_overview(protocol, best_models, only_significant = False, save_folder 
     if save_folder == None:
         plt.show(block=False)
     else:
-        plt.savefig(save_folder + '/model_overview_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
-                    format, backend=None)
-        plt.close()
+        if format != '.both':
+            plt.savefig(save_folder + '/model_overview_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                        format, backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder + '/model_overview_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                    '.svg', backend=None)
+            plt.savefig(save_folder + '/model_overview_' + protocol_name.lower().replace(' ', '_') + '_' + save_suffix +
+                    '.png', backend=None)
+            plt.close()
 
 def model_per_day(protocol, best_models_per_day, day_window, only_significant = False, save_folder = None, save_suffix = '', format = 'png'):
     """
@@ -1008,10 +1058,16 @@ def model_per_day(protocol, best_models_per_day, day_window, only_significant = 
     if save_folder == None:
         plt.show(block=False)
     else:
-        plt.savefig(save_folder + '/model_parameters_per_day_w' + str(day_window) + '_' +
-                    protocol_name.lower().replace(' ', '_') + '_' + save_suffix + format, backend=None)
-        plt.close()
-
+        if format != '.both':
+            plt.savefig(save_folder + '/model_parameters_per_day_w' + str(day_window) + '_' +
+                        protocol_name.lower().replace(' ', '_') + '_' + save_suffix + format, backend=None)
+            plt.close()
+        else:
+            plt.savefig(save_folder + '/model_parameters_per_day_w' + str(day_window) + '_' +
+                        protocol_name.lower().replace(' ', '_') + '_' + save_suffix + '.svg', backend=None)
+            plt.savefig(save_folder + '/model_parameters_per_day_w' + str(day_window) + '_' +
+                        protocol_name.lower().replace(' ', '_') + '_' + save_suffix + '.png', backend=None)
+            plt.close()
 def _get_next_previus_odd(number):
     """
     Get the next odd number of the input number

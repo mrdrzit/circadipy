@@ -861,7 +861,7 @@ class read_protocol():
         self.data = self.data[~self.data['day'].isin(days_to_delete)]
         self.cycle_days[0] = self.cycle_days[0] - number_of_days
 
-def delete_period(self, first_day_between, last_day_between, test_label):
+    def delete_period(self, first_day_between, last_day_between, test_label):
         """
         Delete the days between the two parameters
 
@@ -897,6 +897,7 @@ def delete_period(self, first_day_between, last_day_between, test_label):
         
         after_date = pandas.to_datetime(first_day_to_delete)
         self.new_data.index = self.new_data.index.where(self.new_data.index <= after_date, self.new_data.index - pandas.DateOffset(days=number_of_days))
+        self.data = self.new_data
 
         self.cycle_days[index_test_label] = self.cycle_days[index_test_label] - number_of_days
 
