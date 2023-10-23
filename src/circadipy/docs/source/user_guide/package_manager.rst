@@ -1,5 +1,5 @@
 Package and Environment Management System
------------------------------------------
+=========================================
 
 We recommend using either Miniconda or Mamba to install Python and create a new environment. 
 In this tutorial, we will use Mamba, but the steps are the same for Miniconda.
