@@ -1,4 +1,4 @@
-Chrono rithm 
+Chrono rhythm 
 ============
 
 **This class includes the following methods:**
