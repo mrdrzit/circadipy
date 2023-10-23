@@ -11,11 +11,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=2709fde1"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -89,37 +89,40 @@
            <div itemprop="articleBody">
              
   <section id="chrono-simulation">
-<h1>Chrono simulation<a class="headerlink" href="#chrono-simulation" title="Permalink to this heading"></a></h1>
+<h1>Chrono simulation<a class="headerlink" href="#chrono-simulation" title="Link to this heading"></a></h1>
 <p><strong>This class includes the following methods:</strong></p>
-<span class="target" id="module-chrono_simulation"></span><dl class="py function">
+<dl class="py function" id="module-chrono_simulation">
 <dt class="sig sig-object py" id="chrono_simulation.add_noise">
-<span class="sig-prename descclassname"><span class="pre">chrono_simulation.</span></span><span class="sig-name descname"><span class="pre">add_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snr_db</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_simulation.add_noise" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">chrono_simulation.</span></span><span class="sig-name descname"><span class="pre">add_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snr_db</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_simulation.add_noise" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="chrono_simulation.simulate_protocol">
-<span class="sig-prename descclassname"><span class="pre">chrono_simulation.</span></span><span class="sig-name descname"><span class="pre">simulate_protocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'H'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cycle_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activity_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sine'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snr_db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_positive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_simulation.simulate_protocol" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">chrono_simulation.</span></span><span class="sig-name descname"><span class="pre">simulate_protocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'H'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cycle_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">activity_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signal_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sine'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snr_db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_positive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#chrono_simulation.simulate_protocol" title="Link to this definition"></a></dt>
 <dd><p>Simulate a protocol</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>file_name</strong> (<em>str</em>) – The name of the file</p></li>
 <li><p><strong>folder</strong> (<em>str</em>) – The folder where the file will be saved</p></li>
-<li><p><strong>sampling_frequency</strong> (<em>str</em>) – The sampling frequency of the protocol in pandas format (e.g. ‘30T’ for 30 minutes), defaults to ‘H’</p></li>
-<li><p><strong>activity_period</strong> (<em>int</em>) – The period of the sin curve (in hours), defaults to 24</p></li>
-<li><p><strong>signal_type</strong> (<em>str</em>) – The type of the signal (sine, square, triangle, sawtooth, square_lowpass), defaults to ‘sine’.</p></li>
-<li><p><strong>noise</strong> (<em>bool</em>) – If True, noise will be added to the signal, defaults to None</p></li>
-<li><p><strong>snr_db</strong> (<em>float</em>) – The signal to noise ratio in dB, defaults to 0.1</p></li>
-<li><p><strong>remove_file</strong> (<em>bool</em>) – If True, the file will be removed if it already exists, defaults to False</p></li>
+<li><p><strong>sampling_frequency</strong> – The sampling frequency of the protocol in pandas format (e.g. ‘30T’ for 30 minutes),</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The simulated activity data</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>list</p>
-</dd>
 </dl>
+<p>defaults to ‘H’
+:type sampling_frequency: str
+:param activity_period: The period of the sin curve (in hours), defaults to 24
+:type activity_period: int
+:param signal_type: The type of the signal (sine, square, sawtooth), defaults to ‘sine’.
+:type signal_type: str
+:param noise: If True, noise will be added to the signal, defaults to None
+:type noise: bool
+:param snr_db: The signal to noise ratio in dB, defaults to 0.1
+:type snr_db: float
+:param remove_file: If True, the file will be removed if it already exists, defaults to False
+:type remove_file: bool
+:return: The simulated activity data
+:rtype: list</p>
 </dd></dl>
 
 </section>

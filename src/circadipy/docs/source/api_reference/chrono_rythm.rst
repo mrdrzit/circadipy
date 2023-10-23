@@ -3,7 +3,7 @@ Chrono rithm
 
 **This class includes the following methods:**
 
-.. automodule:: chrono_rithm
+.. automodule:: chrono_rhythm
     :members:
     :undoc-members:
     :show-inheritance:
