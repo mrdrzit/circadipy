@@ -52,4 +52,4 @@ CircadiPy also provides a built-in generator of simulated data, making possible 
    api_reference/chrono_plotter
    api_reference/chrono_reader
    api_reference/chrono_simulation
-   api_reference/chrono_rithm
+   api_reference/chrono_rhythm
