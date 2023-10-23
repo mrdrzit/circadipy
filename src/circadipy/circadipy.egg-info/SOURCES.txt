@@ -1,14 +1,8 @@
-LICENSE
 MANIFEST.in
 README.md
 pyproject.toml
 setup.cfg
 setup.py
-src/circadipy/__init__.py
-src/circadipy/chrono_plotter.py
-src/circadipy/chrono_reader.py
-src/circadipy/chrono_rhythm.py
-src/circadipy/chrono_simulation.py
 src/circadipy.egg-info/PKG-INFO
 src/circadipy.egg-info/SOURCES.txt
 src/circadipy.egg-info/dependency_links.txt
