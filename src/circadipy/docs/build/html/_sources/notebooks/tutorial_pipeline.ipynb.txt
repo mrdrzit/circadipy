@@ -1,0 +1,822 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## CIRCADIPY\n",
+    "\n",
+    "This is the pipeline for basic execution of the CircadiPy library. Here you will find information needed to execute several features of the library."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 1 - IMPORT LIBRARIES TO USE THE NOTEBOOK\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## IMPORT LIBRARIES ----------------------------------------------------------------------------------------------------\n",
+    "\n",
+    "%matplotlib qt\n",
+    "\n",
+    "%reload_ext autoreload\n",
+    "%autoreload 3\n",
+    "\n",
+    "import matplotlib.pyplot as plt                                                                                         # Import matplotlib.pyplot to plot figures\n",
+    "import tkinter as tk                                                                                                    # Import TK to open folder dialogs to select folders\n",
+    "from tkinter import filedialog                                                                                          # Import filedialog to open folder dialogs to select folders\n",
+    "import numpy                                                                                                            # Import numpy to work with arrays and make calculations\n",
+    "import time                                                                                                             # Import time to measure time \n",
+    "import warnings                                                                                                         # Import warnings to ignore warnings\n",
+    "warnings.filterwarnings('ignore')                                                                                       # Ignore warnings\n",
+    "\n",
+    "## IMPORT CIRCADIPY ----------------------------------------------------------------------------------------------------\n",
+    "\n",
+    "import chrono_reader as chr                                                                                             # Import chrono_reader to read data\n",
+    "import chrono_plotter as chp                                                                                            # Import chrono_plotter to plot data\n",
+    "import chrono_rithm as chrt                                                                                             # Import chrono_rithm to make calculations\n",
+    "import chrono_simulation as chs                                                                                         # Import chrono_simulation to simulate data\n"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 2 - SELECT THE FOLDER TO SAVE THE SIMULATION\n",
+    "\n",
+    "In this first step we will generate a representative time series of the circadian activity of an experiment animal. The activity will be mimicked by sinusoids with noise that represent the number of movements made by an animal. To do this, we will first need to select a directory in which to save the simulated data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "E:/github/circadipy/src/simulated_data\n"
+     ]
+    }
+   ],
+   "source": [
+    "## SET THE ENVIRONMENT -------------------------------------------------------------------------------------------------\n",
+    "\n",
+    "root = tk.Tk()                                                                                                          # Create the root window\n",
+    "root.attributes('-topmost',True)                                                                                        # Keep the window on top of others\n",
+    "root.iconify()                                                                                                          # Hide the root window\n",
+    "\n",
+    "main_save_folder = filedialog.askdirectory(title=\"Select the folder to save the simulated data\", parent=root)           # Ask for the folder to save the simulated data\n",
+    "root.destroy()                                                                                                          # Destroy the root window\n",
+    "\n",
+    "print(main_save_folder)                                                                                                 # Print the folder to save the simulated data"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 3 - RUN AND SAVE A SIMPLE SIMULATION\n",
+    "\n",
+    "Each simulation has a given number stages (_num_stages_), each stage can be configured with a single activity period. In this example we will simulate a protocol that has 3 stages and a sample rate of 5 minutes (this means that each 5 minutes, a measure is done): \n",
+    "\n",
+    "- A: a 5-day control period with a 12-12 hour light-dark (LD) cycle, \n",
+    "- B: a 10-day free-running period with a 24-hour dark (DD) cycle,\n",
+    "- C: a further 5 days of readaptation, with a 12-12 hour light-dark (LD) cycle.\n",
+    "<br>\n",
+    "\n",
+    "Following a biological pattern, animals regulated to a 12-12 hour light-dark cycle have an activity period of 24 hours, however, when turning off the light track, leaving it in a 24-hour dark cycle, these animals tend to present a shorter period (in the example we will use 23 hours and 30 minutes). These animals tend to synchronize again when the light-dark cycle is reactivated, returning to a 24-hour period.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## CONFIGURE THE SIMULATION --------------------------------------------------------------------------------------------\n",
+    "\n",
+    "sampling_frequency = '5T'                                                                                               # Sampling frequency of the simulated data (30T = 30 minutes)\n",
+    "\n",
+    "num_stages = 3                                                                                                          # Number of cycles in each simulation\n",
+    "days_per_stage = [5, 10, 5]                                                                                             # Number of days in each stage\n",
+    "activity_period = [24, 23.5, 24]                                                                                        # Activity period in each stage\n",
+    "cycles_per_stage = ['LD', 'DD', 'LD']                                                                                   # Type of cycles in each stage\n",
+    "stage_labels = ['A', 'B', 'C']                                                                                          # Labels of each stage"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "To perform the simulation, the simulation module (_chrono_simulation_ imported as chs) of CircadiPy is used and the parameters discussed above are passed as arguments. The simulation can be generated in sine, square, square with low-pass filter, sawtooth and triangular format. In addition, Gaussian noise and its signal-to-noise ratio can be added. The user can also select whether negative values will be considered or not.\n",
+    "\n",
+    "**Note**: the simulated data was saved in an .asc file, which is a simple text file. As long as the pattern of this file is followed, CircadiPy is able to read and process your data."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 104,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Saved successfully in E:/github/circadipy/src/simulated_data/simulated_data.asc\n"
+     ]
+    }
+   ],
+   "source": [
+    "## SIMULATE A EXPERIMENT AND SAVE THE DATA -----------------------------------------------------------------------------\n",
+    "\n",
+    "file_name = 'simulated_data'                                                                                            # Create the file name for the simulated data with noise\n",
+    "raw_data = chs.simulate_protocol(file_name, main_save_folder, sampling_frequency, days_per_stage, activity_period, \n",
+    "                                 signal_type = 'square', noise = True, snr_db = 20, only_positive = True,\n",
+    "                                 remove_file = True)                                                                    # Simulate the data with noise (chrono_simulation.py)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Run the next block to visualize the generated data. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 105,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## PLOT THE RAW DATA ---------------------------------------------------------------------------------------------------\n",
+    "\n",
+    "fig = plt.figure(figsize = (12, 5))                                                                                     # Create a figure\n",
+    "ax = fig.add_subplot(111)                                                                                               # Add a subplot\n",
+    "ax.plot(raw_data, color = 'maroon', linewidth = 2)                                                                      # Plot the data with noise\n",
+    "ax.set_xlabel('Time (Hours)')                                                                                           # Set the x label\n",
+    "ax.set_ylabel('Activity')                                                                                               # Set the y label\n",
+    "ax.set_title('Simulated Data With Noise')                                                                               # Set the title\n",
+    "plt.show()                                                                                                              # Show the plot"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 4 - IMPORT THE SIMULATION AND BUILD THE PROTOCOL TO BE STUDIED\n",
+    "\n",
+    "To study a certain protocol, simply use the _read_protocol_ function of the _chrono_reader_ module (imported as chr). Just configure the following parameters:\n",
+    "- Protocol name: a representative name (e.g. 'simulation_example')\n",
+    "- File containing the data: the .asc file path (can be other formats). It was previously saved using the variables _main_save_folder_ and _file_name_. It can also be accessed in one of the previously executed blocks.\n",
+    "- ZT0 reference: ZT is the time the light was switched on (in this example we will use 00:00) \n",
+    "- Labels dictionary: a dictionary containing the characteristics of each experimental stage. It is necessary to configure the type of cycle (e.g. light-dark , LD), a stage label (arbitrary name that will differentiate the stages) and the number of days of the stage. In our case, we will use the same variables used to create the simulation\n",
+    "- Type of data: the type of file to be read (it can be a generic .asc file, or a predefined template such as intellicage) \n",
+    "- Flag to consider the first day: if True, the first day of the experiment will be considered, if False, no\n",
+    "\n",
+    "At the end, the _protocol_ object (or variable) will be saved, it contains all the information needed to apply various features of CircadiPy. The data is stored in this object in the form of a table, which can be seen as a result of the block execution.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 106,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Data read from: E:/github/circadipy/src/simulated_data/simulated_data.asc\n",
+      "\n",
+      "Table generated after the data importing\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>values</th>\n",
+       "      <th>is_night</th>\n",
+       "      <th>cycle_types</th>\n",
+       "      <th>test_labels</th>\n",
+       "      <th>real_date</th>\n",
+       "      <th>day</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>2022-01-01 00:00:00</th>\n",
+       "      <td>101.0</td>\n",
+       "      <td>False</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>A</td>\n",
+       "      <td>2022-01-01 00:00:00</td>\n",
+       "      <td>2022-01-01</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-01 00:05:00</th>\n",
+       "      <td>0.0</td>\n",
+       "      <td>False</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>A</td>\n",
+       "      <td>2022-01-01 00:05:00</td>\n",
+       "      <td>2022-01-01</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-01 00:10:00</th>\n",
+       "      <td>10.0</td>\n",
+       "      <td>False</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>A</td>\n",
+       "      <td>2022-01-01 00:10:00</td>\n",
+       "      <td>2022-01-01</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-01 00:15:00</th>\n",
+       "      <td>2.0</td>\n",
+       "      <td>False</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>A</td>\n",
+       "      <td>2022-01-01 00:15:00</td>\n",
+       "      <td>2022-01-01</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-01 00:20:00</th>\n",
+       "      <td>0.0</td>\n",
+       "      <td>False</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>A</td>\n",
+       "      <td>2022-01-01 00:20:00</td>\n",
+       "      <td>2022-01-01</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-20 23:35:00</th>\n",
+       "      <td>0.0</td>\n",
+       "      <td>True</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>C</td>\n",
+       "      <td>2022-01-20 23:35:00</td>\n",
+       "      <td>2022-01-20</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-20 23:40:00</th>\n",
+       "      <td>8.0</td>\n",
+       "      <td>True</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>C</td>\n",
+       "      <td>2022-01-20 23:40:00</td>\n",
+       "      <td>2022-01-20</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-20 23:45:00</th>\n",
+       "      <td>4.0</td>\n",
+       "      <td>True</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>C</td>\n",
+       "      <td>2022-01-20 23:45:00</td>\n",
+       "      <td>2022-01-20</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-20 23:50:00</th>\n",
+       "      <td>3.0</td>\n",
+       "      <td>True</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>C</td>\n",
+       "      <td>2022-01-20 23:50:00</td>\n",
+       "      <td>2022-01-20</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2022-01-20 23:55:00</th>\n",
+       "      <td>2.0</td>\n",
+       "      <td>True</td>\n",
+       "      <td>LD</td>\n",
+       "      <td>C</td>\n",
+       "      <td>2022-01-20 23:55:00</td>\n",
+       "      <td>2022-01-20</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>5760 rows × 6 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                     values  is_night cycle_types test_labels  \\\n",
+       "2022-01-01 00:00:00   101.0     False          LD           A   \n",
+       "2022-01-01 00:05:00     0.0     False          LD           A   \n",
+       "2022-01-01 00:10:00    10.0     False          LD           A   \n",
+       "2022-01-01 00:15:00     2.0     False          LD           A   \n",
+       "2022-01-01 00:20:00     0.0     False          LD           A   \n",
+       "...                     ...       ...         ...         ...   \n",
+       "2022-01-20 23:35:00     0.0      True          LD           C   \n",
+       "2022-01-20 23:40:00     8.0      True          LD           C   \n",
+       "2022-01-20 23:45:00     4.0      True          LD           C   \n",
+       "2022-01-20 23:50:00     3.0      True          LD           C   \n",
+       "2022-01-20 23:55:00     2.0      True          LD           C   \n",
+       "\n",
+       "                              real_date         day  \n",
+       "2022-01-01 00:00:00 2022-01-01 00:00:00  2022-01-01  \n",
+       "2022-01-01 00:05:00 2022-01-01 00:05:00  2022-01-01  \n",
+       "2022-01-01 00:10:00 2022-01-01 00:10:00  2022-01-01  \n",
+       "2022-01-01 00:15:00 2022-01-01 00:15:00  2022-01-01  \n",
+       "2022-01-01 00:20:00 2022-01-01 00:20:00  2022-01-01  \n",
+       "...                                 ...         ...  \n",
+       "2022-01-20 23:35:00 2022-01-20 23:35:00  2022-01-20  \n",
+       "2022-01-20 23:40:00 2022-01-20 23:40:00  2022-01-20  \n",
+       "2022-01-20 23:45:00 2022-01-20 23:45:00  2022-01-20  \n",
+       "2022-01-20 23:50:00 2022-01-20 23:50:00  2022-01-20  \n",
+       "2022-01-20 23:55:00 2022-01-20 23:55:00  2022-01-20  \n",
+       "\n",
+       "[5760 rows x 6 columns]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "## SET THE DATA FILE ---------------------------------------------------------------------------------------------------\n",
+    "\n",
+    "# simulation_file = 'insert/your/file/directory.asc                                                                       # If you want to use other dataset, please uncomment this line and set yout data path\n",
+    "simulation_file = main_save_folder + \"/\" + file_name + '.asc'                                                           # Set the path to the simulation description file\n",
+    "\n",
+    "print('Data read from: ' + simulation_file)\n",
+    "\n",
+    "## CONFIGURE THE EXPERIMENT --------------------------------------------------------------------------------------------\n",
+    "\n",
+    "zt_0_time = 0                                                                                                           # Set the time for the first ZT (0)\n",
+    "type = 'generic'                                                                                                        # Set the type of the data decoding (endocrino or intellicage)\n",
+    "labels_dict = {'cycle_types': ['LD', 'DD', 'LD'], 'test_labels': ['A', 'B', 'C'], 'cycle_days': [5, 10, 5]}             # Create a dictionary to store to pass as argument to the read_protocol function\n",
+    "\n",
+    "## CREATE THE PROTOCOL OBJECT WITH THE EXPERIMENT ----------------------------------------------------------------------\n",
+    "\n",
+    "protocol = chr.read_protocol('simulation', simulation_file, zt_0_time = zt_0_time, labels_dict = labels_dict, \n",
+    "                             type = type, consider_first_day = True)                                                    # Read the protocol (chrono_reader.py)\n",
+    "\n",
+    "print('\\nTable generated after the data importing')\n",
+    "display(protocol.data)                                                                                                  # Display the data"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "CircadiPy allows the user to resample the signal (modify the number of samples per second), apply filters for noise removal and normalize the data. In the following example, the data will be resampled from 5 minutes to 10 minutes, in addition, a second order moving average filter will be applied using a 3-sample (in this case 30 minutes) window and, finally, a normalization will be made, adjusting the minimum and maximum values of each day in a range from 0 to 1. The result of the modifications is shown by the graph generated at the end of the block.\n",
+    "\n",
+    "To show how the modifications that preprocessing causes to the signal, we will use the basic plot functions of the _chrono_plotter_ module. The _time_series_ function will show the whole time series, while _time_series_sum_per_day_ will sum all the values corresponding to each day.\n",
+    "\n",
+    "**Note**: If you want to skip this step and not apply any pre-processing, move on to the next block."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 107,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## PLOT THE DATA BEFORE PREPROCESSING ----------------------------------------------------------------------------------\n",
+    "\n",
+    "chp.time_serie(protocol, title = 'Time Series (Before)', x_label = 'Time (Days)', y_label = 'Amplitude', \n",
+    "               color = 'midnightblue', save_folder = None, save_suffix = '')                                            # Plot the data (using chrono_plotter.py)\n",
+    "\n",
+    "## RESAMPLE, FILTER AND NORMALIZE --------------------------------------------------------------------------------------\n",
+    "\n",
+    "protocol.resample('10T', method = 'sum')                                                                                # Resample the data (chrono_reader.py)\n",
+    "protocol.apply_filter(window = 3, type = 'moving_average', order = 2, reverse = False)                                  # Apply a filter to the data (chrono_reader.py)\n",
+    "protocol.normalize_data(type = 'minmax', per_day = True)                                                                # Normalize the data (chrono_reader.py)\n",
+    "\n",
+    "## PLOT THE DATA AFTER PREPROCESSING -----------------------------------------------------------------------------------\n",
+    "\n",
+    "chp.time_serie(protocol, title = 'Time Series (After)', x_label = 'Time (Days)', y_label = 'Amplitude', \n",
+    "               color = 'midnightblue', save_folder = None, save_suffix = '')                                            # Plot the data (using chrono_plotter.py)\n",
+    "chp.time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_label = 'Time (Days)', \n",
+    "                           y_label = 'Amplitude', color = 'midnightblue', save_folder = None, save_suffix = '')         # Plot the sum of the data per day (using chrono_plotter.py)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 5 - RUN THE COSINOR MODELING\n",
+    "\n",
+    "In this block, the pre-processed (or not) data will be submitted to a parameterization process of several cosine models. The user will select those periods (or frequencies) that he wants to test and, for each of them, the best model will be calculated and its parameters defined, being them: the amplitude, acrophase, mesor. At the end of this step, the best model among all the periods tested will be selected and its parameters used to characterize data. this process will be carried out for each stage separately. Internally, CircadiPy will organize the necessary table so that the CosinorPy library can run and estimate the best model, in addition, it will use the best model to produce graphs and tables representing the parameterization.\n",
+    "\n",
+    "To set up the modeling, a dictionary (_dict_) will be used as parameter of the fit_cosinor function. In this dictionary the following variables should be configured.\n",
+    "\n",
+    "- The _time_shape_ can be 'continuous', 'meadian' or 'mean'. If it is 'continuous', all samples will be cosider to \n",
+    "calculate the model. If it is 'median' or 'mean', the samples of activity will be grouped by mean/median along one day. \n",
+    "- The _step_ is the time step to calculate the model (in hours). \n",
+    "- The _start/end_time_ defines the period that the model will try to fit. E.g. if the start time is 24, the end time \n",
+    "is 26, and the step is 0.5, the model will try to fit the data to a cosine curve with period equal to 24, 24.5, 25,\n",
+    "25.5 and 26 hours.\n",
+    "- The _n_components_ is the number of components that the model will try to fit. If it is a list, the model will try to \n",
+    "fit all the number of components in the list. E.g. if _n_components_ = [1,2,3], the model will try to fit the data with\n",
+    "1, 2 and 3 components.\n",
+    "\n",
+    "Then, the best model obtained for each stage can be used to generate daily models. In this functionality, the period selected as the best model for each stage will be fixed and the acrophase, mesor and amplitude parameters will be obtained for each day. \n",
+    "\n",
+    "**Note**: CosinorPy provides as output all parameters and their statistical significance.  \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 108,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Cosinor fitted to simulation and results saved!\n",
+      "Time elapsed: 33.13 seconds\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>significant</th>\n",
+       "      <th>test</th>\n",
+       "      <th>period</th>\n",
+       "      <th>n_components</th>\n",
+       "      <th>p</th>\n",
+       "      <th>q</th>\n",
+       "      <th>p_reject</th>\n",
+       "      <th>q_reject</th>\n",
+       "      <th>amplitude</th>\n",
+       "      <th>CI(amplitude)</th>\n",
+       "      <th>...</th>\n",
+       "      <th>CI(acrophase)</th>\n",
+       "      <th>p(acrophase)</th>\n",
+       "      <th>q(acrophase)</th>\n",
+       "      <th>mesor</th>\n",
+       "      <th>CI(mesor)</th>\n",
+       "      <th>p(mesor)</th>\n",
+       "      <th>q(mesor)</th>\n",
+       "      <th>acrophase_zt</th>\n",
+       "      <th>acrophase_zt_lower</th>\n",
+       "      <th>acrophase_zt_upper</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1</td>\n",
+       "      <td>A</td>\n",
+       "      <td>24.14</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>1.110223e-16</td>\n",
+       "      <td>1.158494e-16</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.580089</td>\n",
+       "      <td>[0.5596956018197057, 0.6004821916021363]</td>\n",
+       "      <td>...</td>\n",
+       "      <td>[1.628973968528041, 1.7044476659115793]</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.481137</td>\n",
+       "      <td>[0.4677809779739576, 0.49449351542240333]</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>17.596496</td>\n",
+       "      <td>17.741481</td>\n",
+       "      <td>17.451512</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1</td>\n",
+       "      <td>B</td>\n",
+       "      <td>23.51</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>1.110223e-16</td>\n",
+       "      <td>1.158494e-16</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.586008</td>\n",
+       "      <td>[0.5680602716599603, 0.6039556246030819]</td>\n",
+       "      <td>...</td>\n",
+       "      <td>[0.8993948938205021, 0.9748685912040402]</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.482428</td>\n",
+       "      <td>[0.47275207399766567, 0.4921039752479259]</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>20.493504</td>\n",
+       "      <td>20.634705</td>\n",
+       "      <td>20.352302</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>1</td>\n",
+       "      <td>C</td>\n",
+       "      <td>23.96</td>\n",
+       "      <td>1.0</td>\n",
+       "      <td>1.110223e-16</td>\n",
+       "      <td>1.158494e-16</td>\n",
+       "      <td>1.110223e-16</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>0.578468</td>\n",
+       "      <td>[0.5536516768067955, 0.6032844665068849]</td>\n",
+       "      <td>...</td>\n",
+       "      <td>[2.660447832769734, 2.735921530153274]</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.481172</td>\n",
+       "      <td>[0.4675651208797714, 0.4947779483121282]</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>0.0</td>\n",
+       "      <td>13.710871</td>\n",
+       "      <td>13.854775</td>\n",
+       "      <td>13.566967</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>3 rows × 23 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   significant test  period  n_components             p             q  \\\n",
+       "0            1    A   24.14           1.0  1.110223e-16  1.158494e-16   \n",
+       "1            1    B   23.51           1.0  1.110223e-16  1.158494e-16   \n",
+       "2            1    C   23.96           1.0  1.110223e-16  1.158494e-16   \n",
+       "\n",
+       "       p_reject  q_reject  amplitude  \\\n",
+       "0           NaN       NaN   0.580089   \n",
+       "1           NaN       NaN   0.586008   \n",
+       "2  1.110223e-16       NaN   0.578468   \n",
+       "\n",
+       "                              CI(amplitude)  ...  \\\n",
+       "0  [0.5596956018197057, 0.6004821916021363]  ...   \n",
+       "1  [0.5680602716599603, 0.6039556246030819]  ...   \n",
+       "2  [0.5536516768067955, 0.6032844665068849]  ...   \n",
+       "\n",
+       "                              CI(acrophase)  p(acrophase)  q(acrophase)  \\\n",
+       "0   [1.628973968528041, 1.7044476659115793]           0.0           0.0   \n",
+       "1  [0.8993948938205021, 0.9748685912040402]           0.0           0.0   \n",
+       "2    [2.660447832769734, 2.735921530153274]           0.0           0.0   \n",
+       "\n",
+       "      mesor                                  CI(mesor)  p(mesor)  q(mesor)  \\\n",
+       "0  0.481137  [0.4677809779739576, 0.49449351542240333]       0.0       0.0   \n",
+       "1  0.482428  [0.47275207399766567, 0.4921039752479259]       0.0       0.0   \n",
+       "2  0.481172   [0.4675651208797714, 0.4947779483121282]       0.0       0.0   \n",
+       "\n",
+       "  acrophase_zt  acrophase_zt_lower  acrophase_zt_upper  \n",
+       "0    17.596496           17.741481           17.451512  \n",
+       "1    20.493504           20.634705           20.352302  \n",
+       "2    13.710871           13.854775           13.566967  \n",
+       "\n",
+       "[3 rows x 23 columns]"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "## SET THE PARAMETERS FOR THE COSINOR FITTING --------------------------------------------------------------------------\n",
+    "\n",
+    "dict = {'time_shape': 'continuous',                     \n",
+    "        'step': 0.01, \n",
+    "        'start_time': 22, \n",
+    "        'end_time': 26, \n",
+    "        'n_components': [1]}                                                                                            # Create a dictionary to pass as argument to the fit_cosinor function\n",
+    "\n",
+    "## FIT THE COSINOR TO THE DATA -----------------------------------------------------------------------------------------\n",
+    "\n",
+    "init = time.time()                                                                                                      # Get the initial time\n",
+    "\n",
+    "best_models, best_models_file = chrt.fit_cosinor(protocol, dict = dict, save_folder = main_save_folder)                 # Fit the cosinor to the data (chrono_rithm.py)\n",
+    "best_models_fixed, best_models_fixed_file = chrt.fit_cosinor_fixed_period(protocol, best_models, \n",
+    "                                                                          save_folder = main_save_folder)               # Fix the best period calculated and fit the cosinor for each day using this period (chrono_rithm.py)\n",
+    "\n",
+    "end = time.time() - init                                                                                                # Get the time elapsed\n",
+    "\n",
+    "print(\"Cosinor fitted to \" + protocol.name + \" and results saved!\")                                                     # Print that the cosinor was fitted and the results saved\n",
+    "print(\"Time elapsed: \" + \"{:.2f}\".format(end) + \" seconds\")                                                             # Print the time elapsed\n",
+    "\n",
+    "display(best_models)                                                                                                    # Display the best models"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 5a - COMPARE THE MODEL RESULTS FOR EACH CYCLE\n",
+    "\n",
+    "In this section, we can compare the results of the cosinor fitting with the ground-truth period used to generate the simulated data. The mean and standard deviation (stage A, B and C) of the error between the period calculated by the cosinor fitting and the period used to generate the data is printed."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 109,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mean error: 0.06 +/- 0.06 hours\n"
+     ]
+    }
+   ],
+   "source": [
+    "## COMPARE THE COSINOR FITTING WITH THE GORUND-TRUTH PERIODS -----------------------------------------------------------\n",
+    "\n",
+    "model_error = []                                                                                                        # Create an empty list to store the model error\n",
+    "\n",
+    "activity_period_model = list(best_models['period'])                                                                     # Get the activity period calculated by the model\n",
+    "animal_model_error = [abs(a - b) for a,b in zip(activity_period_model, activity_period)]                                # Calculate the error between the model and the real activity period used to generate the data\n",
+    "    \n",
+    "model_error.extend(animal_model_error)                                                                                  # Store the model error in the list\n",
+    "\n",
+    "print(\"Mean error: \" + \"{:.2f}\".format(numpy.mean(model_error)) + \" +/- \" + \n",
+    "      \"{:.2f}\".format(numpy.std(model_error)) + \" hours\")                                                               # Print the mean and standard deviation of the model error"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 6 - PLOT THE RESULTS\n",
+    "\n",
+    "Now, we will plot actograms, periodograms and the results of the cosinor fitting. To do this, we will use the _chrono_plotter_ module.\n",
+    "\n",
+    "**Note**: If you want to save the images in the directory, please change the _plot_ variable to False, if you want only to plot the images, please change the _plot_ variable to True"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 110,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "The plots will be saved in the folder: E:/github/circadipy/src/simulated_data\n"
+     ]
+    }
+   ],
+   "source": [
+    "## CONFIGURE IF THE PLOTS WILL BE SAVED OR SHOWN -----------------------------------------------------------------------\n",
+    "\n",
+    "plot = False                                                                                                            # Set the plot parameter\n",
+    "\n",
+    "if plot == False:                                                                                                        # If the plot parameter is False, save the images in the directory\n",
+    "    print(\"The plots will be saved in the folder: \" + main_save_folder)\n",
+    "    save_folder = main_save_folder\n",
+    "else:\n",
+    "    print(\"The plots will be shown in the screen\")\n",
+    "    save_folder = None                                                                                                   # If the plot parameter is True, save the images in the directory"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 111,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## PLOT ACTOGRAMS ------------------------------------------------------------------------------------------------------\n",
+    "\n",
+    "chp.actogram_bar(protocol, first_hour = 18, save_folder = save_folder, save_suffix = 'bar')                             # Plot the actogram with bars (using chrono_plotter.py)\n",
+    "chp.actogram_colormap(protocol, first_hour = 18, save_folder = save_folder, save_suffix = 'colormap', norm_color = None)# Plot the actogram with colormap (using chrono_plotter.py)\n",
+    "\n",
+    "## PLOT PERIODOGRAMS ---------------------------------------------------------------------------------------------------\n",
+    "\n",
+    "chp.data_periodogram(protocol, time_shape = 'continuous', method = 'periodogram', max_period = 48, \n",
+    "                     unit_of_measurement = 'Amplitude', save_folder = save_folder, save_suffix = 'periodogram')         # Plot the periodogram (using chrono_plotter.py)\n",
+    "chp.data_periodogram(protocol, time_shape = 'continuous', method = 'welch', max_period = 48, \n",
+    "                     unit_of_measurement = 'Amplitude', save_folder = save_folder, save_suffix = 'welch')               # Plot the welch periodogram (using chrono_plotter.py)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 112,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## PLOT THE COSINOR FITS -----------------------------------------------------------------------------------------------\n",
+    "\n",
+    "chp.model_overview_detailed(protocol, best_models_fixed, save_folder = main_save_folder)                                # Plot representative parameters of the model fitted to the data for each day (using chrono_plotter.py)\n",
+    "chp.model_overview(protocol, best_models, save_folder = main_save_folder)                                               # Plot representative parameters of the model fitted to the data for each stage (using chrono_plotter.py)\n",
+    "chp.model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 1, save_folder = main_save_folder)      # Plot representative figure with the data and the respective model (using chrono_plotter.py)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### 7 - RUN THE MODELING FOR SPECIFIED DAY WINDOWS\n",
+    "\n",
+    "In this last section the user can parameterize models for each day separately, in addition, the user can also select a moving window of days to run the modeling (e.g. if the window is 3, the model will be generated using data from day 1 to 3, then from day 2 to 4 and so on)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 113,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "## SET THE PARAMETERS FOR THE COSINOR FITTING --------------------------------------------------------------------------\n",
+    "\n",
+    "dict = {'day_window': 2, \n",
+    "        'step': 0.01, \n",
+    "        'start_time': 22, \n",
+    "        'end_time': 26, \n",
+    "        'n_components': [1]}                                                                                            # Create a dictionary to pass as argument to the fit_cosinor_per_day function\n",
+    "\n",
+    "## FIT A COSINOR MODEL FOR EACH DAY ------------------------------------------------------------------------------------\n",
+    "\n",
+    "best_models_per_day, best_models_fixed_file = chrt.fit_cosinor_per_day(protocol, dict = dict, plot = True, \n",
+    "                                                                       save_folder = save_folder)                       # Fit the cosinor to the data for each day or window of days (chrono_rithm.py)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "chrono",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.16"
+  },
+  "orig_nbformat": 4,
+  "vscode": {
+   "interpreter": {
+    "hash": "2939af26a36fc942e0c066bfc7148c204547295e343f43ef46c39eb3082d0963"
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

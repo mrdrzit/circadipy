@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIRCADIPY &mdash; circadipy 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e031e9a9"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API description" href="../api_reference/api_description.html" />
+    <link rel="prev" title="Introduction tutorial" href="../user_guide/pipelines.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            circadipy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">FIRST STEPS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/first_steps.html">Description</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USER GUIDE</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/package_manager.html">Package and Environment Management System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/env_creation.html">Environment Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../user_guide/pipelines.html">Introduction tutorial</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CIRCADIPY</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#1---IMPORT-LIBRARIES-TO-USE-THE-NOTEBOOK">1 - IMPORT LIBRARIES TO USE THE NOTEBOOK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#2---SELECT-THE-FOLDER-TO-SAVE-THE-SIMULATION">2 - SELECT THE FOLDER TO SAVE THE SIMULATION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#3---RUN-AND-SAVE-A-SIMPLE-SIMULATION">3 - RUN AND SAVE A SIMPLE SIMULATION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#4---IMPORT-THE-SIMULATION-AND-BUILD-THE-PROTOCOL-TO-BE-STUDIED">4 - IMPORT THE SIMULATION AND BUILD THE PROTOCOL TO BE STUDIED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#5---RUN-THE-COSINOR-MODELING">5 - RUN THE COSINOR MODELING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#5a---COMPARE-THE-MODEL-RESULTS-FOR-EACH-CYCLE">5a - COMPARE THE MODEL RESULTS FOR EACH CYCLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#6---PLOT-THE-RESULTS">6 - PLOT THE RESULTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#7---RUN-THE-MODELING-FOR-SPECIFIED-DAY-WINDOWS">7 - RUN THE MODELING FOR SPECIFIED DAY WINDOWS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/api_description.html">API description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/chrono_plotter.html">Chrono plotter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/chrono_reader.html">Chrono reader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/chrono_simulation.html">Chrono simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/chrono_rhythm.html">Chrono rhythm</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">circadipy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../user_guide/pipelines.html">Introduction tutorial</a></li>
+      <li class="breadcrumb-item active">CIRCADIPY</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebooks/tutorial_pipeline.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="CIRCADIPY">
+<h1>CIRCADIPY<a class="headerlink" href="#CIRCADIPY" title="Permalink to this heading"></a></h1>
+<p>This is the pipeline for basic execution of the CircadiPy library. Here you will find information needed to execute several features of the library.</p>
+<section id="1---IMPORT-LIBRARIES-TO-USE-THE-NOTEBOOK">
+<h2>1 - IMPORT LIBRARIES TO USE THE NOTEBOOK<a class="headerlink" href="#1---IMPORT-LIBRARIES-TO-USE-THE-NOTEBOOK" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## IMPORT LIBRARIES ----------------------------------------------------------------------------------------------------</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> qt
+
+<span class="o">%</span><span class="k">reload_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 3
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>                                                                                         <span class="c1"># Import matplotlib.pyplot to plot figures</span>
+<span class="kn">import</span> <span class="nn">tkinter</span> <span class="k">as</span> <span class="nn">tk</span>                                                                                                    <span class="c1"># Import TK to open folder dialogs to select folders</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">filedialog</span>                                                                                          <span class="c1"># Import filedialog to open folder dialogs to select folders</span>
+<span class="kn">import</span> <span class="nn">numpy</span>                                                                                                            <span class="c1"># Import numpy to work with arrays and make calculations</span>
+<span class="kn">import</span> <span class="nn">time</span>                                                                                                             <span class="c1"># Import time to measure time</span>
+<span class="kn">import</span> <span class="nn">warnings</span>                                                                                                         <span class="c1"># Import warnings to ignore warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>                                                                                       <span class="c1"># Ignore warnings</span>
+
+<span class="c1">## IMPORT CIRCADIPY ----------------------------------------------------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">chrono_reader</span> <span class="k">as</span> <span class="nn">chr</span>                                                                                             <span class="c1"># Import chrono_reader to read data</span>
+<span class="kn">import</span> <span class="nn">chrono_plotter</span> <span class="k">as</span> <span class="nn">chp</span>                                                                                            <span class="c1"># Import chrono_plotter to plot data</span>
+<span class="kn">import</span> <span class="nn">chrono_rithm</span> <span class="k">as</span> <span class="nn">chrt</span>                                                                                             <span class="c1"># Import chrono_rithm to make calculations</span>
+<span class="kn">import</span> <span class="nn">chrono_simulation</span> <span class="k">as</span> <span class="nn">chs</span>                                                                                         <span class="c1"># Import chrono_simulation to simulate data</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="2---SELECT-THE-FOLDER-TO-SAVE-THE-SIMULATION">
+<h2>2 - SELECT THE FOLDER TO SAVE THE SIMULATION<a class="headerlink" href="#2---SELECT-THE-FOLDER-TO-SAVE-THE-SIMULATION" title="Permalink to this heading"></a></h2>
+<p>In this first step we will generate a representative time series of the circadian activity of an experiment animal. The activity will be mimicked by sinusoids with noise that represent the number of movements made by an animal. To do this, we will first need to select a directory in which to save the simulated data</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## SET THE ENVIRONMENT -------------------------------------------------------------------------------------------------</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>                                                                                                          <span class="c1"># Create the root window</span>
+<span class="n">root</span><span class="o">.</span><span class="n">attributes</span><span class="p">(</span><span class="s1">&#39;-topmost&#39;</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>                                                                                        <span class="c1"># Keep the window on top of others</span>
+<span class="n">root</span><span class="o">.</span><span class="n">iconify</span><span class="p">()</span>                                                                                                          <span class="c1"># Hide the root window</span>
+
+<span class="n">main_save_folder</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Select the folder to save the simulated data&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">root</span><span class="p">)</span>           <span class="c1"># Ask for the folder to save the simulated data</span>
+<span class="n">root</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>                                                                                                          <span class="c1"># Destroy the root window</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">main_save_folder</span><span class="p">)</span>                                                                                                 <span class="c1"># Print the folder to save the simulated data</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+E:/github/circadipy/src/simulated_data
+</pre></div></div>
+</div>
+</section>
+<section id="3---RUN-AND-SAVE-A-SIMPLE-SIMULATION">
+<h2>3 - RUN AND SAVE A SIMPLE SIMULATION<a class="headerlink" href="#3---RUN-AND-SAVE-A-SIMPLE-SIMULATION" title="Permalink to this heading"></a></h2>
+<p>Each simulation has a given number stages (<em>num_stages</em>), each stage can be configured with a single activity period. In this example we will simulate a protocol that has 3 stages and a sample rate of 5 minutes (this means that each 5 minutes, a measure is done):</p>
+<ul class="simple">
+<li><p>A: a 5-day control period with a 12-12 hour light-dark (LD) cycle,</p></li>
+<li><p>B: a 10-day free-running period with a 24-hour dark (DD) cycle,</p></li>
+<li><p>C: a further 5 days of readaptation, with a 12-12 hour light-dark (LD) cycle.</p></li>
+</ul>
+<p>Following a biological pattern, animals regulated to a 12-12 hour light-dark cycle have an activity period of 24 hours, however, when turning off the light track, leaving it in a 24-hour dark cycle, these animals tend to present a shorter period (in the example we will use 23 hours and 30 minutes). These animals tend to synchronize again when the light-dark cycle is reactivated, returning to a 24-hour period.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## CONFIGURE THE SIMULATION --------------------------------------------------------------------------------------------</span>
+
+<span class="n">sampling_frequency</span> <span class="o">=</span> <span class="s1">&#39;5T&#39;</span>                                                                                               <span class="c1"># Sampling frequency of the simulated data (30T = 30 minutes)</span>
+
+<span class="n">num_stages</span> <span class="o">=</span> <span class="mi">3</span>                                                                                                          <span class="c1"># Number of cycles in each simulation</span>
+<span class="n">days_per_stage</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>                                                                                             <span class="c1"># Number of days in each stage</span>
+<span class="n">activity_period</span> <span class="o">=</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mf">23.5</span><span class="p">,</span> <span class="mi">24</span><span class="p">]</span>                                                                                        <span class="c1"># Activity period in each stage</span>
+<span class="n">cycles_per_stage</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;LD&#39;</span><span class="p">,</span> <span class="s1">&#39;DD&#39;</span><span class="p">,</span> <span class="s1">&#39;LD&#39;</span><span class="p">]</span>                                                                                   <span class="c1"># Type of cycles in each stage</span>
+<span class="n">stage_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span>                                                                                          <span class="c1"># Labels of each stage</span>
+</pre></div>
+</div>
+</div>
+<p>To perform the simulation, the simulation module (<em>chrono_simulation</em> imported as chs) of CircadiPy is used and the parameters discussed above are passed as arguments. The simulation can be generated in sine, square, square with low-pass filter, sawtooth and triangular format. In addition, Gaussian noise and its signal-to-noise ratio can be added. The user can also select whether negative values will be considered or not.</p>
+<p><strong>Note</strong>: the simulated data was saved in an .asc file, which is a simple text file. As long as the pattern of this file is followed, CircadiPy is able to read and process your data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## SIMULATE A EXPERIMENT AND SAVE THE DATA -----------------------------------------------------------------------------</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;simulated_data&#39;</span>                                                                                            <span class="c1"># Create the file name for the simulated data with noise</span>
+<span class="n">raw_data</span> <span class="o">=</span> <span class="n">chs</span><span class="o">.</span><span class="n">simulate_protocol</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">main_save_folder</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="p">,</span> <span class="n">days_per_stage</span><span class="p">,</span> <span class="n">activity_period</span><span class="p">,</span>
+                                 <span class="n">signal_type</span> <span class="o">=</span> <span class="s1">&#39;square&#39;</span><span class="p">,</span> <span class="n">noise</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">snr_db</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">only_positive</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                 <span class="n">remove_file</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>                                                                    <span class="c1"># Simulate the data with noise (chrono_simulation.py)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Saved successfully in E:/github/circadipy/src/simulated_data/simulated_data.asc
+</pre></div></div>
+</div>
+<p>Run the next block to visualize the generated data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PLOT THE RAW DATA ---------------------------------------------------------------------------------------------------</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>                                                                                     <span class="c1"># Create a figure</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>                                                                                               <span class="c1"># Add a subplot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;maroon&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>                                                                      <span class="c1"># Plot the data with noise</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time (Hours)&#39;</span><span class="p">)</span>                                                                                           <span class="c1"># Set the x label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Activity&#39;</span><span class="p">)</span>                                                                                               <span class="c1"># Set the y label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Simulated Data With Noise&#39;</span><span class="p">)</span>                                                                               <span class="c1"># Set the title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                                                                                                              <span class="c1"># Show the plot</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="4---IMPORT-THE-SIMULATION-AND-BUILD-THE-PROTOCOL-TO-BE-STUDIED">
+<h2>4 - IMPORT THE SIMULATION AND BUILD THE PROTOCOL TO BE STUDIED<a class="headerlink" href="#4---IMPORT-THE-SIMULATION-AND-BUILD-THE-PROTOCOL-TO-BE-STUDIED" title="Permalink to this heading"></a></h2>
+<p>To study a certain protocol, simply use the <em>read_protocol</em> function of the <em>chrono_reader</em> module (imported as chr). Just configure the following parameters: - Protocol name: a representative name (e.g. ‘simulation_example’) - File containing the data: the .asc file path (can be other formats). It was previously saved using the variables <em>main_save_folder</em> and <em>file_name</em>. It can also be accessed in one of the previously executed blocks. - ZT0 reference: ZT is the time the light was switched on
+(in this example we will use 00:00) - Labels dictionary: a dictionary containing the characteristics of each experimental stage. It is necessary to configure the type of cycle (e.g. light-dark , LD), a stage label (arbitrary name that will differentiate the stages) and the number of days of the stage. In our case, we will use the same variables used to create the simulation - Type of data: the type of file to be read (it can be a generic .asc file, or a predefined template such as intellicage) -
+Flag to consider the first day: if True, the first day of the experiment will be considered, if False, no</p>
+<p>At the end, the <em>protocol</em> object (or variable) will be saved, it contains all the information needed to apply various features of CircadiPy. The data is stored in this object in the form of a table, which can be seen as a result of the block execution.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## SET THE DATA FILE ---------------------------------------------------------------------------------------------------</span>
+
+<span class="c1"># simulation_file = &#39;insert/your/file/directory.asc                                                                       # If you want to use other dataset, please uncomment this line and set yout data path</span>
+<span class="n">simulation_file</span> <span class="o">=</span> <span class="n">main_save_folder</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">file_name</span> <span class="o">+</span> <span class="s1">&#39;.asc&#39;</span>                                                           <span class="c1"># Set the path to the simulation description file</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data read from: &#39;</span> <span class="o">+</span> <span class="n">simulation_file</span><span class="p">)</span>
+
+<span class="c1">## CONFIGURE THE EXPERIMENT --------------------------------------------------------------------------------------------</span>
+
+<span class="n">zt_0_time</span> <span class="o">=</span> <span class="mi">0</span>                                                                                                           <span class="c1"># Set the time for the first ZT (0)</span>
+<span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;generic&#39;</span>                                                                                                        <span class="c1"># Set the type of the data decoding (endocrino or intellicage)</span>
+<span class="n">labels_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cycle_types&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;LD&#39;</span><span class="p">,</span> <span class="s1">&#39;DD&#39;</span><span class="p">,</span> <span class="s1">&#39;LD&#39;</span><span class="p">],</span> <span class="s1">&#39;test_labels&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="s1">&#39;cycle_days&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]}</span>             <span class="c1"># Create a dictionary to store to pass as argument to the read_protocol function</span>
+
+<span class="c1">## CREATE THE PROTOCOL OBJECT WITH THE EXPERIMENT ----------------------------------------------------------------------</span>
+
+<span class="n">protocol</span> <span class="o">=</span> <span class="nb">chr</span><span class="o">.</span><span class="n">read_protocol</span><span class="p">(</span><span class="s1">&#39;simulation&#39;</span><span class="p">,</span> <span class="n">simulation_file</span><span class="p">,</span> <span class="n">zt_0_time</span> <span class="o">=</span> <span class="n">zt_0_time</span><span class="p">,</span> <span class="n">labels_dict</span> <span class="o">=</span> <span class="n">labels_dict</span><span class="p">,</span>
+                             <span class="nb">type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">,</span> <span class="n">consider_first_day</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>                                                    <span class="c1"># Read the protocol (chrono_reader.py)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Table generated after the data importing&#39;</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">protocol</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>                                                                                                  <span class="c1"># Display the data</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Data read from: E:/github/circadipy/src/simulated_data/simulated_data.asc
+
+Table generated after the data importing
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>values</th>
+      <th>is_night</th>
+      <th>cycle_types</th>
+      <th>test_labels</th>
+      <th>real_date</th>
+      <th>day</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-01-01 00:00:00</th>
+      <td>101.0</td>
+      <td>False</td>
+      <td>LD</td>
+      <td>A</td>
+      <td>2022-01-01 00:00:00</td>
+      <td>2022-01-01</td>
+    </tr>
+    <tr>
+      <th>2022-01-01 00:05:00</th>
+      <td>0.0</td>
+      <td>False</td>
+      <td>LD</td>
+      <td>A</td>
+      <td>2022-01-01 00:05:00</td>
+      <td>2022-01-01</td>
+    </tr>
+    <tr>
+      <th>2022-01-01 00:10:00</th>
+      <td>10.0</td>
+      <td>False</td>
+      <td>LD</td>
+      <td>A</td>
+      <td>2022-01-01 00:10:00</td>
+      <td>2022-01-01</td>
+    </tr>
+    <tr>
+      <th>2022-01-01 00:15:00</th>
+      <td>2.0</td>
+      <td>False</td>
+      <td>LD</td>
+      <td>A</td>
+      <td>2022-01-01 00:15:00</td>
+      <td>2022-01-01</td>
+    </tr>
+    <tr>
+      <th>2022-01-01 00:20:00</th>
+      <td>0.0</td>
+      <td>False</td>
+      <td>LD</td>
+      <td>A</td>
+      <td>2022-01-01 00:20:00</td>
+      <td>2022-01-01</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2022-01-20 23:35:00</th>
+      <td>0.0</td>
+      <td>True</td>
+      <td>LD</td>
+      <td>C</td>
+      <td>2022-01-20 23:35:00</td>
+      <td>2022-01-20</td>
+    </tr>
+    <tr>
+      <th>2022-01-20 23:40:00</th>
+      <td>8.0</td>
+      <td>True</td>
+      <td>LD</td>
+      <td>C</td>
+      <td>2022-01-20 23:40:00</td>
+      <td>2022-01-20</td>
+    </tr>
+    <tr>
+      <th>2022-01-20 23:45:00</th>
+      <td>4.0</td>
+      <td>True</td>
+      <td>LD</td>
+      <td>C</td>
+      <td>2022-01-20 23:45:00</td>
+      <td>2022-01-20</td>
+    </tr>
+    <tr>
+      <th>2022-01-20 23:50:00</th>
+      <td>3.0</td>
+      <td>True</td>
+      <td>LD</td>
+      <td>C</td>
+      <td>2022-01-20 23:50:00</td>
+      <td>2022-01-20</td>
+    </tr>
+    <tr>
+      <th>2022-01-20 23:55:00</th>
+      <td>2.0</td>
+      <td>True</td>
+      <td>LD</td>
+      <td>C</td>
+      <td>2022-01-20 23:55:00</td>
+      <td>2022-01-20</td>
+    </tr>
+  </tbody>
+</table>
+<p>5760 rows × 6 columns</p>
+</div></div>
+</div>
+<p>CircadiPy allows the user to resample the signal (modify the number of samples per second), apply filters for noise removal and normalize the data. In the following example, the data will be resampled from 5 minutes to 10 minutes, in addition, a second order moving average filter will be applied using a 3-sample (in this case 30 minutes) window and, finally, a normalization will be made, adjusting the minimum and maximum values of each day in a range from 0 to 1. The result of the modifications
+is shown by the graph generated at the end of the block.</p>
+<p>To show how the modifications that preprocessing causes to the signal, we will use the basic plot functions of the <em>chrono_plotter</em> module. The <em>time_series</em> function will show the whole time series, while <em>time_series_sum_per_day</em> will sum all the values corresponding to each day.</p>
+<p><strong>Note</strong>: If you want to skip this step and not apply any pre-processing, move on to the next block.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PLOT THE DATA BEFORE PREPROCESSING ----------------------------------------------------------------------------------</span>
+
+<span class="n">chp</span><span class="o">.</span><span class="n">time_serie</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Time Series (Before)&#39;</span><span class="p">,</span> <span class="n">x_label</span> <span class="o">=</span> <span class="s1">&#39;Time (Days)&#39;</span><span class="p">,</span> <span class="n">y_label</span> <span class="o">=</span> <span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span>
+               <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;midnightblue&#39;</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">save_suffix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>                                            <span class="c1"># Plot the data (using chrono_plotter.py)</span>
+
+<span class="c1">## RESAMPLE, FILTER AND NORMALIZE --------------------------------------------------------------------------------------</span>
+
+<span class="n">protocol</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;10T&#39;</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;sum&#39;</span><span class="p">)</span>                                                                                <span class="c1"># Resample the data (chrono_reader.py)</span>
+<span class="n">protocol</span><span class="o">.</span><span class="n">apply_filter</span><span class="p">(</span><span class="n">window</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;moving_average&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>                                  <span class="c1"># Apply a filter to the data (chrono_reader.py)</span>
+<span class="n">protocol</span><span class="o">.</span><span class="n">normalize_data</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;minmax&#39;</span><span class="p">,</span> <span class="n">per_day</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>                                                                <span class="c1"># Normalize the data (chrono_reader.py)</span>
+
+<span class="c1">## PLOT THE DATA AFTER PREPROCESSING -----------------------------------------------------------------------------------</span>
+
+<span class="n">chp</span><span class="o">.</span><span class="n">time_serie</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Time Series (After)&#39;</span><span class="p">,</span> <span class="n">x_label</span> <span class="o">=</span> <span class="s1">&#39;Time (Days)&#39;</span><span class="p">,</span> <span class="n">y_label</span> <span class="o">=</span> <span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span>
+               <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;midnightblue&#39;</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">save_suffix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>                                            <span class="c1"># Plot the data (using chrono_plotter.py)</span>
+<span class="n">chp</span><span class="o">.</span><span class="n">time_serie_sum_per_day</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Sum of Time Series Per Day&#39;</span><span class="p">,</span> <span class="n">x_label</span> <span class="o">=</span> <span class="s1">&#39;Time (Days)&#39;</span><span class="p">,</span>
+                           <span class="n">y_label</span> <span class="o">=</span> <span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;midnightblue&#39;</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">save_suffix</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>         <span class="c1"># Plot the sum of the data per day (using chrono_plotter.py)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="5---RUN-THE-COSINOR-MODELING">
+<h2>5 - RUN THE COSINOR MODELING<a class="headerlink" href="#5---RUN-THE-COSINOR-MODELING" title="Permalink to this heading"></a></h2>
+<p>In this block, the pre-processed (or not) data will be submitted to a parameterization process of several cosine models. The user will select those periods (or frequencies) that he wants to test and, for each of them, the best model will be calculated and its parameters defined, being them: the amplitude, acrophase, mesor. At the end of this step, the best model among all the periods tested will be selected and its parameters used to characterize data. this process will be carried out for each
+stage separately. Internally, CircadiPy will organize the necessary table so that the CosinorPy library can run and estimate the best model, in addition, it will use the best model to produce graphs and tables representing the parameterization.</p>
+<p>To set up the modeling, a dictionary (<em>dict</em>) will be used as parameter of the fit_cosinor function. In this dictionary the following variables should be configured.</p>
+<ul class="simple">
+<li><p>The <em>time_shape</em> can be ‘continuous’, ‘meadian’ or ‘mean’. If it is ‘continuous’, all samples will be cosider to calculate the model. If it is ‘median’ or ‘mean’, the samples of activity will be grouped by mean/median along one day.</p></li>
+<li><p>The <em>step</em> is the time step to calculate the model (in hours).</p></li>
+<li><p>The <em>start/end_time</em> defines the period that the model will try to fit. E.g. if the start time is 24, the end time is 26, and the step is 0.5, the model will try to fit the data to a cosine curve with period equal to 24, 24.5, 25, 25.5 and 26 hours.</p></li>
+<li><p>The <em>n_components</em> is the number of components that the model will try to fit. If it is a list, the model will try to fit all the number of components in the list. E.g. if <em>n_components</em> = [1,2,3], the model will try to fit the data with 1, 2 and 3 components.</p></li>
+</ul>
+<p>Then, the best model obtained for each stage can be used to generate daily models. In this functionality, the period selected as the best model for each stage will be fixed and the acrophase, mesor and amplitude parameters will be obtained for each day.</p>
+<p><strong>Note</strong>: CosinorPy provides as output all parameters and their statistical significance.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[108]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## SET THE PARAMETERS FOR THE COSINOR FITTING --------------------------------------------------------------------------</span>
+
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;time_shape&#39;</span><span class="p">:</span> <span class="s1">&#39;continuous&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;step&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="s1">&#39;start_time&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+        <span class="s1">&#39;end_time&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+        <span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}</span>                                                                                            <span class="c1"># Create a dictionary to pass as argument to the fit_cosinor function</span>
+
+<span class="c1">## FIT THE COSINOR TO THE DATA -----------------------------------------------------------------------------------------</span>
+
+<span class="n">init</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>                                                                                                      <span class="c1"># Get the initial time</span>
+
+<span class="n">best_models</span><span class="p">,</span> <span class="n">best_models_file</span> <span class="o">=</span> <span class="n">chrt</span><span class="o">.</span><span class="n">fit_cosinor</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="nb">dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="n">main_save_folder</span><span class="p">)</span>                 <span class="c1"># Fit the cosinor to the data (chrono_rithm.py)</span>
+<span class="n">best_models_fixed</span><span class="p">,</span> <span class="n">best_models_fixed_file</span> <span class="o">=</span> <span class="n">chrt</span><span class="o">.</span><span class="n">fit_cosinor_fixed_period</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">best_models</span><span class="p">,</span>
+                                                                          <span class="n">save_folder</span> <span class="o">=</span> <span class="n">main_save_folder</span><span class="p">)</span>               <span class="c1"># Fix the best period calculated and fit the cosinor for each day using this period (chrono_rithm.py)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">init</span>                                                                                                <span class="c1"># Get the time elapsed</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cosinor fitted to &quot;</span> <span class="o">+</span> <span class="n">protocol</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; and results saved!&quot;</span><span class="p">)</span>                                                     <span class="c1"># Print that the cosinor was fitted and the results saved</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time elapsed: &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; seconds&quot;</span><span class="p">)</span>                                                             <span class="c1"># Print the time elapsed</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">best_models</span><span class="p">)</span>                                                                                                    <span class="c1"># Display the best models</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Cosinor fitted to simulation and results saved!
+Time elapsed: 33.13 seconds
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>significant</th>
+      <th>test</th>
+      <th>period</th>
+      <th>n_components</th>
+      <th>p</th>
+      <th>q</th>
+      <th>p_reject</th>
+      <th>q_reject</th>
+      <th>amplitude</th>
+      <th>CI(amplitude)</th>
+      <th>...</th>
+      <th>CI(acrophase)</th>
+      <th>p(acrophase)</th>
+      <th>q(acrophase)</th>
+      <th>mesor</th>
+      <th>CI(mesor)</th>
+      <th>p(mesor)</th>
+      <th>q(mesor)</th>
+      <th>acrophase_zt</th>
+      <th>acrophase_zt_lower</th>
+      <th>acrophase_zt_upper</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>A</td>
+      <td>24.14</td>
+      <td>1.0</td>
+      <td>1.110223e-16</td>
+      <td>1.158494e-16</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.580089</td>
+      <td>[0.5596956018197057, 0.6004821916021363]</td>
+      <td>...</td>
+      <td>[1.628973968528041, 1.7044476659115793]</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.481137</td>
+      <td>[0.4677809779739576, 0.49449351542240333]</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>17.596496</td>
+      <td>17.741481</td>
+      <td>17.451512</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>B</td>
+      <td>23.51</td>
+      <td>1.0</td>
+      <td>1.110223e-16</td>
+      <td>1.158494e-16</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.586008</td>
+      <td>[0.5680602716599603, 0.6039556246030819]</td>
+      <td>...</td>
+      <td>[0.8993948938205021, 0.9748685912040402]</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.482428</td>
+      <td>[0.47275207399766567, 0.4921039752479259]</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>20.493504</td>
+      <td>20.634705</td>
+      <td>20.352302</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>C</td>
+      <td>23.96</td>
+      <td>1.0</td>
+      <td>1.110223e-16</td>
+      <td>1.158494e-16</td>
+      <td>1.110223e-16</td>
+      <td>NaN</td>
+      <td>0.578468</td>
+      <td>[0.5536516768067955, 0.6032844665068849]</td>
+      <td>...</td>
+      <td>[2.660447832769734, 2.735921530153274]</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.481172</td>
+      <td>[0.4675651208797714, 0.4947779483121282]</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>13.710871</td>
+      <td>13.854775</td>
+      <td>13.566967</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 23 columns</p>
+</div></div>
+</div>
+</section>
+<section id="5a---COMPARE-THE-MODEL-RESULTS-FOR-EACH-CYCLE">
+<h2>5a - COMPARE THE MODEL RESULTS FOR EACH CYCLE<a class="headerlink" href="#5a---COMPARE-THE-MODEL-RESULTS-FOR-EACH-CYCLE" title="Permalink to this heading"></a></h2>
+<p>In this section, we can compare the results of the cosinor fitting with the ground-truth period used to generate the simulated data. The mean and standard deviation (stage A, B and C) of the error between the period calculated by the cosinor fitting and the period used to generate the data is printed.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[109]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## COMPARE THE COSINOR FITTING WITH THE GORUND-TRUTH PERIODS -----------------------------------------------------------</span>
+
+<span class="n">model_error</span> <span class="o">=</span> <span class="p">[]</span>                                                                                                        <span class="c1"># Create an empty list to store the model error</span>
+
+<span class="n">activity_period_model</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">best_models</span><span class="p">[</span><span class="s1">&#39;period&#39;</span><span class="p">])</span>                                                                     <span class="c1"># Get the activity period calculated by the model</span>
+<span class="n">animal_model_error</span> <span class="o">=</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">activity_period_model</span><span class="p">,</span> <span class="n">activity_period</span><span class="p">)]</span>                                <span class="c1"># Calculate the error between the model and the real activity period used to generate the data</span>
+
+<span class="n">model_error</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">animal_model_error</span><span class="p">)</span>                                                                                  <span class="c1"># Store the model error in the list</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean error: &quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">model_error</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; +/- &quot;</span> <span class="o">+</span>
+      <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">model_error</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; hours&quot;</span><span class="p">)</span>                                                               <span class="c1"># Print the mean and standard deviation of the model error</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Mean error: 0.06 +/- 0.06 hours
+</pre></div></div>
+</div>
+</section>
+<section id="6---PLOT-THE-RESULTS">
+<h2>6 - PLOT THE RESULTS<a class="headerlink" href="#6---PLOT-THE-RESULTS" title="Permalink to this heading"></a></h2>
+<p>Now, we will plot actograms, periodograms and the results of the cosinor fitting. To do this, we will use the <em>chrono_plotter</em> module.</p>
+<p><strong>Note</strong>: If you want to save the images in the directory, please change the <em>plot</em> variable to False, if you want only to plot the images, please change the <em>plot</em> variable to True</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[110]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## CONFIGURE IF THE PLOTS WILL BE SAVED OR SHOWN -----------------------------------------------------------------------</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span>                                                                                                            <span class="c1"># Set the plot parameter</span>
+
+<span class="k">if</span> <span class="n">plot</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>                                                                                                        <span class="c1"># If the plot parameter is False, save the images in the directory</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The plots will be saved in the folder: &quot;</span> <span class="o">+</span> <span class="n">main_save_folder</span><span class="p">)</span>
+    <span class="n">save_folder</span> <span class="o">=</span> <span class="n">main_save_folder</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The plots will be shown in the screen&quot;</span><span class="p">)</span>
+    <span class="n">save_folder</span> <span class="o">=</span> <span class="kc">None</span>                                                                                                   <span class="c1"># If the plot parameter is True, save the images in the directory</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The plots will be saved in the folder: E:/github/circadipy/src/simulated_data
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[111]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PLOT ACTOGRAMS ------------------------------------------------------------------------------------------------------</span>
+
+<span class="n">chp</span><span class="o">.</span><span class="n">actogram_bar</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">first_hour</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="n">save_folder</span><span class="p">,</span> <span class="n">save_suffix</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">)</span>                             <span class="c1"># Plot the actogram with bars (using chrono_plotter.py)</span>
+<span class="n">chp</span><span class="o">.</span><span class="n">actogram_colormap</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">first_hour</span> <span class="o">=</span> <span class="mi">18</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="n">save_folder</span><span class="p">,</span> <span class="n">save_suffix</span> <span class="o">=</span> <span class="s1">&#39;colormap&#39;</span><span class="p">,</span> <span class="n">norm_color</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span><span class="c1"># Plot the actogram with colormap (using chrono_plotter.py)</span>
+
+<span class="c1">## PLOT PERIODOGRAMS ---------------------------------------------------------------------------------------------------</span>
+
+<span class="n">chp</span><span class="o">.</span><span class="n">data_periodogram</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">time_shape</span> <span class="o">=</span> <span class="s1">&#39;continuous&#39;</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;periodogram&#39;</span><span class="p">,</span> <span class="n">max_period</span> <span class="o">=</span> <span class="mi">48</span><span class="p">,</span>
+                     <span class="n">unit_of_measurement</span> <span class="o">=</span> <span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="n">save_folder</span><span class="p">,</span> <span class="n">save_suffix</span> <span class="o">=</span> <span class="s1">&#39;periodogram&#39;</span><span class="p">)</span>         <span class="c1"># Plot the periodogram (using chrono_plotter.py)</span>
+<span class="n">chp</span><span class="o">.</span><span class="n">data_periodogram</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">time_shape</span> <span class="o">=</span> <span class="s1">&#39;continuous&#39;</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;welch&#39;</span><span class="p">,</span> <span class="n">max_period</span> <span class="o">=</span> <span class="mi">48</span><span class="p">,</span>
+                     <span class="n">unit_of_measurement</span> <span class="o">=</span> <span class="s1">&#39;Amplitude&#39;</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="n">save_folder</span><span class="p">,</span> <span class="n">save_suffix</span> <span class="o">=</span> <span class="s1">&#39;welch&#39;</span><span class="p">)</span>               <span class="c1"># Plot the welch periodogram (using chrono_plotter.py)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## PLOT THE COSINOR FITS -----------------------------------------------------------------------------------------------</span>
+
+<span class="n">chp</span><span class="o">.</span><span class="n">model_overview_detailed</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">best_models_fixed</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="n">main_save_folder</span><span class="p">)</span>                                <span class="c1"># Plot representative parameters of the model fitted to the data for each day (using chrono_plotter.py)</span>
+<span class="n">chp</span><span class="o">.</span><span class="n">model_overview</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">best_models</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="n">main_save_folder</span><span class="p">)</span>                                               <span class="c1"># Plot representative parameters of the model fitted to the data for each stage (using chrono_plotter.py)</span>
+<span class="n">chp</span><span class="o">.</span><span class="n">model_over_signal</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="n">best_models</span><span class="p">,</span> <span class="n">position</span> <span class="o">=</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="n">mv_avg_window</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">save_folder</span> <span class="o">=</span> <span class="n">main_save_folder</span><span class="p">)</span>      <span class="c1"># Plot representative figure with the data and the respective model (using chrono_plotter.py)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="7---RUN-THE-MODELING-FOR-SPECIFIED-DAY-WINDOWS">
+<h2>7 - RUN THE MODELING FOR SPECIFIED DAY WINDOWS<a class="headerlink" href="#7---RUN-THE-MODELING-FOR-SPECIFIED-DAY-WINDOWS" title="Permalink to this heading"></a></h2>
+<p>In this last section the user can parameterize models for each day separately, in addition, the user can also select a moving window of days to run the modeling (e.g. if the window is 3, the model will be generated using data from day 1 to 3, then from day 2 to 4 and so on).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[113]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## SET THE PARAMETERS FOR THE COSINOR FITTING --------------------------------------------------------------------------</span>
+
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;day_window&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;step&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
+        <span class="s1">&#39;start_time&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+        <span class="s1">&#39;end_time&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+        <span class="s1">&#39;n_components&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}</span>                                                                                            <span class="c1"># Create a dictionary to pass as argument to the fit_cosinor_per_day function</span>
+
+<span class="c1">## FIT A COSINOR MODEL FOR EACH DAY ------------------------------------------------------------------------------------</span>
+
+<span class="n">best_models_per_day</span><span class="p">,</span> <span class="n">best_models_fixed_file</span> <span class="o">=</span> <span class="n">chrt</span><span class="o">.</span><span class="n">fit_cosinor_per_day</span><span class="p">(</span><span class="n">protocol</span><span class="p">,</span> <span class="nb">dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">plot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                                                                       <span class="n">save_folder</span> <span class="o">=</span> <span class="n">save_folder</span><span class="p">)</span>                       <span class="c1"># Fit the cosinor to the data for each day or window of days (chrono_rithm.py)</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../user_guide/pipelines.html" class="btn btn-neutral float-left" title="Introduction tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api_reference/api_description.html" class="btn btn-neutral float-right" title="API description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, João Pedro Carvalho Moreira.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

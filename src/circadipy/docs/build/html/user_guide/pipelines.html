@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Environment Creation &mdash; circadipy 0.1 documentation</title>
+  <title>Introduction tutorial &mdash; circadipy 0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Package and Environment Management System" href="package_manager.html" /> 
+    <link rel="next" title="CIRCADIPY" href="../notebooks/tutorial_pipeline.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,9 +50,12 @@
 <p class="caption" role="heading"><span class="caption-text">USER GUIDE</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="package_manager.html">Package and Environment Management System</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Environment Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="env_creation.html">Environment Creation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pipelines.html">Introduction tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html">CIRCADIPY</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
@@ -77,9 +80,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Environment Creation</li>
+      <li class="breadcrumb-item active">Introduction tutorial</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/user_guide/env_creation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/user_guide/pipelines.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -87,65 +90,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="environment-creation">
-<h1>Environment Creation<a class="headerlink" href="#environment-creation" title="Permalink to this heading"></a></h1>
-<p>We provide an environment file called <cite>circadipy_env.yml</cite> that contains all the dependencies required to run
-circadipy. To create a new environment using this file, you will need to use the newly installed mambaforge terminal.
-To create the environment, you can follow these steps:</p>
-<ol class="arabic">
-<li><p>Open the mambaforge terminal.</p></li>
-<li><p>Navigate to the folder where you downloaded the <cite>circadipy_env.yml</cite> file:</p>
-<blockquote>
-<div><ul>
-<li><p>You can use the <cite>cd</cite> command to navigate to the folder.</p></li>
-<li><p>E.g.:</p>
-<blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(base)</span> <span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;C:\Users\user\Downloads&quot;</span>
-</pre></div>
-</div>
-</div></blockquote>
+  <section id="introduction-tutorial">
+<h1>Introduction tutorial<a class="headerlink" href="#introduction-tutorial" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/tutorial_pipeline.html">CIRCADIPY</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html#1---IMPORT-LIBRARIES-TO-USE-THE-NOTEBOOK">1 - IMPORT LIBRARIES TO USE THE NOTEBOOK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html#2---SELECT-THE-FOLDER-TO-SAVE-THE-SIMULATION">2 - SELECT THE FOLDER TO SAVE THE SIMULATION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html#3---RUN-AND-SAVE-A-SIMPLE-SIMULATION">3 - RUN AND SAVE A SIMPLE SIMULATION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html#4---IMPORT-THE-SIMULATION-AND-BUILD-THE-PROTOCOL-TO-BE-STUDIED">4 - IMPORT THE SIMULATION AND BUILD THE PROTOCOL TO BE STUDIED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html#5---RUN-THE-COSINOR-MODELING">5 - RUN THE COSINOR MODELING</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html#5a---COMPARE-THE-MODEL-RESULTS-FOR-EACH-CYCLE">5a - COMPARE THE MODEL RESULTS FOR EACH CYCLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html#6---PLOT-THE-RESULTS">6 - PLOT THE RESULTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notebooks/tutorial_pipeline.html#7---RUN-THE-MODELING-FOR-SPECIFIED-DAY-WINDOWS">7 - RUN THE MODELING FOR SPECIFIED DAY WINDOWS</a></li>
+</ul>
 </li>
 </ul>
-</div></blockquote>
-</li>
-<li><p>Run the following command:</p>
-<blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(base)</span> <span class="gp">$ </span>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>circadipy_env.yml
-</pre></div>
 </div>
-</div></blockquote>
-</li>
-<li><p>Wait for the environment to be created:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>This can take a few minutes.</p></li>
-<li><p>In the case of conda, the environment creation can take a significant amount of time because of the environment solving process. This process is usually faster with mamba.</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>Activate the environment using the following command:</p>
-<blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(base)</span> <span class="gp">$ </span>mamba<span class="w"> </span>activate<span class="w"> </span>circadipy_env
-</pre></div>
-</div>
-</div></blockquote>
-</li>
-<li><p>Then the terminal should look something like this:</p>
-<blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(circadipy_env)</span> <span class="gp">$</span>
-</pre></div>
-</div>
-</div></blockquote>
-</li>
-</ol>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="package_manager.html" class="btn btn-neutral float-left" title="Package and Environment Management System" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../notebooks/tutorial_pipeline.html" class="btn btn-neutral float-right" title="CIRCADIPY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

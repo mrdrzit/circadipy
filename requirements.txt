@@ -3,10 +3,12 @@
     CosinorPy
     matplotlib==3.6.2 
     matplotlib-inline==0.1.6  
-    numpy==1.22.0 
+    numpy==1.22.0
+    nbsphinx 
     openpyxl==3.0.10 
     pandas==1.5.2  
-    pillow==9.4.0  
+    pillow==9.4.0
+    pandoc  
     pymice==1.1.0  
     scikit-learn==1.2.0  
     scikit-optimize==0.9.0  
