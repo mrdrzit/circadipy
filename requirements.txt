@@ -9,7 +9,7 @@
     openpyxl==3.0.10 
     pandas==1.5.2  
     pillow==9.4.0
-    pandoc==2.14.2 
+    pandoc>=2.14.2<4.0.0 
     pymice==1.1.0
     seaborn  
     scikit-learn==1.2.0  
