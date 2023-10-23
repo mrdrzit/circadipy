@@ -84,11 +84,10 @@ def fit_cosinor(protocol, dict = None, save_folder = None, save_suffix = ''):
     Fit cosinor model to the data using the CosinorPy library.
 
     :param protocol: The protocol to fit the cosinor model to, if 0, the average of all protocols is used, defaults
-    to 1
+        to 1
     :type protocol: int
-    :param dict: A dictionary containing the parameters to fit the cosinor model with keys: record_type, time_shape,
-    time_window,
-    step, start_time, end_time, n_components. If None, the default values are used, defaults to None
+    :param dict: A dictionary containing the parameters to fit the cosinor model with keys: record_type, time_shape, time_window,
+        step, start_time, end_time, n_components. If None, the default values are used, defaults to None
     :type dict: dict
     :param save: If True, the cosinor model is saved in the cosinor_models folder, defaults to True
     :type save: bool
@@ -219,11 +218,10 @@ def fit_cosinor_per_day(protocol, dict = None, plot = False, save_folder = None,
     Fits a cosinor model to the data for each day of the protocol
 
     :param protocol: The protocol to fit the cosinor model parameters for, if 0, the average of all protocols is
-    used, defaults to 1
+        used, defaults to 1
     :type protocol: int
-    :param dict: A dictionary containing the parameters to fit the cosinor model with keys: record_type, time_shape,
-    time_window,
-    step, start_time, end_time, n_components. If None, the default values are used, defaults to None
+    :param dict: A dictionary containing the parameters to fit the cosinor model with keys: record_type, time_shape, time_window,
+        step, start_time, end_time, n_components. If None, the default values are used, defaults to None
     :type dict: dict
     """
     warnings.filterwarnings("ignore")

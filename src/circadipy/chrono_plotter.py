@@ -149,8 +149,7 @@ def time_serie_sum_per_day(protocol, title = 'Sum of Time Series Per Day', x_lab
                     backend=None)
             plt.close()
 
-def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
-                 adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_value = None, format = 'png'):
+def actogram_bar(protocol, first_hour=0, save_folder=None, save_suffix='', adjust_figure=[1, 0.95, 0.85, 0.2, 0.05], norm_value=None, format='png'):
     """
     Plot the actogram of the protocol in a bar plot
 
@@ -158,17 +157,18 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
     :type protocol: read_protocol
     :param first_hour: First hour of the day to be plotted, if different from 0, the actogram is shifted, defaults to 0
     :type first_hour: int
-    :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
+    :param save_folder: Path to save the folder. If it is None, the plot is just shown, defaults to None
     :type save_folder: str
-    :save_suffix: Suffix to add to the file name, defaults to ''
+    :param save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
-    :param adjust_figure: List with the parameters to adjust the figure [column_height, rigth, top, bottom, left],
-    defaults to [1, 0.95, 0.85, 0.2, 0.05]
+    :param adjust_figure: List with the parameters to adjust the figure [column_height, rigth, top, bottom, left], defaults to [1, 0.95, 0.85, 0.2, 0.05]
     :type adjust_figure: list
-    :param norm_value: List with the minimum and maximum values to be used in to y axis limits (it is used when the data have nan valuesa and the data variabilty is too high), defaults to None
+    :param norm_value: List with the minimum and maximum values to be used in to y axis limits (it is used when the data have nan values and the data variability is too high), defaults to None
+    :type norm_value: list
     :param format: Format to save the figure (png or svg), defaults to 'png'
     :type format: str
     """
+
     if not isinstance(first_hour, int) and first_hour >= 24 and first_hour < 0:
         raise ValueError("First hour must be an integer less than 24 and greater than 0.")
     if not isinstance(adjust_figure, list) and len(adjust_figure) != 5:
@@ -294,30 +294,29 @@ def actogram_bar(protocol, first_hour = 0, save_folder = None, save_suffix = '',
             plt.savefig(save_folder + '/actogram_bar_' + protocol_name.lower() + '_' + save_suffix + '.png', backend=None)
             plt.close()
 
-def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude", save_folder = None, save_suffix = '',
-                      adjust_figure = [1, 0.95, 0.85, 0.2, 0.05], norm_color = None, format = 'png'):
+def actogram_colormap(protocol, first_hour=0, unit_of_measurement="Amplitude", save_folder=None, save_suffix='',
+                      adjust_figure=[1, 0.95, 0.85, 0.2, 0.05], norm_color=[33, 40], format='png'):
     """
     Plot the actogram of the protocol in a colormap
 
-    :param protocol: Protocol object to be vizualized
+    :param protocol: Protocol object to be visualized
     :type protocol: read_protocol
     :param first_hour: First hour of the day to be plotted, if different from 0, the actogram is shifted, defaults to 0
     :type first_hour: int
-    :param unit_of_measurement: Unit of measurement of the protocol, defaults to "Amplitude". This is used to label the
-    colorbar
+    :param unit_of_measurement: Unit of measurement of the protocol, defaults to "Amplitude". This is used to label the colorbar
     :type unit_of_measurement: str
-    :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
+    :param save_folder: Path to save the folder. If it is None, the plot is just shown, defaults to None
     :type save_folder: str
-    :save_suffix: Suffix to add to the file name, defaults to ''
+    :param save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
-    :param adjust_figure: List with the parameters to adjust the figure [column_height, rigth, top, bottom, left],
-    defaults to [1, 0.95, 0.85, 0.2, 0.05]
+    :param adjust_figure: List with the parameters to adjust the figure [column_height, right, top, bottom, left], defaults to [1, 0.95, 0.85, 0.2, 0.05]
     :type adjust_figure: list
     :param norm_color: List with the minimum and maximum values to be used in the colormap, defaults to [33, 40]
     :type norm_color: list
     :param format: Format to save the figure (png or svg), defaults to 'png'
     :type format: str
     """
+
     if not isinstance(first_hour, int) and first_hour >= 24 and first_hour < 0:
         raise ValueError("First hour must be an integer less than 24 and greater than 0.")
     if not isinstance(adjust_figure, list) and len(adjust_figure) != 5:
@@ -456,32 +455,29 @@ def actogram_colormap(protocol, first_hour = 0, unit_of_measurement = "Amplitude
 
     return fig
 
-def data_periodogram(protocol, time_shape = 'continuous', method = 'periodogram', max_period = 48,
-                     unit_of_measurement = 'Unit', save_folder = None, save_suffix = '', format = 'png'):
+def data_periodogram(protocol, time_shape='continuous', method='periodogram', max_period=48,
+                     unit_of_measurement='Unit', save_folder=None, save_suffix='', format='png'):
     """
     Plot the periodogram of the protocol
 
-    :param protocol: Protocol object to be vizualized
+    :param protocol: Protocol object to be visualized
     :type protocol: read_protocol
-    :param time_shape: Time shape to be used, can be 'continuous', 'median' or 'mean', defaults to 'continuous'. If
-    'continuous', the periodogram is calculated using the whole protocol data, if 'median' or 'mean', the periodogram
-    is calculates using the median or mean of the data per day
+    :param time_shape: Time shape to be used, can be 'continuous', 'median' or 'mean', defaults to 'continuous'. If 'continuous', the periodogram is calculated using the whole protocol data, if 'median' or 'mean', the periodogram is calculated using the median or mean of the data per day
     :type time_shape: str
-    :param method: Method to be used to calculate the periodogram, can be 'periodogram' or 'welch', defaults to
-    'periodogram'
+    :param method: Method to be used to calculate the periodogram, can be 'periodogram' or 'welch', defaults to 'periodogram'
     :type method: str
     :param max_period: Maximum period to be plotted, defaults to 48
     :type max_period: int
-    :param unit_of_measurement: Unit of measurement of the protocol, defaults to "Unit". This is used to label the
-    y axis
+    :param unit_of_measurement: Unit of measurement of the protocol, defaults to "Unit". This is used to label the y axis
     :type unit_of_measurement: str
-    :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
+    :param save_folder: Path to save the folder. If it is None, the plot is just shown, defaults to None
     :type save_folder: str
-    :save_suffix: Suffix to add to the file name, defaults to ''
+    :param save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
     :param format: Format to save the figure (png or svg), defaults to 'png'
     :type format: str
     """
+
     if not isinstance(time_shape, str) and time_shape != 'continuous' and time_shape != 'mean' and time_shape != 'median':
         raise ValueError("Time shape must be 'continuous', 'median' or 'mean'")
     if not isinstance(method, str) and method != 'periodogram' and method != 'welch':
@@ -722,29 +718,26 @@ def model_overview_detailed(protocol, best_models_fixed, only_significant = Fals
                         '.png', backend=None)
             plt.close()
 
-def model_over_signal(protocol, best_models, position = 'head', mv_avg_window = 1, save_folder = None, save_suffix = '',
-                      format = 'png'):
+def model_over_signal(protocol, best_models, position='head', mv_avg_window=1, save_folder=None, save_suffix='', format='png'):
     """
     Plot the cosinor model and the protocol data to each stage. Can be used to compare the cosinor model to the signal.
 
-    :param protocol: Protocol object to be vizualized
+    :param protocol: Protocol object to be visualized
     :type protocol: read_protocol
     :param best_models: Cosinor model parameters (output of the fit_cosinor function)
     :type best_models: pandas.DataFrame
-    :param position: Position of the data to be plotted, can be 'head' or 'tail', defaults to 'head'. If 'tail', the
-    last part of the data is plotted inverted (first point is the last point of the data, the second point is the
-    penultimate point of the data, etc.)
+    :param position: Position of the data to be plotted, can be 'head' or 'tail', defaults to 'head'. If 'tail', the last part of the data is plotted inverted (first point is the last point of the data, the second point is the penultimate point of the data, etc.)
     :type position: str
-    :param mv_avg_window: Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is
-    applied.
+    :param mv_avg_window: Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is applied.
     :type mv_avg_window: int
-    :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
+    :param save_folder: Path to save the folder. If it is None, the plot is just shown, defaults to None
     :type save_folder: str
-    :save_suffix: Suffix to add to the file name, defaults to ''
+    :param save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
     :param format: Format to save the figure (png or svg), defaults to 'png'
     :type format: str
     """
+
     if not isinstance(best_models, pandas.DataFrame):
         raise ValueError("best_models must be a pandas.DataFrame")
     if not isinstance(position, str) and position != 'head' and position != 'tail':
@@ -943,27 +936,26 @@ def model_overview(protocol, best_models, only_significant = False, save_folder 
                     '.png', backend=None)
             plt.close()
 
-def model_per_day(protocol, best_models_per_day, day_window, only_significant = False, save_folder = None, save_suffix = '', format = 'png'):
+def model_per_day(protocol, best_models_per_day, day_window, only_significant=False, save_folder=None, save_suffix='', format='png'):
     """
-    Plot the cosinor model parameters per day. This function is used to plot the results of the fit_cosinor_per_day
-    function. In this case, parameters are calculated every day (with a moving window or not).
+    Plot the cosinor model parameters per day. This function is used to plot the results of the fit_cosinor_per_day function. In this case, parameters are calculated every day (with a moving window or not).
 
-    :param protocol: Protocol object to be vizualized
+    :param protocol: Protocol object to be visualized
     :type protocol: read_protocol
     :param best_models_per_day: Cosinor model parameters per day (output of the fit_cosinor_fixed_period function)
     :type best_models_per_day: pandas.DataFrame
-    :param day_window: Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is
-    applied.
+    :param day_window: Window size to apply a moving average to the data, defaults to 1. If 1, no moving average is applied.
     :type day_window: int
     :param only_significant: If True, only the significant days are plotted, defaults to False
     :type only_significant: bool
-    :param save_folder: Path to save the folder if it is None, the plot is just shown, defaults to None
+    :param save_folder: Path to save the folder. If it is None, the plot is just shown, defaults to None
     :type save_folder: str
-    :save_suffix: Suffix to add to the file name, defaults to ''
+    :param save_suffix: Suffix to add to the file name, defaults to ''
     :type save_suffix: str
     :param format: Format to save the figure (png or svg), defaults to 'png'
     :type format: str
     """
+
     if not isinstance(best_models_per_day, pandas.DataFrame):
         raise ValueError("best_models_per_day must be a pandas.DataFrame")
     if not isinstance(day_window, int) and day_window < 1:

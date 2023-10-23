@@ -1,5 +1,5 @@
 Chrono rhythm 
-============
+=============
 
 **This class includes the following methods:**
 

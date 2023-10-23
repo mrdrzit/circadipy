@@ -16,7 +16,7 @@ def simulate_protocol(file_name, folder, sampling_frequency = 'H', cycle_days = 
     :param folder: The folder where the file will be saved
     :type folder: str
     :param sampling_frequency: The sampling frequency of the protocol in pandas format (e.g. '30T' for 30 minutes),
-    defaults to 'H'
+        defaults to 'H'
     :type sampling_frequency: str
     :param activity_period: The period of the sin curve (in hours), defaults to 24
     :type activity_period: int
